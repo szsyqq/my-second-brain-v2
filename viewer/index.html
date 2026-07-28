@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>第二大脑 · 知识库</title>
+<!-- Markdown renderer (inlined at build time) -->
+
+<!-- HTML sanitizer (inlined at build time) — mitigates stored XSS from note raw HTML -->
+
+<!-- Graph (inlined at build time) -->
+
+
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="vendor/vis.min.css">
+</head>
+<body>
+
+<button id="menu-btn" onclick="toggleSidebar()">☰</button>
+<div id="overlay" onclick="closeSidebar()"></div>
+
+<!-- Sidebar -->
+<div id="sidebar">
+  <div id="sidebar-header">
+    <div class="sb-head-row">
+      <h1 id="sb-title" onclick="showHome()" title="回到首页 · 第二大脑">第二大脑</h1>
+      <div class="sb-head-btns">
+        <button id="app-ver-btn" onclick="toggleAppUpdate()" title="点击查看「应用更新记录」；再次点击返回原页面">vVERSION_PLACEHOLDER</button>
+        <button id="update-hist-btn" onclick="toggleUpdateDrawer()" title="查看整个知识库的更新历史">更新历史 <span id="update-hist-badge"></span></button>
+        <button id="inbox-btn" onclick="toggleInboxDrawer()" title="查看 Inbox 待处理文章">
+          <svg class="inbox-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+          Inbox <span id="inbox-badge"></span>
+        </button>
+      </div>
+    </div>
+    <input id="search-inp" placeholder="搜索页面..." oninput="doSearch(this.value)">
+  </div>
+  <div id="tabs">
+    <button class="active" onclick="switchTab('files')">文件</button>
+    <button onclick="switchTab('graph')">图谱</button>
+  </div>
+  <div id="file-tree"></div>
+</div>
+
+<div id="resize-handle" title="拖动调整侧边栏宽度"></div>
+
+<!-- System Monitor (right rail, collapsed by default) -->
+<div id="sysmon">
+  <div class="sysmon-card" id="sysmon-card">
+    <div class="sysmon-head" onclick="toggleSysMon()" title="点击收起">
+      <span class="pulse"></span>系统监控 <span style="margin-left:auto;font-size:10px;color:var(--text3)">▾</span>
+    </div>
+    <div class="sysmon-body" id="sysmon-body"></div>
+  </div>
+  <div class="sysmon-toggle collapsed" id="sysmon-toggle" onclick="toggleSysMon()" title="展开/收起系统监控 · 点击版本可看各自工作流">
+    <span class="pulse"></span><span id="sysmon-toggle-label">系统监控</span><span class="chev">▾</span>
+  </div>
+</div>
+
+<!-- Workflow viewer modal (in-page markdown) -->
+<div id="wf-modal" class="wf-modal" aria-hidden="true">
+  <div class="wf-modal-backdrop" onclick="closeWfModal()"></div>
+  <div class="wf-modal-card">
+    <div class="wf-modal-head"><span id="wf-modal-title">工作流</span><button class="wf-modal-close" onclick="closeWfModal()" aria-label="关闭">✕</button></div>
+    <div id="wf-modal-body" class="wf-modal-body"></div>
+  </div>
+</div>
+
+<!-- Main -->
+<div id="main">
+  <div id="content-header">
+    <div id="breadcrumb"></div>
+    <div id="page-meta" style="color:var(--text3)"></div>
+  </div>
+  <div id="content-area"><div id="empty-state">正在加载知识库…</div></div>
+  <!-- Update History Drawer -->
+  <div id="update-drawer">
+    <div id="update-drawer-header">
+      <span>❓ 更新历史</span>
+      <span id="update-drawer-close" onclick="closeUpdateDrawer()">✕</span>
+    </div>
+<div id="update-drawer-tabs" style="display:flex;border-bottom:1px solid var(--border);font-size:12px;background:var(--bg2)">
+      <button id="upd-tab-all" class="upd-tab active" onclick="switchUpdateTab('all')" style="flex:1;padding:8px;border:none;background:none;cursor:pointer;color:var(--text);font-family:var(--font);border-bottom:2px solid var(--accent);font-weight:600">全部</button>
+      <button id="upd-tab-strategy" class="upd-tab" onclick="switchUpdateTab('strategy')" style="flex:1;padding:8px;border:none;background:none;cursor:pointer;color:var(--text2);font-family:var(--font);border-bottom:2px solid transparent">策略</button>
+    </div>
+    <div id="update-drawer-body"></div>
+    <div id="update-drawer-footer" style="padding:10px 16px;border-top:1px solid var(--border);background:var(--bg2)">
+      <div id="update-tag-status" style="font-size:11px;color:var(--text3);text-align:center;min-height:14px"></div>
+    </div>
+  </div>
+
+  <!-- Inbox Drawer -->
+  <div id="inbox-overlay" onclick="toggleInboxDrawer()"></div>
+  <div id="inbox-drawer">
+    <div id="inbox-drawer-header">
+      <span><svg class="inbox-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>Inbox 收录 <span id="inbox-total" style="color:var(--text3);font-weight:600;font-size:12px"></span></span>
+      <span id="inbox-drawer-close" onclick="toggleInboxDrawer()">✕</span>
+    </div>
+    <div id="inbox-drawer-toolbar" style="padding:8px 12px;border-bottom:1px solid var(--border);display:flex;gap:6px;align-items:center;font-size:12px">
+      <button id="inbox-digest-btn" onclick="triggerGxDigest()" style="padding:5px 12px;border-radius:6px;border:1px solid var(--accent2);background:var(--accent2);color:#fff;cursor:pointer;font-family:var(--font);font-size:12px;font-weight:600;white-space:nowrap;transition:opacity .2s">⚡ 一键消化</button>
+      <span id="inbox-digest-status" style="color:var(--text3);font-size:11px;flex:1"></span>
+    </div>
+    <div id="inbox-drawer-body"></div>
+  </div>
+
+  <div id="graph-container">
+    <div id="network"></div>
+    <div class="legend">
+      <div class="row"><span class="dot" style="background:#cb6e3e"></span>主题页</div>
+      <div class="row"><span class="dot" style="background:#4a7c59"></span>实体页</div>
+      <div class="row"><span class="dot" style="background:#9e8e74"></span>素材摘要</div>
+      <div class="row"><span class="dot" style="background:#8b6fad"></span>趣味发现</div>
+    </div>
+    <div id="graph-detail"></div>
+  </div>
+</div>
+
+
+  <script src="vendor/marked.min.js?v=__BUILD_VERSION__"></script>
+  <script src="vendor/purify.min.js?v=__BUILD_VERSION__"></script>
+  <script src="vendor/vis.min.js?v=__BUILD_VERSION__"></script>
+  <script>window.SYS_VERSIONS = {};
+window.SYS_WORKFLOW_LINKS = {"page": "", "schema": {}, "skills": {}};
+window.SYS_WORKFLOW_CONTENT = {"page": "", "schema": {}, "skills": {}};
+window.SYS_UPDATES = {"page": null, "schema": {}, "skills": {}};
+window.BUILD_VERSION = "__BUILD_VERSION__";</script>
+  <script src="app.js?v=__BUILD_VERSION__"></script>
+</body>
+</html>

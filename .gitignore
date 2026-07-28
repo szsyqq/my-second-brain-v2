@@ -1,0 +1,8 @@
+# v2 is local-first: the editable vault and build artifacts are NOT in git.
+# main branch holds only the application code (middleware + viewer).
+vault/
+output/
+.buildstate.json
+__pycache__/
+*.pyc
+.DS_Store
