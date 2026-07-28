@@ -196,6 +196,7 @@ def classify_update_severity(slug, page_type, dd):
 # ----------------------------------------------------------------------------
 def main():
     t0 = time.time()
+    all_history = {}
     bs = load_buildstate()
     bs_files = bs.get("files", {})
     first_build = len(bs_files) == 0
@@ -226,14 +227,25 @@ def main():
                 has = any(s["type"] in ("add", "del") for s in segs)
                 diff_data = {"type": "updated", "segments": segs} if has else {"type": "metadata_only"}
 
-        # history_versions filled in step 7 (single git pass)
+        # --- git history (real versions) — single git pass ---
+        log = git_history(VAULT, rel)
+        hist = []
+        for i, (sha, date, msg) in enumerate(log[:MAX_HISTORY]):
+            old = git_show(VAULT, rel, sha)
+            segs = _segments(old.splitlines(), body.splitlines())
+            # newest version (i==0) equals current content -> omit to avoid duplication
+            content_val = "" if i == 0 else old
+            hist.append({"version": len(log) - i, "sha": sha, "date": date, "msg": msg,
+                         "content": content_val, "segments": segs})
+        all_history[slug] = hist
+
         files[slug] = {
             "slug": slug, "path": info["path"], "title": info["title"],
             "type": info["type"], "links": info["links"], "body": body,
             "updated_date": info["updated_date"], "mtime": info["mtime"],
             "diff_data": diff_data,
             "update_severity": classify_update_severity(slug, info["type"], diff_data),
-            "history_versions": 0,
+            "history_versions": len(log),
         }
         # update buildstate
         bs_files[slug] = {"hash": cur_hash, "body": body}
@@ -289,23 +301,10 @@ def main():
     # strip body key already excluded; ensure no 'content'/'history' leak
     (OUTPUT / "wiki-bundle.json").write_text(json.dumps(slim, ensure_ascii=False), encoding="utf-8")
 
-    # 7) content bundle (content + history) — single git pass per file
+    # 7) content bundle (content + history) — reuse all_history from the single pass
     content_bundle = {}
     for s, info in files.items():
-        rel = info["path"]
-        body = info["body"]
-        log = git_history(VAULT, rel)
-        hist = []
-        for i, (sha, date, msg) in enumerate(log[:MAX_HISTORY]):
-            old = git_show(VAULT, rel, sha)
-            segs = _segments(old.splitlines(), body.splitlines())
-            # newest version (i==0) equals current content -> omit to avoid duplication;
-            # viewer falls back to live content when history[].content is empty.
-            content_val = "" if i == 0 else old
-            hist.append({"version": len(log)-i, "sha": sha, "date": date, "msg": msg,
-                         "content": content_val, "segments": segs})
-        files[s]["history_versions"] = len(log)
-        content_bundle[s] = {"content": body, "history": hist}
+        content_bundle[s] = {"content": info["body"], "history": all_history.get(s, [])}
     (OUTPUT / "wiki-content.json").write_text(json.dumps(content_bundle, ensure_ascii=False), encoding="utf-8")
 
     # 8) assemble static site (copy viewer + inject BUILD_VERSION)
