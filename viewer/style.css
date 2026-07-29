@@ -1,6 +1,4 @@
-VIS_CSS_PLACEHOLDER
-
-/* ===== split from 知识库_template.html ===== */
+/* ===== split from 知识库_template.html (v2 local-first viewer) ===== */
 
 
 :root {
@@ -306,7 +304,7 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 /* ---- Hub mark + Home screen ---- */
 .hub-mark{color:var(--accent);font-size:10px;margin-right:2px}
 .tree-file[data-is-hub]{font-weight:600}
-.home{max-width:1200px;margin:0 auto;padding:8px 4px;overflow:hidden}
+.home{max-width:1320px;margin:0 auto;padding:8px 4px;overflow:hidden}
 .home-hero{text-align:center;padding:18px 16px 10px}
 .home-hero h1{font-size:26px;color:var(--accent);margin-bottom:8px;letter-spacing:1px}
 .home-hero p{color:var(--text2);font-size:14px;line-height:1.8;max-width:720px;margin:0 auto}

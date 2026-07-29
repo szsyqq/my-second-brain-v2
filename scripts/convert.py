@@ -309,6 +309,7 @@ def main():
 
     # 8) assemble static site (copy viewer + inject BUILD_VERSION)
     build_version = datetime.datetime.now().strftime("%Y%m%dT%H%M%S")
+    APP_VERSION = "2.0"
     import shutil
     for item in ["app.js", "style.css"]:
         shutil.copy2(ROOT / "viewer" / item, OUTPUT / item)
@@ -317,6 +318,7 @@ def main():
         shutil.copy2(vf, vdir / vf.name)
     idx = (ROOT / "viewer" / "index.html").read_text(encoding="utf-8")
     idx = idx.replace("__BUILD_VERSION__", build_version)
+    idx = idx.replace("VERSION_PLACEHOLDER", APP_VERSION)
     (OUTPUT / "index.html").write_text(idx, encoding="utf-8")
 
     # 9) persist buildstate
