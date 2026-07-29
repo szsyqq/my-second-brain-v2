@@ -138,37 +138,7 @@ function pageClickAttr(slug){
 }
 
 // Build file tree (called after data loads)
-var currentUpdateTab = 'all';
-function getStrategySlugs() {
-  var slugs = {};
-  for (var s in files) {
-    if (s.indexOf('topics/02_') === 0) { slugs[s] = true; }
-  }
-  return slugs;
-}
-function getFilteredStrategyRecords() {
-  var slugs = getStrategySlugs();
-  return updateRecords.filter(function(rec) {
-    var pages = rec.affected_pages || [];
-    return pages.some(function(p) { return slugs[p.slug]; });
-  });
-}
-function switchUpdateTab(tab) {
-  currentUpdateTab = tab;
-  var tabs = document.querySelectorAll('.upd-tab');
-  for (var i = 0; i < tabs.length; i++) {
-    tabs[i].style.borderBottomColor = 'transparent';
-    tabs[i].style.color = 'var(--text2)';
-    tabs[i].style.fontWeight = 'normal';
-  }
-  var active = document.getElementById('upd-tab-' + tab);
-  if (active) {
-    active.style.borderBottomColor = 'var(--accent)';
-    active.style.color = 'var(--text)';
-    active.style.fontWeight = '600';
-  }
-  renderUpdateRecords();
-}
+// (strategy tab removed per spec: update-history drawer shows all records, no strategy filter)
 
 function initAll() {
   fileTree = document.getElementById("file-tree");
@@ -1200,9 +1170,11 @@ function renderPageHistory() {
         html += '<button class="upd-page-btn main" onclick="diffPageHistoryVersion(' + hist[hidx].version + ')">对比当前</button>';
         html += '</div>';
       } else {
+        var noHist = hist.length === 0;
+        var tip = noHist ? "该页面暂无历史快照" : "快照仅保留最近数个版本，此记录对应的旧快照已超出保留范围";
         html += '<div style="display:flex;gap:6px;margin-top:6px">';
-        html += '<button class="upd-page-btn" disabled title="快照仅保留最近数个版本，此记录对应的旧快照已超出保留范围">查看快照</button>';
-        html += '<button class="upd-page-btn" disabled title="旧快照已超出保留范围，无法对比">对比当前</button>';
+        html += '<button class="upd-page-btn" disabled title="' + tip + '">查看快照</button>';
+        html += '<button class="upd-page-btn" disabled title="' + (noHist ? "该页面暂无历史快照，无法对比" : "旧快照已超出保留范围，无法对比") + '">对比当前</button>';
         html += '</div>';
       }
       html += '</div>';
@@ -1307,9 +1279,6 @@ function renderUpdateRecords() {
   if (updateDrawerMode === "page") {
     filtered = getFilteredRecords();
     title = pageInfo ? (pageInfo.title || window._currentSlug) : "本页";
-  } else if (currentUpdateTab === "strategy") {
-    filtered = getFilteredStrategyRecords();
-    title = "策略相关更新";
   } else {
     filtered = updateRecords;
     title = "知识库全部更新";
