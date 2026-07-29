@@ -196,6 +196,8 @@ def classify_update_severity(slug, page_type, dd):
 # ----------------------------------------------------------------------------
 def main():
     t0 = time.time()
+    build_version = datetime.datetime.now().strftime("%Y%m%dT%H%M%S")
+    APP_VERSION = "2.0"
     all_history = {}
     bs = load_buildstate()
     bs_files = bs.get("files", {})
@@ -250,6 +252,36 @@ def main():
         # update buildstate
         bs_files[slug] = {"hash": cur_hash, "body": body}
 
+    # 1b) synthetic "应用更新记录" page (app version / deploy history)
+    # Source of truth = the project's own git log (main branch). Auto-refreshes on rebuild.
+    _app_log = _git(ROOT, ["log", "--format=%ci%x1f%s", "-15"])
+    _app_lines = []
+    for _ln in _app_log.splitlines():
+        if not _ln.strip():
+            continue
+        _p = _ln.split("\x1f", 1)
+        if len(_p) < 2:
+            continue
+        _app_lines.append("- **" + _p[0][:10] + "** — " + _p[1].strip())
+    _app_hist = "\n".join(_app_lines) if _app_lines else "- （暂无提交记录）"
+    _app_md = (
+        "# 应用更新记录\n\n"
+        "> 本页由系统自动生成，记录「第二大脑」查看器（v2 本地优先架构）的版本与部署历史。\n"
+        "> 数据源为项目仓库的 git 提交记录，每次重新部署会自动刷新。\n\n"
+        "## 当前版本\n"
+        f"- **版本号**：v{APP_VERSION}\n"
+        f"- **最近构建**：{build_version}\n\n"
+        "## 部署 / 提交历史（最新 15 条）\n"
+        + _app_hist + "\n"
+    )
+    files["应用更新记录"] = {
+        "slug": "应用更新记录", "path": "应用更新记录", "title": "应用更新记录",
+        "type": "appupdates", "links": [], "body": _app_md,
+        "updated_date": None, "mtime": time.time(),
+        "diff_data": None, "update_severity": None,
+        "history_versions": 0, "hidden": True,
+    }
+
     # 2) resolve bare links -> slugs
     slug_index = set(files.keys())
     slug_by_name = defaultdict(list)
@@ -275,7 +307,7 @@ def main():
         files[slug]["links"] = resolved[slug]
 
     # 3) graph
-    nodes = [{"id": s, "label": files[s]["title"][:30], "type": files[s]["type"], "linkCount": 0} for s in files]
+    nodes = [{"id": s, "label": files[s]["title"][:30], "type": files[s]["type"], "linkCount": 0} for s in files if not files[s].get("hidden")]
     link_counts = defaultdict(int); edges = []
     for slug in files:
         for t in resolved[slug]:
@@ -308,8 +340,6 @@ def main():
     (OUTPUT / "wiki-content.json").write_text(json.dumps(content_bundle, ensure_ascii=False), encoding="utf-8")
 
     # 8) assemble static site (copy viewer + inject BUILD_VERSION)
-    build_version = datetime.datetime.now().strftime("%Y%m%dT%H%M%S")
-    APP_VERSION = "2.0"
     import shutil
     for item in ["app.js", "style.css"]:
         shutil.copy2(ROOT / "viewer" / item, OUTPUT / item)
@@ -338,6 +368,8 @@ def main():
 def build_tree(files):
     tree = {"name": "wiki", "type": "folder", "children": [], "slug": ""}
     for slug, info in sorted(files.items()):
+        if info.get("hidden"):
+            continue
         parts = slug.split("/")
         current = tree
         for i, part in enumerate(parts):

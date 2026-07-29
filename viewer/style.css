@@ -47,13 +47,13 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 .tree-icon{font-size:12px;flex-shrink:0}
 
 /* ---- Main content ---- */
-#main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;position:relative;transition:padding-right .3s ease}
 #content-header{padding:10px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text2);overflow:hidden}
 #breadcrumb{display:flex;gap:4px}
 #breadcrumb span{cursor:default;color:var(--text3)}
 #breadcrumb .breadcrumb-link{cursor:pointer;color:var(--accent2);text-decoration:none;border-bottom:1px dashed transparent}
 #breadcrumb .breadcrumb-link:hover{color:var(--accent);border-bottom-color:var(--accent)}
-#content-area{flex-grow:1;flex-shrink:1;flex-basis:auto;overflow:auto;padding:20px 40px;max-width:1320px;margin:0 auto;overflow-wrap:break-word;word-break:break-word;min-width:0;scrollbar-gutter:stable}
+#content-area{flex-grow:1;flex-shrink:1;flex-basis:auto;overflow:auto;padding:20px 36px;max-width:960px;margin:0 auto;overflow-wrap:break-word;word-break:break-word;min-width:0;scrollbar-gutter:stable}
 
 #content-area h1{font-size:22px;margin-bottom:4px;color:var(--accent)}
 /* On-page merged per-page button (本页更新 + 历史版本) next to the title */
@@ -179,6 +179,11 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
   box-shadow:-2px 0 12px rgba(0,0,0,.08);
 }
 #update-drawer.open{right:0}
+/* When a side drawer (更新历史 / Inbox) is open on desktop, shrink the reading
+   column instead of overlaying it, so text is never covered. */
+@media (min-width:701px){
+  #main.panel-open{padding-right:420px}
+}
 #update-drawer-header{
   padding:14px 16px;border-bottom:1px solid var(--border);
   display:flex;justify-content:space-between;align-items:center;

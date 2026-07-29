@@ -38,3 +38,16 @@ cd output && python3 -m http.server 8753
 - `main` 分支：仅应用代码（`scripts/` + `viewer/`）。
 - `gh-pages` 分支：仅构建产物（`output/` 内容）。GitHub Pages 作为静态 CDN，不持有可编辑数据库。
 - 框架改动只改 `viewer/`，秒级重建；内容改动只跑 `convert.py`，页面框架纹丝不动 → 显示天然一致，不再整页重建。
+
+## 一键部署（推荐）
+
+日常更新只需两条命令，完整说明见 [DEPLOY.md](DEPLOY.md)：
+
+```bash
+cd vault && git add -A && git commit -m "更新说明"   # 1) 提交内容版本（历史跟踪依赖 vault 的 git 历史）
+./deploy.sh "更新说明"                                # 2) 构建 output/ 并强制推 gh-pages
+```
+
+`deploy.sh` 自动完成：定位 python3 → 运行 `convert.py` → 复制 `output/` 到临时 git 仓（加 `.nojekyll`）→ `GIT_HTTP_VERSION=1` 推 `gh-pages`。若未给执行权限，用 `bash deploy.sh "说明"` 运行。
+
+> v2 与 `/gx` 是两套独立体系：`/gx` 针对旧版（`小红书收藏/wiki/` + CloudStudio 沙箱），**不包含 v2**；v2 用本文件的 `deploy.sh` 流程，刻意分离避免误部署。

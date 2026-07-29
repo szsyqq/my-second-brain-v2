@@ -297,7 +297,7 @@ fetch("wiki-bundle.json?v=" + BUILD_VERSION)
       if (_idx > 0) { window.tree.children.unshift(window.tree.children.splice(_idx, 1)[0]); }
     }
     window.graphData = data.graph;
-    window.allSlugs = Object.keys(data.files);
+    window.allSlugs = Object.keys(data.files).filter(function(s){ return !(data.files[s] && data.files[s].hidden); });
     updateRecords = data.update_records || [];
     window.inboxData = data.inbox || {items:[], total:0, groups:{}, generated_at:""};
     var ib = document.getElementById("inbox-badge");
@@ -983,14 +983,15 @@ function toggleInboxGroup(head){
 function toggleInboxDrawer(){
   var d = document.getElementById("inbox-drawer");
   var ov = document.getElementById("inbox-overlay");
+  var m = document.getElementById("main");
   if (d.classList.contains("open")){
-    d.classList.remove("open"); ov.classList.remove("open"); return;
+    d.classList.remove("open"); ov.classList.remove("open"); if (m) m.classList.remove("panel-open"); return;
   }
   var ud = document.getElementById("update-drawer");
   if (ud && ud.classList.contains("open")) ud.classList.remove("open");
   var body = document.getElementById("inbox-drawer-body");
   if (!body.innerHTML) renderInboxDrawer();
-  d.classList.add("open"); ov.classList.add("open");
+  d.classList.add("open"); ov.classList.add("open"); if (m) m.classList.add("panel-open");
 }
 
 // --- Keyboard ---
@@ -1091,12 +1092,14 @@ function toggleUpdateDrawer() {
   if (updateDrawerOpen && updateDrawerMode === "global") {
     updateDrawerOpen = false;
     drawer.classList.remove("open");
+    var m0 = document.getElementById("main"); if (m0) m0.classList.remove("panel-open");
     return;
   }
   updateDrawerMode = "global";
   updateDrawerOpen = true;
   document.getElementById("update-hist-badge").textContent = "";
   drawer.classList.add("open");
+  var m1 = document.getElementById("main"); if (m1) m1.classList.add("panel-open");
   renderUpdateRecords();
 }
 
@@ -1105,6 +1108,7 @@ function openPageUpdateHistory() {
   updateDrawerMode = "page";
   updateDrawerOpen = true;
   document.getElementById("update-drawer").classList.add("open");
+  var m = document.getElementById("main"); if (m) m.classList.add("panel-open");
   renderPageHistory();
 }
 
@@ -1120,6 +1124,7 @@ function togglePageUpdateHistory() {
 function closeUpdateDrawer() {
   var drawer = document.getElementById("update-drawer");
   if (drawer) drawer.classList.remove("open");
+  var m = document.getElementById("main"); if (m) m.classList.remove("panel-open");
   updateDrawerOpen = false;
 }
 
