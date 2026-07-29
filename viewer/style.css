@@ -61,6 +61,8 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 .page-title-row h1{margin-bottom:0}
 .page-rec-btn{font-size:12px;font-weight:600;color:var(--text2);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;cursor:pointer;font-family:var(--font);white-space:nowrap}
 .page-rec-btn:hover{border-color:var(--accent);color:var(--accent)}
+.page-rec-btn:disabled{opacity:.4;cursor:not-allowed;color:var(--text3)}
+.page-rec-btn:disabled:hover{border-color:var(--border);color:var(--text3)}
 #content-area h2{font-size:17px;margin:24px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--bg3)}
 #content-area h3{font-size:15px;margin:16px 0 6px}
 #content-area p{line-height:1.75;margin:6px 0;font-size:14px}

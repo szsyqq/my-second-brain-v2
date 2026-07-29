@@ -341,8 +341,41 @@ def main():
 
     # 8) assemble static site (copy viewer + inject BUILD_VERSION)
     import shutil
-    for item in ["app.js", "style.css"]:
-        shutil.copy2(ROOT / "viewer" / item, OUTPUT / item)
+    shutil.copy2(ROOT / "viewer" / "style.css", OUTPUT / "style.css")
+
+    # --- inject system-monitor data into app.js (v2: page version + deploy history) ---
+    _last_commit = _git(ROOT, ["log", "-1", "--format=%ci%x1f%s"])
+    _lc_date, _lc_msg = "", ""
+    if "\x1f" in _last_commit:
+        _lc_date, _lc_msg = _last_commit.split("\x1f", 1)
+        _lc_date = _lc_date[:10]
+        _lc_msg = _lc_msg.strip()
+    _lc_rel = ""
+    if _lc_date:
+        try:
+            _days = (datetime.date.today() - datetime.date.fromisoformat(_lc_date)).days
+            _lc_rel = "今天" if _days == 0 else ("昨天" if _days == 1 else f"{_days}天前")
+        except ValueError:
+            _lc_rel = _lc_date
+    sys_versions = {"page": APP_VERSION, "schema": {}, "skills": {}}
+    sys_updates = {"page": {"date": _lc_date, "rel": _lc_rel, "note": _lc_msg}, "schema": {}, "skills": {}}
+    sys_wf_content = {"page": _app_md, "schema": {}, "skills": {}}
+    sys_wf_links = {"page": "https://github.com/szsyqq/my-second-brain-v2/commits/main", "schema": {}, "skills": {}}
+    appjs = (ROOT / "viewer" / "app.js").read_text(encoding="utf-8")
+    _inject = [
+        ("var SYS_VERSIONS = {};", f"var SYS_VERSIONS = {json.dumps(sys_versions, ensure_ascii=False)};"),
+        ('var SYS_WORKFLOW_LINKS = {"page":"","schema":{},"skills":{}};',
+         f"var SYS_WORKFLOW_LINKS = {json.dumps(sys_wf_links, ensure_ascii=False)};"),
+        ('var SYS_WORKFLOW_CONTENT = {"page":"","schema":{},"skills":{}};',
+         f"var SYS_WORKFLOW_CONTENT = {json.dumps(sys_wf_content, ensure_ascii=False)};"),
+        ('var SYS_UPDATES = {"page":null,"schema":{},"skills":{}};',
+         f"var SYS_UPDATES = {json.dumps(sys_updates, ensure_ascii=False)};"),
+    ]
+    for _old, _new in _inject:
+        if _old not in appjs:
+            print(f"WARN: sys-monitor anchor not found in app.js: {_old[:40]}...")
+        appjs = appjs.replace(_old, _new)
+    (OUTPUT / "app.js").write_text(appjs, encoding="utf-8")
     vdir = OUTPUT / "vendor"; vdir.mkdir(exist_ok=True)
     for vf in (ROOT / "viewer" / "vendor").glob("*"):
         shutil.copy2(vf, vdir / vf.name)

@@ -1189,17 +1189,21 @@ function renderPageHistory() {
       html += '</div>';
       // Description: what changed for this specific page
       if (pu.desc) html += '<div style="font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:3px">📝 ' + pu.desc.replace(/</g,'&lt;') + '</div>';
-      // Snapshot action buttons for the matching history version
-      var matchedHist = false;
-      for (var hi = 0; hi < hist.length; hi++) {
-        if (hist.length - hi === pageUpdates.length - ui) {
-          matchedHist = true;
-          html += '<div style="display:flex;gap:6px;margin-top:6px">';
-          html += '<button class="upd-page-btn" onclick="viewPageHistoryVersion(' + hist[hi].version + ')">查看快照</button>';
-          html += '<button class="upd-page-btn main" onclick="diffPageHistoryVersion(' + hist[hi].version + ')">对比当前</button>';
-          html += '</div>';
-          break;
-        }
+      // Snapshot action buttons: both lists are newest-first. hist[0] is the latest
+      // commit (≈ current content), so the "before this update" snapshot for record
+      // #ui is hist[ui+1]. Records older than the kept snapshots (max 3) get greyed
+      // buttons with a hint instead of vanishing.
+      var hidx = ui + 1;
+      if (hidx < hist.length) {
+        html += '<div style="display:flex;gap:6px;margin-top:6px">';
+        html += '<button class="upd-page-btn" onclick="viewPageHistoryVersion(' + hist[hidx].version + ')">查看快照</button>';
+        html += '<button class="upd-page-btn main" onclick="diffPageHistoryVersion(' + hist[hidx].version + ')">对比当前</button>';
+        html += '</div>';
+      } else {
+        html += '<div style="display:flex;gap:6px;margin-top:6px">';
+        html += '<button class="upd-page-btn" disabled title="快照仅保留最近数个版本，此记录对应的旧快照已超出保留范围">查看快照</button>';
+        html += '<button class="upd-page-btn" disabled title="旧快照已超出保留范围，无法对比">对比当前</button>';
+        html += '</div>';
       }
       html += '</div>';
     }
@@ -1245,10 +1249,13 @@ function insertPageRecButton() {
   if (!h1) return;
   // Count how many update records mention this page
   var slug = window._currentSlug || "";
+  var finfo = files[slug];
+  if (!finfo || finfo.hidden) return; // synthetic/hidden pages: no button
   var recCount = (updateRecords || []).filter(function(rec) {
     return (rec.affected_pages || []).some(function(p) { return p.slug === slug; });
   }).length;
-  if (!recCount) return;
+  // git history only counts as "update history" when there is more than the initial version
+  var histCount = Math.max(0, (finfo.history_versions || 0) - 1);
   // Wrap the title + button in a flex row so the button sits to the right of the title
   var row = document.createElement("div");
   row.className = "page-title-row";
@@ -1257,8 +1264,15 @@ function insertPageRecButton() {
   var btn = document.createElement("button");
   btn.id = "page-rec-btn";
   btn.className = "page-rec-btn";
-  btn.innerHTML = "页面更新历史 (" + recCount + ")";
-  btn.onclick = function(e) { e.stopPropagation(); togglePageUpdateHistory(); };
+  if (recCount > 0 || histCount > 0) {
+    btn.innerHTML = "页面更新历史 (" + (recCount || histCount) + ")";
+    btn.onclick = function(e) { e.stopPropagation(); togglePageUpdateHistory(); };
+  } else {
+    // Always render the button; grey it out when the page has no history yet
+    btn.innerHTML = "页面更新历史";
+    btn.disabled = true;
+    btn.title = "该页暂无更新历史";
+  }
   row.appendChild(btn);
 }
 function removePageRecButton() {
