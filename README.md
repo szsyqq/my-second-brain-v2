@@ -50,4 +50,4 @@ cd vault && git add -A && git commit -m "更新说明"   # 1) 提交内容版本
 
 `deploy.sh` 自动完成：定位 python3 → 运行 `convert.py` → 复制 `output/` 到临时 git 仓（加 `.nojekyll`）→ `GIT_HTTP_VERSION=1` 推 `gh-pages`。若未给执行权限，用 `bash deploy.sh "说明"` 运行。
 
-> v2 与 `/gx` 是两套独立体系：`/gx` 针对旧版（`小红书收藏/wiki/` + CloudStudio 沙箱），**不包含 v2**；v2 用本文件的 `deploy.sh` 流程，刻意分离避免误部署。
+> v2 是主知识库：`/sl`（收录）与 `/gx`（更新）已切换至本仓库（见 `_workflow/sl-收录流程.md` 与 `_workflow/gx-更新流程.md`）。旧版 `../小红书收藏/wiki/`（CloudStudio 沙箱）自 2026-07-31 起冻结，不再更新。

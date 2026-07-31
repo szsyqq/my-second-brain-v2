@@ -55,8 +55,8 @@
 - **历史版本为空**：`convert.py` 的版本历史来自 `vault` 的 `git log`，编辑后需先 `git commit vault`
 - **缓存**：`BUILD_VERSION` 时间戳自动破击，但保险起见硬刷新
 
-## 与 `/gx` 的关系
+## 与 `/sl` `/gx` 的关系
 
-`/gx` 是针对旧版（`小红书收藏/wiki/` + CloudStudio 沙箱）的素材消化流程，**不包含 v2**。
+`/sl`（收录）与 `/gx`（更新）已切换至本仓库：收录落 `vault/sources/`，更新经 `convert.py` + 本 `deploy.sh` 部署，更新记录遵循 `_workflow/更新历史编写规范.md`。
 
-v2 是独立仓库、独立内容源（Obsidian 手动编辑），使用本文件的 `deploy.sh` 流程，不接入 `/gx`。两套体系刻意分离，避免误部署。
+旧版 `../小红书收藏/wiki/`（CloudStudio 沙箱）自 2026-07-31 起冻结，不再更新。v2 为唯一前向目标。

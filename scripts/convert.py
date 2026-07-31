@@ -32,6 +32,13 @@ VAULT = ROOT / "vault"
 OUTPUT = ROOT / "output"
 BUILDSTATE = ROOT / ".buildstate.json"
 MAX_HISTORY = 3  # number of git versions to pre-render per file
+# Inbox path for pending articles (shared with the old /gx system under 小红书收藏/)
+INBOX_ROOT = ROOT.parent / "小红书收藏" / "raw" / "inbox"
+INBOX_SOURCE_LABELS = {
+    "wechat": "微信", "pdf": "PDF", "article": "文章", "xiaoetong": "小鹅通",
+    "xiaohongshu": "小红书", "zhihu": "知乎", "tweets": "推文", "docs": "文档",
+    "notes": "笔记", "images": "图片",
+}
 
 LINK_RE = re.compile(r'\[\[([^\]|#]+)(?:[|#][^\]]+)?\]\]')
 
@@ -320,7 +327,7 @@ def main():
     tree = build_tree(files)
     # 5) update records + inbox
     update_records = parse_update_records(VAULT, files)
-    inbox_data = {"items": [], "generated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"), "total": 0, "groups": {}}
+    inbox_data = collect_inbox()
 
     # 6) write slim bundle (NO content, NO history)
     slim = {
@@ -515,6 +522,57 @@ def parse_update_records(vault, files):
                         "importance": importance, "update_type": update_type,
                         "affected_pages": affected, "content": body.strip()})
     return records
+
+def collect_inbox():
+    """Scan the shared raw/inbox/ directory (from the old 小红书收藏/ system)
+    for pending articles. Returns the same structure expected by the viewer."""
+    items = []
+    if INBOX_ROOT and INBOX_ROOT.exists():
+        for sub in sorted(INBOX_ROOT.iterdir()):
+            if not sub.is_dir(): continue
+            stype = sub.name
+            for md in sorted(sub.glob("*.md")):
+                if md.name.startswith("."): continue
+                text = md.read_text(encoding="utf-8", errors="replace")
+                # parse frontmatter
+                fm = {}
+                if text.startswith("---"):
+                    end = text.find("\n---", 3)
+                    if end != -1:
+                        import re
+                        for line in text[3:end].split("\n"):
+                            line = line.strip()
+                            if ":" not in line: continue
+                            k, v = line.split(":", 1)
+                            k = k.strip(); v = v.strip()
+                            if not k: continue
+                            if v.startswith("[") and v.endswith("]"):
+                                inner = v[1:-1].strip()
+                                items_list = [x.strip().strip('"').strip("'") for x in inner.split(",") if x.strip()]
+                                fm[k] = items_list
+                            else:
+                                fm[k] = v.strip().strip('"').strip("'")
+                s_type = fm.get("source_type") or stype
+                items.append({
+                    "title": fm.get("title") or md.stem,
+                    "url": fm.get("url", "") or "",
+                    "source_type": s_type,
+                    "source_label": INBOX_SOURCE_LABELS.get(s_type, s_type),
+                    "saved_at": fm.get("saved_at", "") or "",
+                    "summary": fm.get("summary", "") or "",
+                    "theme": fm.get("theme", []) or [],
+                    "file": str(md),
+                })
+    groups = {}
+    for it in items:
+        g = it["source_type"]
+        groups[g] = groups.get(g, 0) + 1
+    return {
+        "items": items,
+        "generated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "total": len(items),
+        "groups": groups,
+    }
 
 if __name__ == "__main__":
     main()
