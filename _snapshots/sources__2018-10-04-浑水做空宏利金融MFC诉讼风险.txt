@@ -1,0 +1,37 @@
+
+
+# 浑水做空宏利金融（MFC）：终身寿险诉讼的达摩克利斯之剑
+
+> Muddy Waters（浑水）2018-10-04 做空报告：宏利金融（Manulife, MFC US/CN）因人寿保险子公司一份 1997 年签发的 Architect II 万能寿险保单陷入诉讼，若原告 Mosten 胜诉，宏利可能面临数十亿加元亏损乃至偿付能力危机。本报告为做空机构单方观点，立场偏空。
+
+## 基本信息
+- 来源：Muddy Waters Capital LLC（研究总监 Carson C. Block），2018-10-04
+- 类型：做空报告（个股 / 保险）
+- 标的：宏利金融集团（Manulife Financial Corporation，NYSE/TSX：MFC）
+- 原始素材：[[raw/processed/pdfs/浑水-宏利金融MFC-终身寿险诉讼做空报告-2018-10-04|source_path]]（中文全译本见同目录 `.md`）
+
+## 核心观点
+1. **诉讼核心**：宏利子公司 The Manufacturers Life Insurance Company 被对冲基金 Mosten Investment LP 起诉，争议一份 1997 年 Architect II 万能寿险保单——Mosten 主张可不限量存入资金并按保证年化 ≥4.0%（+0.85% 周年奖金）计息、一个月流动性。
+2. **潜在亏损无上限**：若 Mosten 胜诉，宏利需对不限量本金承担负利差（当时加元 1 月 LIBOR 约 1.052%，与 4% 保证利率形成约 -2.95% 利差）；按宏利自身精算师 Rehbeli 测算，每存入 10 亿加元 Carrier Fund 即可能亏 4.5 亿加元（约 MFC 2018Q2 净利润的 35.7%），单季存入 30 亿即净亏损季度。
+3. **资本充足率（LICAT）冲击**：每 10 亿存款使"可用资本"减 4500 万、"所需资本"增 7000 万；LICAT 比率（当时 MLI 为 132%）若跌破 100% 触发 OSFI 审查，跌破 90% 引发进一步监管干预，并可能限制宏利向 MFC 派息。
+4. **系统性溢出**：败诉或引发客户退保"银行挤兑"式连锁、信用降级，最终"可能导致保险人资不抵债"（引宏利专家证词）；判决预计 2018 年底前作出。
+
+## 实操内容保留
+（本文为研究报告，无实操代码/模板/步骤）
+
+## 关键概念
+- [[02-41-01_宏利金融_USMFC]] — 本报告标的，加拿大寿险巨头
+- [[02-41_保险]] — 保险行业档案（寿险 / 偿付能力 / LICAT）
+- 关联概念：LICAT 比率、Carrier Fund（承运基金）、 negative carry（负利差）、contra proferentem（不利于起草人规则）
+
+## 原文精彩摘录
+> "Muddy Waters is short Manulife Financial Corp. ('MFC'). MFC's life insurance subsidiary … just concluded a trial that could significantly damage its earnings, capital, creditworthiness, business, and solvency — per its own expert's sworn affidavit."
+
+> "Per Manulife's own expert witness, Manulife is effectively on trial for its life."
+
+> "This cascading sequence of events ultimately has the potential to cause the insurer to become insolvent…"
+
+## 相关页面
+- [[02-41-01_宏利金融_USMFC]]
+- [[02-41_保险]]
+- [[02_投资]]

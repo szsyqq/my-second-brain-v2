@@ -1,0 +1,42 @@
+
+
+# 科技日报 2026-07-08 — 半导体触底反弹、META Muse Image、NET升级（英文版）
+
+> AI半导体经历了剧烈震荡：早盘一度跌7.5%在韩国三星减持后反弹，最终全天跑赢QQQ 2.2%。META +2.5%发布Muse Image AI模型，NET +8.5%获Scotiabank升级接近52周新高，DOCN +4.5%预公告超预期，BofA恢复SHOP/FIG买入评级。网络安全承压（PANW -6%），AI安全定价压缩成关注点。
+
+## 基本信息
+- **来源类型**：PDF（科技日报/研报）
+- **原文位置**：raw/processed/pdfs/pdf-2026-07-13-ww8.md
+- **消化日期**：2026-07-16
+
+## 核心观点
+1. **半导体板块市场结构变化** — 早盘低点后反弹跑赢QQQ 2.2%，但短期内不会回到4-5月清𥇦叙事的环境；作者正在更主动地关注叙事/因子变化、聚焦催化剂
+2. **META +2.5%** — 发布首个AI图像生成模型Muse Image，面向消费者和创作者；Alexandr Wang称之为"Meta正在交付"
+3. **NET +8.5%** — Scotiabank升级后接近52周新高，CIO/CISO渠道调研显示SASE和边缘计算势头增强
+4. **DOCN +4.5%** — Q2预公告营收+29%（市场预期25%），RPO增量$5.5亿+（同比10倍至$8亿+），新增20MW数据中心容量
+5. **APP -3%** — Wells Fargo下调Q2游戏预期，ROAS下降、用户获取份额稳定在45%
+6. **网络安全走弱** — PANW -6%/ZS -0.6%/CRWD -2.4%，TMTB Slack讨论网络安全正被AI"包裹化"
+7. **FIG +5%** — BofA恢复Buy，认为AI增强Figma，预计FY26/FY27营收增长36%/23%
+8. **SPCX -7%** — 尽管多家卖方积极首评，SpaceX仍下跌7%
+9. **IT服务上涨** — Wells Fargo为Accenture辩护，认为AI是长期结构性利好
+10. **SNDK触底信号** — 作者在SNDK的$1500位置（CY27 EPS $300的5x）看到风险回报比更激进的交易机会
+
+## 关键个股/标的
+- META — +2.5%，Muse Image发布
+- NET（Cloudflare）— +8.5%接近52周新高
+- DOCN（DigitalOcean）— +4.5%，预公告超预期
+- SHOP（Shopify）— +1.5%，BofA恢复Buy
+- FIG（Figma）— +5%，BofA恢复Buy
+- APP（AppLovin）— -3%，Wells Fargo下调预期
+- PANW — -6%，网络安全承压
+- SPCX（SpaceX）— -7%
+- INTC — -10%/BE -9%/SNDK -7%
+- GRMN（Garmin）— +1.4%，M-sci上调
+- CRWV — -3% vs NBIS -8%（价差扩大）
+
+## 原文精彩摘录
+> Our base case is that we think we put in a short-term bottom in on AI semis/Momentum in the early morning, but don't think it's an all clear to go back to the narrative clean days of April/May for AI semis.
+
+> SNDK...the multiple bears typically want to throw on it...we think that's a clean round-number that vibes with the r/r math to get more and expecting some more continued factor whiplash.
+
+> DOCN now expects RPO to exceed $800M which is 10x growth from Q2'25. Not the most comforting price action in response to the pre so far, but watching semis/hypers will react to good prints in a few weeks.

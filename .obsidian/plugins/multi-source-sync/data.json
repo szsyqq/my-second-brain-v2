@@ -1,0 +1,347 @@
+{
+  "rootFolder": "小红书（RedNote）",
+  "activePlatform": "rednote",
+  "enabledTypes": {
+    "rednote": [
+      "bookmark",
+      "post",
+      "like"
+    ],
+    "zhihu": [],
+    "douyin": [],
+    "weibo": []
+  },
+  "syncTags": true,
+  "assetReportEnabled": true,
+  "autoSyncEnabled": true,
+  "syncIntervalMinutes": 10,
+  "syncBatchSize": 5,
+  "platforms": {
+    "rednote": {
+      "enabled": true,
+      "accounts": {
+        "5c32b33d0000000005026ffc": {
+          "accountId": "5c32b33d0000000005026ffc",
+          "nickname": "momo",
+          "folderName": "momo",
+          "activeHost": "xhs",
+          "cookies": "",
+          "a1Cookie": "",
+          "partition": "persist:rednote-login-1783754155609-ydxhn9",
+          "loginStatus": "needs_relogin",
+          "syncTypes": [
+            "bookmark",
+            "post",
+            "like"
+          ],
+          "syncAlbums": true,
+          "albumWhitelist": [
+            "66dbb858000000002203d2a1"
+          ],
+          "downloadVideos": false,
+          "syncComments": true,
+          "commentLimit": 10,
+          "commentReplyLimit": 0,
+          "assetReport": {
+            "platform": "rednote",
+            "accountId": "5c32b33d0000000005026ffc",
+            "generatedAt": "2026-07-11T07:16:42.649Z",
+            "mode": "quick",
+            "sources": {
+              "bookmark": {
+                "type": "bookmark",
+                "estimatedTotal": 10,
+                "scanned": 10,
+                "synced": 0,
+                "remaining": 10,
+                "imageCount": 0,
+                "videoCount": 0,
+                "commentCount": 0,
+                "hasMore": true,
+                "confidence": "estimated",
+                "cursor": "689e95b0000000001d0243f6"
+              },
+              "post": {
+                "type": "post",
+                "estimatedTotal": 10,
+                "scanned": 10,
+                "synced": 0,
+                "remaining": 10,
+                "imageCount": 0,
+                "videoCount": 0,
+                "commentCount": 0,
+                "hasMore": true,
+                "confidence": "estimated",
+                "cursor": "69369019000000000d03cff8"
+              },
+              "like": {
+                "type": "like",
+                "estimatedTotal": 10,
+                "scanned": 10,
+                "synced": 0,
+                "remaining": 10,
+                "imageCount": 0,
+                "videoCount": 0,
+                "commentCount": 0,
+                "hasMore": true,
+                "confidence": "estimated",
+                "cursor": "69f2d05c000000001a034a34"
+              }
+            },
+            "collectionCount": 13,
+            "collectionNoteCount": 76,
+            "scannedPages": 3,
+            "status": "quick",
+            "estimatedTotal": 30,
+            "estimatedRemaining": 30,
+            "estimatedImages": 0,
+            "estimatedVideos": 0,
+            "estimatedComments": 0
+          }
+        }
+      },
+      "activeHost": "xhs",
+      "partition": "persist:rednote-login-1783754155609-ydxhn9",
+      "cookies": "",
+      "a1Cookie": "",
+      "accountId": "5c32b33d0000000005026ffc",
+      "nickname": "momo",
+      "syncAlbums": true,
+      "albumWhitelist": [
+        "66dbb858000000002203d2a1"
+      ],
+      "downloadVideos": false,
+      "syncComments": true,
+      "commentLimit": 10,
+      "commentReplyLimit": 0,
+      "discovery": {
+        "activeThemeId": "default-material-radar",
+        "aiAnalysisEnabled": false,
+        "homeChannel": "推荐",
+        "themes": [
+          {
+            "id": "default-material-radar",
+            "name": "主题素材",
+            "keywords": [
+              "小红书运营",
+              "干货"
+            ],
+            "links": [],
+            "maxCandidates": 20,
+            "maxSaves": 10,
+            "minLikeCount": 0,
+            "daysRange": 30,
+            "createdAt": "2026-07-11T06:58:53.419Z",
+            "updatedAt": "2026-07-11T06:58:53.419Z"
+          }
+        ],
+        "run": {
+          "status": "idle",
+          "mode": "radar",
+          "candidates": [],
+          "selectedIds": []
+        }
+      },
+      "activeAccountId": "5c32b33d0000000005026ffc"
+    },
+    "zhihu": {
+      "enabled": false
+    },
+    "douyin": {
+      "enabled": false
+    },
+    "weibo": {
+      "enabled": false
+    }
+  },
+  "syncState": {
+    "rednote": {
+      "activeAccountId": "5c32b33d0000000005026ffc",
+      "accounts": {
+        "5c32b33d0000000005026ffc": {
+          "accountId": "5c32b33d0000000005026ffc",
+          "types": {
+            "bookmark": {
+              "hasMore": false,
+              "syncedIds": [
+                "6a4e2a63000000000802626c",
+                "6a4b18ca000000000803ecf7",
+                "6a4ccf88000000001101d144",
+                "6a489f03000000000702a396",
+                "6a50a3200000000015025cc3",
+                "6a50f6fd000000001700bb03",
+                "6a4e20140000000015025089",
+                "69d905a3000000002300759d",
+                "66b0b11b000000000d0321b7",
+                "689e95b0000000001d0243f6",
+                "6a3ffa4d0000000007013108",
+                "695c7c6a0000000021031da3",
+                "6a4eddd9000000001603ec90",
+                "6a4b1021000000001702abef",
+                "6a4244bd000000001003fdc9",
+                "6a45eaf4000000001101b526",
+                "6a49960b0000000021014796",
+                "688764b3000000002203d76e",
+                "67dbfdd1000000001e002852",
+                "6a48b45e000000002100b7b7"
+              ],
+              "lastSyncedAt": "2026-07-11T17:52:17.348Z"
+            },
+            "post": {
+              "hasMore": false,
+              "syncedIds": [],
+              "lastSyncedAt": "2026-07-11T17:52:17.502Z"
+            },
+            "like": {
+              "hasMore": false,
+              "syncedIds": [],
+              "lastSyncedAt": "2026-07-11T17:52:17.583Z"
+            }
+          },
+          "collections": {
+            "66dbb858000000002203d2a1": {
+              "hasMore": false,
+              "syncedIds": [
+                "6a3e8dfa000000001503fa83",
+                "69996f6f000000000e03c4da",
+                "694e7336000000001e009220",
+                "6922fbe2000000001e00ea32",
+                "66eaad41000000002603202c",
+                "660fc6ee000000001b00b824",
+                "66d712b6000000001f039672",
+                "66cf7dfe000000001d03ad1e",
+                "66b9c67d0000000005023e21"
+              ],
+              "lastSyncedAt": "2026-07-11T07:54:05.285Z"
+            },
+            "68a31b17000000002400ab67": {
+              "hasMore": true,
+              "syncedIds": [
+                "6a228e0f000000003703780e"
+              ],
+              "lastSyncedAt": "2026-07-11T07:17:22.453Z"
+            }
+          }
+        }
+      }
+    }
+  },
+  "license": {
+    "authCode": "",
+    "status": "free",
+    "deviceId": "mss_92d15fbdc813d5a28df960e85ea83d3b",
+    "supabaseUrl": "",
+    "supabaseAnonKey": "",
+    "verifyUrl": "https://multi-source-sync.pages.dev/v1/license/verify",
+    "purchaseUrl": "https://www.xiaohongshu.com/goods-detail/multi-source-sync-placeholder",
+    "maxFreeItems": 100,
+    "syncedFreeCount": 30
+  },
+  "templates": {
+    "defaultTemplate": "---\nsourcePlugin: \"multi-source-sync\"\nresourceId: \"{{resourceId}}\"\ntype: \"{{typeLabel}}\"\nauthor: \"{{yaml author}}\"\nurl: \"{{sourceUrl}}\"\n{{#if tags.length}}tags:\n{{#each tags}}  - \"{{yaml this}}\"\n{{/each}}{{/if}}{{#if category}}\ncategory: \"{{yaml category}}\"{{/if}}\n{{#if albums.length}}albums:\n{{#each albums}}  - \"{{yaml this}}\"\n{{/each}}{{/if}}{{#if albumIds.length}}albumIds:\n{{#each albumIds}}  - \"{{yaml this}}\"\n{{/each}}{{/if}}\n{{#if createdAt}}postCreatedAt: {{createdAt}}{{/if}}\nsyncedAt: {{syncedAt}}\n{{#if accountId}}accountId: \"{{yaml accountId}}\"{{/if}}\n{{#if accountName}}accountName: \"{{yaml accountName}}\"{{/if}}\n---\n\n# {{title}}\n\n{{#if author}}作者：{{author}}{{/if}}\n{{#if collectionName}}专辑：{{collectionName}}{{/if}}\n\n{{mediaEmbeds}}\n\n{{fullText}}\n\n{{commentInsightsMarkdown}}\n\n{{commentsMarkdown}}\n\n原文：{{sourceUrl}}\n",
+    "overrides": {
+      "rednote": {}
+    }
+  },
+  "ai": {
+    "enabled": false,
+    "commentInsightsEnabled": false,
+    "openaiApiKey": "",
+    "openaiBaseUrl": "https://api.openai.com/v1",
+    "openaiModel": "gpt-4o-mini",
+    "categories": [
+      "知识管理",
+      "效率工具",
+      "生活方式",
+      "设计审美",
+      "商业洞察",
+      "旅行",
+      "美食",
+      "待整理"
+    ]
+  },
+  "transcription": {
+    "whisperCliPath": "",
+    "ffmpegPath": "",
+    "modelPath": "",
+    "language": "zh",
+    "skipExisting": true,
+    "overwriteManagedSection": false
+  },
+  "syncProgress": {
+    "running": false,
+    "mode": "smart",
+    "saved": 0,
+    "existing": 0,
+    "updated": 0,
+    "skipped": 0,
+    "pagesScanned": 0,
+    "processed": 0,
+    "stage": "paused",
+    "runLimit": 15,
+    "batchSize": 5,
+    "batchWaitSeconds": 5,
+    "autoContinue": false,
+    "pausedByUser": false,
+    "startedAt": "2026-07-31T07:16:28.795Z",
+    "updatedAt": "2026-07-31T07:16:28.840Z",
+    "message": "同步已暂停：小红书登录已失效，请重新登录当前账号后继续。",
+    "stopReason": "auth_required"
+  },
+  "assetReport": {
+    "platform": "rednote",
+    "accountId": "5c32b33d0000000005026ffc",
+    "generatedAt": "2026-07-11T07:16:42.649Z",
+    "mode": "quick",
+    "sources": {
+      "bookmark": {
+        "type": "bookmark",
+        "estimatedTotal": 10,
+        "scanned": 10,
+        "synced": 0,
+        "remaining": 10,
+        "imageCount": 0,
+        "videoCount": 0,
+        "commentCount": 0,
+        "hasMore": true,
+        "confidence": "estimated",
+        "cursor": "689e95b0000000001d0243f6"
+      },
+      "post": {
+        "type": "post",
+        "estimatedTotal": 10,
+        "scanned": 10,
+        "synced": 0,
+        "remaining": 10,
+        "imageCount": 0,
+        "videoCount": 0,
+        "commentCount": 0,
+        "hasMore": true,
+        "confidence": "estimated",
+        "cursor": "69369019000000000d03cff8"
+      },
+      "like": {
+        "type": "like",
+        "estimatedTotal": 10,
+        "scanned": 10,
+        "synced": 0,
+        "remaining": 10,
+        "imageCount": 0,
+        "videoCount": 0,
+        "commentCount": 0,
+        "hasMore": true,
+        "confidence": "estimated",
+        "cursor": "69f2d05c000000001a034a34"
+      }
+    },
+    "collectionCount": 13,
+    "collectionNoteCount": 76,
+    "scannedPages": 3,
+    "status": "quick",
+    "estimatedTotal": 30,
+    "estimatedRemaining": 30,
+    "estimatedImages": 0,
+    "estimatedVideos": 0,
+    "estimatedComments": 0
+  }
+}

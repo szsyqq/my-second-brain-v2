@@ -1,0 +1,22 @@
+
+
+# 科技日报 2026-07-10
+
+> META 明年算力翻倍至 14GW 的预期提振半导体；本周三大前沿模型（Muse Spark 1.1 / Grok 4.5 / ChatGPT 5.6）集中发布，META 全天上扬。
+
+## 市场快照（07-10）
+- QQQs +1.6%，Oil -2%，收益率 -2~5bps。Semis +3% 领涨（路透：META 明年算力翻倍至 14GW，年底约 7-8GW）。
+- 按约 $35B/GW 推算，META 明年 capex 近 $250B，远高于 Street $135B/$160B（26/27 年）与买方 $155B/$215B+；"更多 capex = 利好 AI 半导体"。
+- 亚洲（07-10 part2）：KOSPI +2.52%，Softbank +10%；内存分化。
+
+## 核心新闻
+1. **三大模型齐发**：MSL（Muse Spark 1.1）、xAI（Grok 4.5）、OpenAI（ChatGPT 5.6）。Muse Spark 1.1 智能体基准约 Opus 4.8 / GLM 5.2（编码略弱），定价激进 $1.25/$4.25（比 GLM 5.2 更低）；META +5%（扎克伯格打破 3 年沉默发声）。
+2. **META 的 API 生意**（Alexandr Wang 访谈）：Meta 将模型 API 视为"真生意"而非练手，年底有望达前沿；SemiAnalysis 认为"第三名"之争在 Meta 与 SpaceX 之间，而非 Google（数据/人才/算力三者 Meta 最均衡）。
+3. **META 自研算力**（呼应 07-09）：MTIA 计划 9 月量产，明年算力翻至 14GW，与博通（设计）+台积电（制造）合作。
+
+## 关键概念
+- Meta 算力扩张与前沿模型竞赛（API 商业化、MTIA 自研硅）
+- 提及：META、MSFT、AMZN、Softbank、BABA
+
+## 相关页面
+- [[02_投资]]（超大规模云厂 capex、大模型竞争格局）

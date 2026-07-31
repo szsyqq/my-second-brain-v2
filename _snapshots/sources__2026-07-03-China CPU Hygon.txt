@@ -1,0 +1,36 @@
+
+
+# China CPU：海光信息（Hygon）——CPU 复兴的关键国产受益者
+
+> Bernstein 2026-07-03 报告：Agentic AI 开启"CPU 复兴"，海光作为国内唯一可替代 Intel/AMD 的 x86 服务器 CPU 厂，未来 5 年份额与 TAM 双扩张，给予 Outperform、目标价 ¥450。
+
+## 基本信息
+- 来源：Bernstein（Qingyuan Lin 等），2026-07-03
+- 类型：个股深度（中国半导体）
+- 评级：Outperform，目标价 CNY 450；标的 海光信息（688041.CH）
+- 原始素材：[[raw/processed/pdfs/pdf-2026-07-13-vwu.md|source_path]]
+
+## 核心观点
+1. **CPU 复兴**：Agentic AI 把数据中心架构从 GPU 中心推向 CPU 密集；全球服务器 CPU TAM 预计从 2025 年 $39bn 扩至 2030 年 $223bn，CPU:GPU 比从 1:8 走向 1:1。中国 x86 服务器 CPU TAM $7bn（2025）→ $27bn（2030）。
+2. **海光独占位**：国内唯一可替代 Intel/AMD 的 x86 服务器 CPU 供应商；份额（按价值）从中国 x86 服务器 CPU 市场 19%（2025）→ 36%（2030）。
+3. **国产替代二阶浪**：第一波靠信创政策；2027 起 CSP 采用国产 CPU 的"更商业化"第二波。海外 CPU（AMD/Intel）产能优先供美国超大规模云厂，对华供应不确定性上升，CSP 有更强动力认证国产替代（如 AI 芯片先例）。
+4. **技术差距可控**：相较 Intel/AMD 落后 2-3 年（2019 被列入 Entity List 后独立演进仍维持），产品足以覆盖约半数中国市场；C86-G5 将显著升级，拓展至 CSP/政府 AIDC。
+5. **节奏**：2025-28 受供给约束增长滞后，2028 起随国内产能扩张与 AIDC 投资加速而再加速；海光 CPU+AI 芯片生态可捆绑销售。
+
+## 关键概念
+- [[海光信息(Hygon)]] — 本报告主体，国产 x86 CPU 龙头
+- [[CPU复兴]] — Agentic AI 驱动的服务器 CPU 需求扩张主题
+- 关联：[[NVIDIA]]（GPU 中心 → CPU 密集的范式位移）、[[02_投资]]（半导体/国产替代）
+
+## 原文精彩摘录
+> "Agentic AI is leading to a new era that we call 'The CPU Renaissance'"
+
+> "global server CPU TAM will expand from roughly US$39bn in 2025 to US$223bn by 2030, as agentic AI shifts data-center architectures from being GPU-centric to increasingly CPU-intensive"
+
+> "the only alternative x86 server CPU vendor to Intel/AMD... market share by value in China x86 server CPU market to rise from 19% in 2025 to 36% by 2030"
+
+## 相关页面
+- [[海光信息(Hygon)]]
+- [[CPU复兴]]
+- [[NVIDIA]]
+- [[02_投资]]

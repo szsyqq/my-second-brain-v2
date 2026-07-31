@@ -1,0 +1,22 @@
+
+
+# 科技日报 2026-07-01（英）
+
+> 7 月 4 日假期前清淡交易日：指数微跌、收益率小幅走高；两条主线——美国商务部解除 Anthropic 两款模型出口管制、Brookfield 与 Bloom Energy 将 AI 电力合作扩五倍至 $25B。
+
+## 市场快照
+- 美股期货 -50bps；收益率曲线上行 1-2bps，市场计入年内约 35bps 加息。
+- 亚洲涨跌互见：TPX +0.42%、NKY +0.59%、SHCOMP +0.44%、Shenzhen +0.39%、TAIEX +1.94%、KOSPI -2.04%。韩国受内存拖累（SK Hynix -3.5%、Samsung -5%），台湾受 TSM +4% 带动。
+- 美股板块：Software +1% 跑赢 Semis -1%；内存走弱（SNDK -5%、MU -3%），HDD 与半导体设备早盘疲弱。
+
+## 核心新闻
+1. **出口管制解除**：美国商务部解除对 Anthropic **Claude Fable 5** 与 **Mythos 5** 的出口管制，次日恢复访问。
+2. **AI 电力合作扩五倍**：Brookfield 与 **Bloom Energy（BE）** 将 AI 基础设施电力融资框架从 $5B 扩至 **$25B**（自 2025-10 起五倍）；Brookfield 专属 AI Infra Fund 2025-11 启动，目标部署 $100B，聚焦 AI 工厂、电力方案、算力基础设施与战略资本合作。
+
+## 关键概念
+- AI 电力/算力基础设施（Brookfield、Bloom Energy）——长期 AI 基建链的上游约束环节
+- 出口管制与地缘（Anthropic 模型）——影响算力与模型可得性
+- 提及：TSM、Samsung、SK Hynix、SNDK、MU
+
+## 相关页面
+- [[02_投资]]（AI 基础设施链、内存与电力主题）

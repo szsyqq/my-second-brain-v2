@@ -1,0 +1,21 @@
+
+
+# 科技日报 2026-07-09（下）
+
+> META 拟明年算力翻倍至 14GW、自研 MTIA 9 月量产，提振半导体全产业链；但超大规模云厂因 capex 预期上行而下跌。
+
+## 市场快照
+- QQQs +95bps，Semis +4%（META 翻倍算力消息催化）；HDDs +6%、内存 +5-6%、Optical +5%、半导体设备 +5%。
+- 超大规模云厂下跌：META -4%、MSFT -2%、AMZN -1.6%（更高 capex 含义）；Software -2%（CRM -4.5% Keybanc 降级）。
+- 亚洲涨跌互见，内存强：Kioxia +8%、Samsung +6%、SK Hynix +11%。
+
+## 核心新闻
+1. **META/AVGO**：Meta 计划 9 月量产自研 AI 芯片 **MTIA**（四年项目），明年算力翻至 **14GW**；与博通（设计）+台积电（制造）合作。路透称测试仅六周且无重大问题，标志内部自研努力转正向。
+2. **capex 重估**：Street 对 META 27 年预期约 $165B（今年 $135B），买方更高（$200-210B vs 今年 $155B）；更高资本开支 = 利好 AI 半导体。
+
+## 关键概念
+- Meta 自研硅（MTIA）与算力扩张——超大规模云厂 capex 与 AI 半导体需求
+- 提及：META、AVGO、TSM、MSFT、AMZN、CRM、Kioxia、Samsung、SK Hynix
+
+## 相关页面
+- [[02_投资]]（超大规模云厂 capex、博通/台积电链）

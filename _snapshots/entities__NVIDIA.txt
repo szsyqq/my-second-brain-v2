@@ -1,0 +1,34 @@
+
+
+# NVIDIA（NVDA）
+
+> AI 计算龙头，以数据中心 GPU（加速卡）、NVLink/InfiniBand 网络与全栈软件（CUDA）构筑护城河；是本轮 AI capex 周期的核心受益者与需求源头。
+
+## 简介
+NVIDIA（英伟达，代码 NVDA）是全球 AI 加速计算主导者。其数据中心 GPU（如 Blackwell 系列）与高速网络（NVLink、Spectrum-X 以太网）构成大模型训练/推理的算力底座，CUDA 生态形成强锁定。2026 年它是 AI 基础设施 capex 的"总开关"，其需求外溢拉动光通信（[[康宁(GLW)]]）、HBM、电力等整条链。
+
+## 关键信息
+- **主业**：数据中心 GPU、游戏 GPU、专业视觉、汽车/机器人
+- **2026 动态（据入库素材）**：
+  - 传自建长途（long haul）网络，降低对超大规模云厂（MSFT/META 经 Lumen 等）长途网的依赖——间接利好光纤供应商 [[康宁(GLW)]]
+  - 在 AI 基础设施链中处于"需求源头"位置，其 capex 节奏决定光通信/存储/电力等上下游景气度
+- **投资视角**：AI 叙事核心标的，估值与 AI capex 预期高度绑定；是观察 AI 周期拐点的关键变量
+
+## 核心特性
+1. **全栈护城河**：硬件（GPU+网络）+ 软件（CUDA）双锁定，迁移成本高。
+2. **需求外溢效应**：NVDA 每轮扩张都重塑上下游（光模块、HBM、电力、液冷）。
+3. **周期敏感性**：股价对 AI capex 预期极敏感，任何"capex 放缓"信号都会冲击整条 AI 链。
+
+## 不同素材中的观点
+- [[2026-06-30-Morgan Stanley-Corning]]：将"NVDA 自建长途网"列为康宁股价异动四大驱动之一。
+- [[2026-07-13-NVIDIA NDR highlights diversified growth]]：见对应摘要页（NDR 强调增长多元化）。
+
+## 关联
+- 与 [[康宁(GLW)]] 互补：NVDA 网络扩张拉动康宁光纤。
+- 属 [[02_投资]] 个股研究 / AI 基础设施链核心。
+
+## 相关页面
+- [[康宁(GLW)]]
+- [[02_投资]]
+- [[2026-06-30-Morgan Stanley-Corning]]
+- [[2026-07-13-NVIDIA NDR highlights diversified growth]]

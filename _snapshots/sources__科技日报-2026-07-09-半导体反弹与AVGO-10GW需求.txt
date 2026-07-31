@@ -1,0 +1,43 @@
+
+
+# 科技日报 2026-07-09 — 半导体反弹、AVGO >10GW需求、Bloom Energy遭做空
+
+> AI半导体板块领涨+2.3%（QQQ +28bps），AVGO NDR会议Hock Tan透露FY27超10GW、FY28超20GW AI计算需求。ANET +9%创52周新高，SNDK +7%触发风险回报比信号。Bloom Energy遭Hunterbrook做空报告做空（BE -6%），焦点在钪供应链和中国依赖。BABA +11%继续走强。网络安全承压（PANW -5%），AI安全定价压缩讨论持续。
+
+## 基本信息
+- **来源类型**：PDF（科技日报/研报）
+- **原文位置**：raw/processed/pdfs/pdf-2026-07-13-84t.md
+- **消化日期**：2026-07-16
+
+## 核心观点
+1. **AVGO NDR会议** — Hock Tan透露FY27>10GW、FY28>20GW AI计算需求（仅ANT/OAI+GOOGL+META）；"我花钱的速度不够快"；对联发科态度轻蔑，称"一代已延迟，二代已碰壁"
+2. **ANET +9%** — 少数创52周新高的AI半导体股
+3. **SNDK +7% vs MU +1%** — SNDK在$1500（CY27 EPS $300的5x）触发买入信号，Bernstein内存追踪显示价格继续上涨但预计2HCY27至CY28逐渐正常化
+4. **Bloom Energy遭做空** — Hunterbrook做空报告核心观点：Bloom声称无中国供应链但追踪到4条中国钪来源路线；5GW目标需要~220吨氧化钪（全球供应仅~240吨、总需求~310吨）；74%的4Q25收入来自Brookfield合资循环融资
+5. **BE做空反驳** — 钪模型基于外部推断，供应具有价格弹性；中国"抓包"将组件采购与战略依赖混淆；项目融资合资是能源硬件行业标准做法
+6. **BABA +11%** — 分析师会议后持续走强，云收入增速45%，国内电商EBITA好于预期
+7. **Neoclouds/Miners强势** — NBIS/CRWV +8-11%（受Anthropic SemiAnalysis报告推动），WULF +13%（MS上调PT至$72）
+8. **模拟半导体走强** — Cantor发布看涨盈利预览：ON +3%/STM +2%/ADI +2%/TXN +3%
+9. **网络安全承压** — PANW -5%/CRWD -2%，Mythos需求叙事出现裂痕；OKTA -1%被认为相对免疫
+10. **AKAM +11%** — 廉价（中双位数FCF倍数）+ 超卖（资本支出因子不利）+ 边缘AI计算基础设施转型
+
+## 关键个股/标的
+- AVGO（Broadcom）— NDR显示>10GW（FY27）/>20GW（FY28）AI需求
+- ANET（Arista）— +9%，52周新高
+- SNDK（Sandisk）— +7%，触发买入信号
+- BE（Bloom Energy）— -6%，Hunterbrook做空
+- BABA（阿里巴巴）— +11%，云收入增速45%
+- CRWV — +8-11%，Neocloud
+- WULF（TeraWulf）— +13%，MS上调PT至$72
+- NVDA — +3.6%，BofA辩护获认可
+- PANW — -5%，Mythos定价压缩担忧
+- AKAM（Akamai）— +11%，边缘AI转型
+- ANTH（Anthropic）— SemiAnalysis报告推动算力需求预期
+- ON/STM/ADI/TXN — 模拟半导体走强
+
+## 原文精彩摘录
+> AVGO NDR call: ~6GW for OAI/ANT in FY27, and the message was that FY28 unconstrained demand is at least 2x that level. This is only ANT/OAI then you have META on top of that...Basically 27' will be >10GW and 28' will be very large, >20GW.
+
+> Hunterbrook: Bloom's CEO has repeatedly sworn the company has "no China supply chain," yet Hunterbrook traced four China-linked scandium routes into Bloom's factories...hitting Wall Street's 5 GW ramp requires ~220 tons of scandium oxide against ~240 tons of total global supply.
+
+> The rebuttal: The scandium model is built entirely from outside-in inference...supply itself is price-elastic...Project-finance JVs are how energy hardware has always scaled — Brookfield putting $5B, then $25B, of real LP capital at risk is sophisticated validation.

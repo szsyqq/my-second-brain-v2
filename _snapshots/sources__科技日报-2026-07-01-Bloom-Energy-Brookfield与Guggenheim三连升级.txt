@@ -1,0 +1,41 @@
+
+
+# 科技日报 2026-07-01 — Bloom Energy/Brookfield $25B、Guggenheim三连升级、OpenAI推理成本减半
+
+> 短周最后一个交易日，市场关注Bloom Energy与Brookfield将AI基础设施合作扩展至$250亿（五倍增长），Guggenheim同日升级NOW/CRM/CHKP三只软件股，OpenAI发现推理成本减半方法，Meta大规模部署CXL Vistara ASIC，TSLA挖角Intel资深高管筹建芯片厂。
+
+## 基本信息
+- **来源类型**：PDF（科技日报/研报）
+- **原文位置**：raw/processed/pdfs/pdf-2026-07-13-1g7.md
+- **消化日期**：2026-07-16
+
+## 核心观点
+1. **Bloom Energy/Brookfield** — Brookfield将AI电力融资框架从$50亿扩大至$250亿（五倍增长），属于Brookfield $1000亿AI基础设施基金的一部分；Evercore上调PT至$350，MS认为意味着约5GW燃料电池部署潜力
+2. **ServiceNow（NOW）** — Guggenheim升级至Buy，认为近期回调创造估值机会（~5.9x EV/NTM经常性收入），看好联邦政府支出复苏
+3. **Salesforce（CRM）** — Guggenheim升级至Buy，股价3.7x经常性收入倍数已计入长期衰退，YTD下跌~41%
+4. **Check Point（CHKP）** — Guggenheim升级至Buy，4.3x EV/NTM经常性收入估值已过度悲观
+5. **OpenAI推理成本** — OpenAI工程师发现可将推理成本减半，应用后所需NVIDIA GPU数量降至仅几百块
+6. **Meta CXL Vistara** — Wells Fargo认为Meta大规模部署定制CXL ASIC验证了CXL技术成熟度，带来20-25%计算容量节约和4-12%吞吐量提升
+7. **TSLA芯片厂** — Tesla挖角17年Intel资深高管Gary Jiang任"Terafab"总监，负责奥斯汀芯片厂项目
+8. **UBS CoWoS预测** — UBS上调CoWoS产能预测，预计行业CoWoS产能2026年底达25万片/月，NVIDIA Rubin是2H26关键催化剂
+
+## 关键个股/标的
+- BE（Bloom Energy）— Brookfield合作扩展至$250亿，Evercore PT $350
+- NOW（ServiceNow）— Guggenheim升级至Buy
+- CRM（Salesforce）— Guggenheim升级至Buy，YTD -41%
+- CHKP（Check Point）— Guggenheim升级至Buy
+- TSLA（Tesla）— 挖角Intel高管筹建芯片厂
+- META（Meta）— 大规模部署CXL Vistara ASIC，20-25%容量节约
+- MSFT（Microsoft）— Jefferies CIO调查显示Azure领先，68% CIO计划增加Azure支出
+- ORCL（Oracle）— William Blair加入Conviction List，受益于AI基础设施支出
+- PANW（Palo Alto）— BTIG重申Top Pick，PT $380；Wells Fargo上调至$420
+- PSTG（Pure Storage）— Evercore认为回调创造买入机会
+- AAPL（Apple）— UBS调查显示AI仍未成为iPhone升级驱动力
+- TSM（台积电）— UBS上调CoWoS产能预测
+
+## 原文精彩摘录
+> Evercore raised its PT to $350, arguing Brookfield's decision to expand its AI power financing framework from $5B to $25B reinforces strong demand for Bloom's distributed power solutions. The firm believes the fivefold increase validates its "speed-to-power" thesis.
+
+> Guggenheim upgraded ServiceNow to Buy, arguing the recent selloff has created an attractive valuation opportunity, with the stock now trading at ~5.9x EV/NTM recurring revenue, despite expectations for continued double-digit organic growth.
+
+> TheInformation: In one previously unreported example, OpenAI engineers earlier this month told some colleagues they had figured out a way to more than halve the cost of inference, or running existing models, thanks to some newly-discovered optimizations.

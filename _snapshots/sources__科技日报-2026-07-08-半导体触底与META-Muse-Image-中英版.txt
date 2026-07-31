@@ -1,0 +1,41 @@
+
+
+# 科技日报 2026-07-08 — 半导体触底反弹、META Muse Image发布、NET/DOCN领涨（中英版）
+
+> AI半导体板块震荡中短期见底：早盘一度暴跌7.5%后反弹，全天跑赢QQQ 2.2%。META发布Muse Image AI图像生成模型（+2.5%），NET +8.5%（Scotiabank升级至Outperform），DOCN +4.5%（Q2预公告远超预期），BofA恢复SHOP/FIG买入评级。Hunterbrook做空报告致BE下跌，但市场情绪好转。
+
+## 基本信息
+- **来源类型**：PDF（科技日报/研报，中英双语版）
+- **原文位置**：raw/processed/pdfs/pdf-2026-07-13-v7w.md
+- **消化日期**：2026-07-16
+
+## 核心观点
+1. **半导体短期见底** — 早盘一度跌7.5%后反弹，全天表现先抑后扬；但作者认为AI半导体尚未回到4-5月叙事清晰阶段，多空分化将持续
+2. **META Muse Image发布** — 发布首个AI图像生成模型Muse Image，通过Meta AI、WhatsApp和Instagram Stories提供；创作者需订阅月度计划（5月推出）才能大量生成和处理高级功能
+3. **NET +8.5%** — Scotiabank升级至Outperform后接近52周新高，CIO/CISO渠道调研显示SASE和边缘计算势头增强
+4. **DOCN +4.5%** — Q2预公告超预期：营收增速加速至29%（市场预期25%），RPO超$5.5亿增量（同比10倍增长至$8亿+），新增20MW承诺数据中心容量
+5. **SHOP +1.5%** — BofA恢复Buy，认为AI代理驱动交易将使支付/结账/商家基础设施价值增长
+6. **FIG +5%** — BofA恢复Buy（PT $30），AI增强而非威胁Figma竞争地位，预计FY26/FY27营收增长36%/23%
+7. **NVDA +70bps** — Cowen主持与Jensen会议，反馈极为乐观但"非常防御性"
+8. **网络安全走弱** — PANW -6%/ZS -0.6%/CRWD -2.4%；TMTB Slack讨论：网络安全正被AI"包裹化"，Mythos发现"数万"零信任漏洞或导致定价压缩
+9. **APP -3%** — Wells Fargo下调短期预期，移动游戏ROAS下降、用户获取份额稳定在45%左右
+
+## 关键个股/标的
+- NVDA — +70bps，Cowen会议显示Jensen极为乐观
+- META — +2.5%，发布Muse Image AI模型
+- NET（Cloudflare）— +8.5%，Scotiabank升级
+- DOCN（DigitalOcean）— +4.5%，Q2超预期
+- SHOP（Shopify）— +1.5%，BofA恢复Buy
+- FIG（Figma）— +5%，BofA恢复Buy
+- APP（AppLovin）— -3%，Wells Fargo下调
+- PANW — -6%，网络安全走弱
+- SPCX（SpaceX）— -7%尽管卖方积极首评
+- INTC — -10%/BE -9%/WDC -8%/TER -10%—无明显消息面的弱势股
+- GRMN（Garmin）— +1.4%，M-sci上调预期
+
+## 原文精彩摘录
+> Our base case is that we think we put in a short-term bottom in on AI semis/Momentum in the early morning, but don't think it's an all clear to go back to the narrative clean days of April/May for AI semis.
+
+> Muse Image will be available for consumers to access for messages and Instagram Stories. Power users and creators must sign up for one of Meta's new monthly subscription plans that debuted in May to create many AI-generated images and access certain features.
+
+> Met with $PANW sales guy who said Mythos found "tens of thousands" of zero trusts and so going forward its going to be cheaper for clients to get cheaper modules from others instead of paying 10x higher prices to CRWD / PANW.

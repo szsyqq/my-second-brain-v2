@@ -1,0 +1,44 @@
+
+
+# 科技日报 2026-07-07 — NVDA Kyber延迟、AMD受益、网络安全新高
+
+> AI半导体市场经历Kyber NVL144延迟重大冲击：NVDA表现疲软、AMD +6.6%成为最大赢家、CRDO +10%最直接受益、AVGO +4% ASIC竞争力增强。网络安全板块创52周新高（OKTA/PANW/CRWD），Meta算力争议引发市场广泛讨论。KeyBanc CIO调查显示80%+ CIO预计AI代币使用量达标或超额。
+
+## 基本信息
+- **来源类型**：PDF（科技日报/研报）
+- **原文位置**：raw/processed/pdfs/pdf-2026-07-13-u64.md
+- **消化日期**：2026-07-16
+
+## 核心观点
+1. **NVDA Kyber延迟** — SemiAnalysis报道Kyber NVL144因PCB中间层良率问题延迟超12个月至2028年，NVL72x2背靠背机架架构也被取消，Rubin Ultra扩展域受限；NVDA仅涨37bps全天表现疲软
+2. **AMD +6.6%** — 成为Kyber延迟最大赢家，MI500"Megapod"（256 GPU封装+64 Verano CPU，2027年底）将早于四晶粒Kyber问世；Goldman预计MI450和服务器CPU需求为催化剂
+3. **CRDO +10%** — NVLink铜缆延长使用，AEC长期需求增加；ALAB +6.5%受益于CXL/Scorpio PCIe交换器和Trainium 3需求
+4. **网络安全板块** — OKTA +5%（Scotiabank升级至Buy）、PANW/CRWD创52周新高，Cowen指出AI驱动网络安全需求旺盛
+5. **Meta算力争议** — TMTB Slack深度分析：Meta不能停止AI投资（一旦示弱将被视为传统社交网络），Llama是美国唯一主流开源模型具地缘政治溢价；SemiAnalysis预计2027年资本支出"惊人地高"
+6. **KeyBanc CIO调查** — 80%+ CIO预计2026年AI代币使用量达标或超预期，75%超额使用CIO选择购买更多额度而非等待重置，显示需求缺乏弹性
+7. **DDOG** — Bernstein战术性降级后仅跌2%，预计Q4营收增速放缓至~29%（买方预期30%+）
+8. **MSFT** — Wolfe下调盈利预测和目标价，预计FY27现金流转负、毛利率走低（受内存成本上升影响）
+9. **MNDY** — Wells Fargo正面评价，全球最大合作伙伴显示2Q表现优于预期，90%新增ARR来自续约
+
+## 关键个股/标的
+- NVDA（NVIDIA）— Kyber延迟，+37bps表现疲软
+- AMD — 最大赢家+6.6%，MI500竞争力增强
+- CRDO（Credo Technology）— 最直接受益+10%
+- AVGO（Broadcom）— +4%，ASIC竞争力提升
+- ALAB（Astera Labs）— +6.5%，Trainium 3平台受益
+- ASML — +3%，Bernstein上调目标价
+- ADI — +3%，交货期延至6个月
+- OKTA — +5%，Scotiabank升级至Buy
+- PANW（Palo Alto）— 52周新高
+- CRWD（CrowdStrike）— 52周新高
+- META — 算力争议引发市场讨论
+- DDOG — -2%，Bernstein战术性降级
+- MSFT — -1%，Wolfe下调预测
+- SNDK/SK Hynix — 内存板块偏弱，SK Hynix ADR上市前
+
+## 原文精彩摘录
+> Kyber and optical NVLink were supposed to be the big moat wideners for NVDA in '27 as no one else could physically build it, so if this news is true allows AMD mi-series to seems solid heading into print and AI day on 22nd.
+
+> Over 80% of CIOs expected to meet or exceed their AI token usage in 2026 with nearly half expected to exceed it. In a power showing of demand inelasticity, 75% of those CIOs who either have or anticipate exceeding their AI credit cap will purchase more credits rather than wait for their credits to top up.
+
+> Meta isn't taking a pause on its investment in AI for two reasons...The moment it blinks, investor skepticism is confirmed, and it will be valued as an old-school social network with no AI edge and a heavy capex burden.

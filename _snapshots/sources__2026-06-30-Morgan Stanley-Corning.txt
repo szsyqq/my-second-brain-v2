@@ -1,0 +1,33 @@
+
+
+# 2026-06-30 Morgan Stanley：Corning（GLW）股价异动点评
+
+> 摩根士丹利北美电信与网络设备团队对康宁（GLW）一周 +20%、一月 +40% 异动的拆解：认可驱动逻辑，但认为涨幅"过度"，Q2 前预期过高的风险类似 Q1 前的 setup。
+
+## 基本信息
+- 来源：Morgan Stanley（Meta Marshall 等），2026-06-30
+- 类型：个股异动点评（North America Telecom & Networking Equipment）
+- 评级：Equal-weight（持平），目标价 $180；收盘价（6/26）$221.05；市值 $192.5bn；52 周区间 $230.49–$51.35
+- 原始素材：[[raw/processed/pdfs/pdf-2026-07-13-ewh.md|source_path]]
+
+## 核心观点
+1. **异动幅度过度**：GLW 一周 +20%、一月 +40%，显著跑赢基本走平的其他光模块个股（受 CPO 时点担忧拖累）；MS 认为涨幅更像空头回补，而非盈利预期上修（2030 年 EPS 已约 $10）。
+2. **四大驱动（均正面但需谨慎解读）**：
+   - 藤仓（Fujikura）上调营业利润指引（光纤量价齐升）；但 GLW 商用偏长期协议（LTA），非广谱涨价，传导需谨慎。
+   - **GlassBridge** 发布 + 韩国玻璃基板厂传闻：把光纤直连光子集成电路（PIC）的平台，贴近 CPO/NPO 所需无源光子层；对传统 FAU 厂商是潜在颠覆（高纤数难组装，GlassBridge 提供晶圆级、被动对准、可插拔替代）。
+   - NVDA 传自建长途网络（降低对超大规模云厂长途网如 Lumen 的依赖），GLW 间接受益。
+3. **风险**：Q2 财报前投资者预期过高（类似 Q1 前的 setup）；股价已高于 $180 目标价，短期性价比下降。
+
+## 关键概念
+- [[康宁(GLW)]] — 本笔记主体，光通信/玻璃龙头，AI 数据中心受益链
+- 关联：[[02_投资]]（个股研究 / AI 基础设施链）、[[NVIDIA]]（NVDA 自建长途网传言）
+
+## 原文精彩摘录
+> "degree of outsized performance is starting to feel more like short covering than truly revised higher earnings power estimates"
+
+> "GlassBridge... positions GLW closer to the passive photonics layer required for CPO and NPO architectures... a potential disruption risk for traditional FAU makers"
+
+## 相关页面
+- [[康宁(GLW)]]
+- [[02_投资]]
+- [[NVIDIA]]

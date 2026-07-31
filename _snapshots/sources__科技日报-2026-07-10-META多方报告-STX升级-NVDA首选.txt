@@ -1,0 +1,41 @@
+
+
+# 科技日报 2026-07-10 — META多方研报密集发布、STX升级、NVDA首选、SK海力士ADR配售
+
+> QQQ平盘，META续涨+3%成焦点。BofA/KB/Benchmark三机构密集发布META深度：BofA看$835、KeyBanc看$790、Benchmark维持Hold。Semianalysis称第三名竞赛在Meta与SpaceX之间展开。STX获Wells Fargo升级至Overweight（PT $1,100）。MS重申NVDA为半导体首选，强调AI需求多元化。SK海力士ADR基石配售缩至$50亿。AMZN $250亿债券发行需求疲软（仅为2.5x）。
+
+## 基本信息
+- **来源类型**：PDF（科技日报/研报）
+- **原文位置**：raw/processed/pdfs/pdf-2026-07-13-xmh.md
+- **消化日期**：2026-07-16
+
+## 核心观点
+1. **META三份卖方研报密集发布**：①BofA认为14GW目标隐含约$22B/GW的成本效率，显著优于AWS/Google Cloud的经济性，维持Buy $835；②KeyBanc上调2026/27E收入各1%至$254.6B/$308.1B，引入2028E $366.9B（高于Street 4%），PT $790 OW；③Benchmark维持Hold，认为14GW雄心缺少ROIC可预见性，增量7GW隐含$350-400B支出，不对称偏下行。Semianalysis文章断言"第三名目前在Meta和SpaceX之间，而非Google"。
+2. **STX获Wells Fargo升级**：从Equal Weight升级至Overweight，PT从$900提至$1,100；预计F4Q26业绩确认近线HDD出货增长在25-30% CAGR区间上沿，ASP持续扩张，毛利率改善至60%+；WDC目标价亦从$700提至$730。
+3. **MS重申NVDA为首选半导体**：NDR确认AI实验室、超大规模云、Neocloud、企业、主权、网络、CPU需求全面加速；AI实验室占~20%需求，传统超大规模云与企业/主权各~40%，降低单一客户依赖；重申~$200亿CPU机会；Vera Rubin路线图信心不变，存储短缺可控，全栈经济性应收窄估值差距。
+4. **SK海力士ADR配售缩量**：基石投资者（Baillie Gifford、Coatue等）获配约$50亿ADR，较意愿最高额少$20亿；订单覆盖率约7x，500+机构下单。
+5. **安全软件定价压缩隐忧浮现**：PANW销售称Mythos发现"数万个"零信任，客户可通过低价模块替代Palo/CrowdStrike；市场未充分认知AI对安全行业的"dumb pipe"化风险，OKTA相对绝缘。
+6. **Circle获OCC批准建立数字美元国家信托银行**：CRCL +13%，受OCC批准Circle National Trust利好，将提供数字资产托管服务，主要面向金融机构。
+
+## 关键个股/标的
+- [[META]] — 三研报密集覆盖：BofA Buy/$835, KB OW/$790, Benchmark Hold；14GW目标+API变现叙事
+- [[海光信息(Hygon)]] / 无 — STX (Seagate) WF升级OW/PT $1,100，HDD受益AI infra
+- [[NVIDIA]] — MS首选半导体，AI需求多元化降低依赖风险，CPU机遇$20B
+- SK Hynix — ADR发行$149，基石缩至$50亿但7x覆盖
+- SHOP — Stifel升级至Buy/PT $150，认为2026收入可增长30%+
+- EQIX — BTIG首次覆盖Buy/PT $1,210，推理迁移利好托管
+- APP — Jefferies调查显示电商AdTech加速，GenAI反馈改善
+- HOOD — Apptopia显示DAU同比8个月来首次转正
+- CRM — 未在原文但对标：KeyBanc调查显示Agentforce反馈弱
+- TWLO — Stifel升级至Buy/PT $260
+- MDB — Needham PT $430，认为AI延迟结构性问题非逻辑破坏
+- TEAM — BTIG Buy/PT $130，认为低于共识预期已priced in
+
+## 原文精彩摘录
+> "Semianalysis: 'In our view, the race for 3rd is currently between Meta and SpaceX, not Google.'"
+
+> "Wells Fargo upgraded Seagate to Overweight...expected to reinforce confidence in nearline HDD shipment growth near the high end of the 25-30% CAGR range, continued ASP expansion, improving gross margins toward 60%+"
+
+> "Morgan Stanley reiterated Nvidia as its top semiconductor pick after management meetings highlighted accelerating growth across AI labs, hyperscalers, neoclouds, enterprises, sovereigns, networking, and CPUs."
+
+> "Amazon's 'surprise' $25 billion bond sale...drew the weakest demand with orders at just 2.5x the bonds on offer, down from 3.2x in March — weakest for any hyperscaler since Meta's $30B bond sale in October 2025"

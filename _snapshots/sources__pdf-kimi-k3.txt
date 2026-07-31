@@ -1,0 +1,26 @@
+
+
+# Navigating China AI models_ New frontier from Kimi K3; from cost efficiency, intelligence to pricing power of Chinese models
+
+> Conference (WAIC) in Shanghai held today, drawing parallels of Al’s societal impact to the invention of electricity and 
+
+## 基本信息
+- 来源：本地PDF / 微信文件
+- 类型：研报/PDF
+- 抓取日期：2026-07-21
+- 投资相关性：high
+- 原始素材：[[raw/processed/pdfs/Navigating China AI models_ New frontier from Kimi K3; from cost efficiency, intelligence to pricing power of Chinese models.md|source_path]]
+
+## 核心观点
+1. Conference (WAIC) in Shanghai held today, drawing parallels of Al’s societal impact to the invention of electricity and steam engines, and in offering China’s technology infrastructure to developing nations with its continued open approach, yet cautioned on the need for human oversight/controls and risk mitigation
+2. Our key ideas/stock picks m= Within Cloud & Data Centers (our top preferred sub-sector within China Internet), we continue to highlight key ideas (Alibaba, GDS, VNET, and Kingsoft Cloud) on the back of higher Al hyperscaler capex spending into 2H 2026
+
+## 原文精彩摘录
+> "Conference (WAIC) in Shanghai held today, drawing parallels of Al’s societal impact to the invention of electricity and steam engines, and in offering China’s technology infrastructure to developing nations with its continued open approach, yet cautioned on the need for human oversight/controls and risk mitigation"
+> "Our key ideas/stock picks m= Within Cloud & Data Centers (our top preferred sub-sector within China Internet), we continue to highlight key ideas (Alibaba, GDS, VNET, and Kingsoft Cloud) on the back of higher Al hyperscaler capex spending into 2H 2026"
+> "= Multi-modal/video-generation models to see further ARR ramp-up from global adoption: We expect continued healthy industry pricing and gross margins within (at reportedly 70% gross margins, latest US$2bn ARR run-rate), Kuaishou’s (Buy) Kling and MiniMax’s (Buy) Hailuo/upcoming H3 models to enjoy healthy growth over 2H 2026 amid new functionality breakthroughs (combination of video-generation with LLM) and tight computing resources where demand significantly outpaces capacity"
+
+## 相关页面
+- [[Kimi(月之暗面)]]
+- [[智谱AI]]
+- [[02-33_AI大模型与国产模型]]

@@ -1,0 +1,32 @@
+
+
+# 0710 The Flow Show
+
+> BofA Michael Hartnett 每周资金流报告（2026-07-09/10 期）：宏观俏皮总结"no landing, no cut, no hike, no sweep, no bears"，商品领涨、比特币垫底，分散组合年化 16%。
+
+## 基本信息
+- 来源：BofA Global Research，Michael Hartnett 等，2026-07-09/10
+- 类型：周度资金流与投资策略
+- 原始素材：[[raw/processed/pdfs/pdf-2026-07-13-c1b.md|source_path]]
+
+## 核心观点
+1. **宏观基调**："No landing, no cut, no hike, no sweep, no bears"——软着陆、不降息不加息、无政策清扫、无空头，风险资产仍被持有。
+2. **YTD 排行**：商品 +42.3%、原油 +28.8%、国际股 +10.7%、SPX +9.3%、美元 +2.7%、现金 +1.9%、HY +1.7%、IG -0.5%、政府债 -2.2%、黄金 -5.0%、比特币 -28.6%。
+3. **分散制胜**：25/25/25/25（美股/美债/商品/现金）组合 YTD 年化 16%，为 2021 年来最佳——资产配置多元化在权益极度集中时仍赢。
+4. **金融条件收紧**：美 30 年实际收益率创 2008-11 以来最高，直到美联储出手压低"AI 与财富通胀"；市场回避杠杆（PSP/BDC/LQD）、投机泡沫堆积（韩国小盘科技 8 周 -36%）。只要 MAGS 守住 200 日均线（$65）且 AUDJPY 守住 110，投资者倾向回补而非撤退。
+5. **日本银行股金丝雀**：日本银行股三年涨 3 倍（JGB 收益率 0.5%→3%）；但当更高 JGB 收益率 = 更低日本银行股时，是"全球大 risk-off 的金丝雀"。
+6. **周度资金流**：股 $56.4bn（YTD 第 4 大）、现金 $39.5bn（MMF 总资产 $7.9tn 历史新高）、债 $31.3bn（IG 连续 14 周流入）、中国股票 $9.0bn 流入。Bull & Bear 指标 9.5（未极端）。
+
+## 关键概念
+- [[The Flow Show]] — 本系列报告实体
+- 关联：[[02_投资]]（情绪/仓位输入）、[[04-34_投资概率思维]]
+
+## 原文精彩摘录
+> "Only three rules to win the World Cup. Take your chances, don't make mistakes, and you need seven out of eleven players that refuse to lose. Bit like trading."
+
+> "asset allocation diversification winning despite equity concentration"
+
+## 相关页面
+- [[The Flow Show]]
+- [[02_投资]]
+- [[04-34_投资概率思维]]

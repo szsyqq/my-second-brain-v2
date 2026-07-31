@@ -1,0 +1,21 @@
+
+
+# 科技日报 2026-07-09（上）
+
+> 半导体在低开后收涨领涨，NVDA 获 Vivek 出面反驳四大看空论点；伊朗停火结束推升油价与收益率。
+
+## 市场快照
+- QQQs +28bps（盘前曾 -100bps+），Semis +2.3% 领涨（受 N&N=Neoclouds&NVDA 带动），Internet/Software -170bps；TMT 动量 +5%。
+- 宏观：Oil +4%（伊朗停火结束），收益率 +2-3bps，市场计入 2H 35bps 加息。
+
+## 核心新闻
+1. **NVDA +3.6% 获辩护**：Vivek 反驳四大看空论点——HBM 驱动的利润率压力、ASIC 竞争、拥挤持仓、供应商融资；称其相对 AMZN/META/GOOGL/MSFT/AAPL 有约 30-35% P/E 折价（CY27/28E 22x/19x），隐含 EPS 下调 30-35% 不合理；Blackwell→Rubin 毛利率仅降 $0.2-0.3M，对比机架涨价 $2-3M。
+2. **个股动量**：ANET +8.8%、CRWV +7.7%、SMCI +7.3%、SNDK +6.8%、AVGO +4.8%、NVDA +3.6%。
+
+## 关键概念
+- 英伟达估值与四大看空论点（HBM 利润率/ASIC/持仓/融资）
+- 提及：NVDA、ANET、CRWV、SMCI、SNDK、AVGO
+
+## 相关页面
+- [[02_投资]]
+- [[NVIDIA]]

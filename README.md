@@ -1,53 +1,64 @@
-# 第二大脑 v2（my-second-brain-v2）
+# 第二大脑 v2（my-second-brain-v2）· K神 schema 对齐版
 
-本地优先（local-first）的个人知识库。架构与 v1 的根本区别：**内容/版本/更新信息全部在本地 Obsidian 维护，GitHub 只承载构建产物（纯静态托管）**。
+本地优先（local-first）的 **Obsidian 知识库**，结构遵循 K神 `.wiki-schema` 规范。
+
+## 定位
+
+- **主库**：本地 Obsidian 库（本目录）。用 Obsidian 打开即可浏览、编辑、看图谱。
+- **规范**：`.wiki-schema.md` + `.wiki-schema/modules/`（base / ingest / workflow / investment / travel / aliases / query / lint / relationships / template）。schema 是「活的」——发现更好的结构就回写模块文件。
+- **备用镜像**：`deploy-wiki/`（CloudStudio 沙箱），由 `/gx` 构建并同步，只读备份。
+- **GitHub Pages**：**不再主动更新**。旧管线（`convert.py` / `deploy.sh` / `output/` / `viewer/`）已归档至 `_legacy/`，请勿调用。
 
 ## 三层结构
 
 | 层 | 位置 | 说明 |
 |---|---|---|
-| 数据库（真相源） | `vault/` | Obsidian 管理的 Markdown，本地 git 版本化。**不进 GitHub 仓库**（被 .gitignore），不在此作为数据库维护 |
-| 中间件 | `scripts/convert.py` | 读 `vault/` → 产出 JSON 契约（`output/wiki-bundle.json` 瘦包 + `output/wiki-content.json` 内容包）。复用 frontmatter / `[[wikilink]]` / graph / tree / 更新记录解析 |
-| 可视化 | `viewer/` | `index.html` + `app.js` + `style.css` + `vendor/`。只渲染 JSON，不碰内容细节 |
+| 真相源（Obsidian 库） | `wiki/` | 实体 / 主题 / 素材 / 对比 / 综合 / 趣味发现 / 更新记录。Obsidian 直接编辑。 |
+| 原始素材 | `raw/inbox/` → `raw/processed/` | `/sl` 收录进 inbox；`/gx` 消化后移至 processed。 |
+| 构建 | `scripts/bundle_wiki.py` → `build_knowledge_base.py` | 读 `wiki/` → 产出 `知识库.html` + `wiki-bundle.json`，并写入 `deploy-wiki/`。 |
+| 质检 | `scripts/lint_wiki.py` | 页面计数、wikilink 解析、孤儿页检测。 |
 
-## 历史跟踪模型（v2 改进点）
+## 自下而上的建库原则
 
-- **子页面历史**：`vault/` 是本地 git 仓库 → `git log/show/diff` 派生真实版本快照（无上限）。middleware 预渲染最近 3 版的 `{version, sha, date, msg, content, segments}` 进 `wiki-content.json`，部署物为纯静态，查看时无需 git。
-- **更新徽标（新增/更新）**：基于本地 `_buildstate.json` 缓存（编辑即标记，无论是否提交），重构建时比对，填入 `diff_data` / `update_severity`。
-- **整体更新记录**：`vault/更新记录/*.md` 是人工撰写的 release note，middleware 解析为 `update_records`，与子页面历史同源（都来自本地 vault）。
+知识从「底」建起，再向上聚合：
+
+```
+个券 / 素材  ──→  行业  ──→  宏观
+（wiki/sources, entities）   （行业页聚合）   （宏观枢纽页）
+```
+
+- `/sl`：只收录，落 `raw/inbox/`，不消化。
+- `/gx`：自下而上消化 inbox —— 先生成素材摘要页与个券页，再回写父行业页（关联动态 + 信息流），最后才更新宏观枢纽页。宏观页不得无底层信号支撑而改写。
 
 ## 本地工作流
 
 ```bash
-# 1) 在 vault/ 用 Obsidian 编辑内容（可选：提交到本地 git 以获得历史版本）
-cd vault && git add -A && git commit -m "..."
+# 收录（URL / PDF / 图片 / 文本）
+/sl <链接或路径>
 
-# 2) 转换 + 构建静态站
-python3 scripts/convert.py
-# 产物在 output/ ：index.html + app.js + style.css + vendor/ + wiki-bundle.json + wiki-content.json
+# 更新（消化 inbox，生成/更新 wiki 页面，构建并同步备用镜像）
+/gx
 
-# 3) 本地预览
-cd output && python3 -m http.server 8753
-
-# 4) 部署到 GitHub Pages（仅 output/）
-# 将 output/ 内容推到 gh-pages 分支即可
+# 检查（断链 / 乱码 / 结构合规，只读）
+/jc
 ```
+
+详细流程见 `_workflow/`：
+- `sl-收录流程.md`
+- `gx-更新流程.md`（含自下而上聚合规则）
+- `jc-检查流程.md`
+- `更新历史编写规范.md`（更新记录格式）
 
 ## 部署说明
 
-- `main` 分支：仅应用代码（`scripts/` + `viewer/`）。
-- `gh-pages` 分支：仅构建产物（`output/` 内容）。GitHub Pages 作为静态 CDN，不持有可编辑数据库。
-- 框架改动只改 `viewer/`，秒级重建；内容改动只跑 `convert.py`，页面框架纹丝不动 → 显示天然一致，不再整页重建。
+- 本地 Obsidian 为主，无需部署即可用。
+- 如需在线只读备份：`/gx` 末尾会自动构建并 `workbuddy_cloudstudio_deploy deploy-wiki/`（CloudStudio 沙箱）。
+- GitHub Pages 已停用；旧 `gh-pages` 站点不再更新。
 
-## 一键部署（推荐）
+## 版本管理
 
-日常更新只需两条命令，完整说明见 [DEPLOY.md](DEPLOY.md)：
+- `.gitignore` 忽略 `wiki/`、`raw/`、`deploy-wiki/`（本地内容不进 GitHub 仓库）。
+- 仓库仅跟踪「系统」：`scripts/`、`_workflow/`、`_sys/schema/`、`.wiki-schema*`、`README.md`、`DEPLOY.md`、`index.md`、`purpose.md`、`log.md`。
+- 内容备份 = CloudStudio `deploy-wiki/`（构建产物），非 git。
 
-```bash
-cd vault && git add -A && git commit -m "更新说明"   # 1) 提交内容版本（历史跟踪依赖 vault 的 git 历史）
-./deploy.sh "更新说明"                                # 2) 构建 output/ 并强制推 gh-pages
-```
-
-`deploy.sh` 自动完成：定位 python3 → 运行 `convert.py` → 复制 `output/` 到临时 git 仓（加 `.nojekyll`）→ `GIT_HTTP_VERSION=1` 推 `gh-pages`。若未给执行权限，用 `bash deploy.sh "说明"` 运行。
-
-> v2 是主知识库：`/sl`（收录）与 `/gx`（更新）已切换至本仓库（见 `_workflow/sl-收录流程.md` 与 `_workflow/gx-更新流程.md`）。旧版 `../小红书收藏/wiki/`（CloudStudio 沙箱）自 2026-07-31 起冻结，不再更新。
+> v2 为主知识库：`/sl`、`/gx`、`/jc` 均指向本仓库。旧版 `../小红书收藏/wiki/`（CloudStudio 沙箱）自 2026-07-31 起冻结，不再更新。
