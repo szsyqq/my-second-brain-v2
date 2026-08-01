@@ -61,7 +61,7 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 .tree-icon{font-size:12px;flex-shrink:0}
 
 /* ---- Main content ---- */
-#main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;position:relative;transition:padding-right .3s ease}
 #content-header{padding:10px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text2);overflow:hidden}
 #breadcrumb{display:flex;gap:4px}
 #breadcrumb span{cursor:default;color:var(--text3)}
@@ -185,6 +185,8 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 .page-hist-empty{padding:10px 16px;margin:10px 16px;font-size:12px;color:var(--text3);background:var(--bg2);border:1px dashed var(--border);border-radius:8px;line-height:1.5}
 
 /* ---- Update History Drawer ---- */
+/* When a side drawer (更新历史 / Inbox) is open on desktop, shrink the reading area with a smooth padding transition. */
+#main.panel-open{padding-right:420px}
 #update-drawer{
   position:absolute;top:0;right:-420px;width:420px;height:100%;
   background:var(--bg);border-left:1px solid var(--border);
@@ -1587,14 +1589,15 @@ function toggleInboxGroup(head){
 function toggleInboxDrawer(){
   var d = document.getElementById("inbox-drawer");
   var ov = document.getElementById("inbox-overlay");
+  var m = document.getElementById("main");
   if (d.classList.contains("open")){
-    d.classList.remove("open"); ov.classList.remove("open"); return;
+    d.classList.remove("open"); ov.classList.remove("open"); if (m) m.classList.remove("panel-open"); return;
   }
   var ud = document.getElementById("update-drawer");
   if (ud && ud.classList.contains("open")) ud.classList.remove("open");
   var body = document.getElementById("inbox-drawer-body");
   if (!body.innerHTML) renderInboxDrawer();
-  d.classList.add("open"); ov.classList.add("open");
+  d.classList.add("open"); ov.classList.add("open"); if (m) m.classList.add("panel-open");
 }
 
 // --- Keyboard ---
@@ -1695,12 +1698,14 @@ function toggleUpdateDrawer() {
   if (updateDrawerOpen && updateDrawerMode === "global") {
     updateDrawerOpen = false;
     drawer.classList.remove("open");
+    var m0 = document.getElementById("main"); if (m0) m0.classList.remove("panel-open");
     return;
   }
   updateDrawerMode = "global";
   updateDrawerOpen = true;
   document.getElementById("update-hist-badge").textContent = "";
   drawer.classList.add("open");
+  var m1 = document.getElementById("main"); if (m1) m1.classList.add("panel-open");
   renderUpdateRecords();
 }
 
@@ -1709,6 +1714,7 @@ function openPageUpdateHistory() {
   updateDrawerMode = "page";
   updateDrawerOpen = true;
   document.getElementById("update-drawer").classList.add("open");
+  var m = document.getElementById("main"); if (m) m.classList.add("panel-open");
   renderPageHistory();
 }
 
@@ -1724,6 +1730,7 @@ function togglePageUpdateHistory() {
 function closeUpdateDrawer() {
   var drawer = document.getElementById("update-drawer");
   if (drawer) drawer.classList.remove("open");
+  var m = document.getElementById("main"); if (m) m.classList.remove("panel-open");
   updateDrawerOpen = false;
 }
 
