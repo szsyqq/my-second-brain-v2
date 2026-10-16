@@ -18,7 +18,7 @@
 6. **Circle获OCC批准建立数字美元国家信托银行**：CRCL +13%，受OCC批准Circle National Trust利好，将提供数字资产托管服务，主要面向金融机构。
 
 ## 关键个股/标的
-- [[META]] — 三研报密集覆盖：BofA Buy/$835, KB OW/$790, Benchmark Hold；14GW目标+API变现叙事
+- [[02-33-01_MetaPlatforms_USMETA]] — 三研报密集覆盖：BofA Buy/$835, KB OW/$790, Benchmark Hold；14GW目标+API变现叙事
 - [[海光信息(Hygon)]] / 无 — STX (Seagate) WF升级OW/PT $1,100，HDD受益AI infra
 - [[NVIDIA]] — MS首选半导体，AI需求多元化降低依赖风险，CPU机遇$20B
 - SK Hynix — ADR发行$149，基石缩至$50亿但7x覆盖

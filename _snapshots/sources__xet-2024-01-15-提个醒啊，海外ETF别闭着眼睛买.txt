@@ -1,0 +1,51 @@
+
+
+# 提个醒啊，海外ETF别闭着眼睛买（老南（圈主））
+
+> 十六号内参 / 2024-01-15 / [本地存档](raw/inbox/xiaoetong/2024-01-15_提个醒啊，海外ETF别闭着眼睛买.md)
+
+## 要点预览
+
+今天忙完到这个点了，写篇短的，最近关于日经ETF的段子比较多，比如这种：
+
+估计不少人看着就去跟着买了，毕竟大部分人都是跟涨不跟跌的。
+
+不过还是要提个醒，海外ETF因为和A股ETF的交易机制不一样，没法瞬时套利，所以会有比较大的溢价，就是你会买溢价了，类似一个1块钱的东西，你1.1买了。之前纳指ETF也有过，这次正是当红的日经ETF。
+
+## 原文
+
+今天忙完到这个点了，写篇短的，最近关于日经ETF的段子比较多，比如这种：
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/8f359clrf1cn31.png)
+
+估计不少人看着就去跟着买了，毕竟大部分人都是跟涨不跟跌的。
+
+不过还是要提个醒，海外ETF因为和A股ETF的交易机制不一样，没法瞬时套利，所以会有比较大的溢价，就是你会买溢价了，类似一个1块钱的东西，你1.1买了。之前纳指ETF也有过，这次正是当红的日经ETF。
+
+我用wind拉了下，跨境ETF的IOPV溢折率：
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/8a6lnulrf1cn4g.png)
+
+基本都在正负1.5%以内，但有几个溢价的有点多了，单独列出来：
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/oh7cytlrf1cn45.png)
+
+**你会发现，日经几个ETF溢价都不低了，尤其是最上面这个，居然溢价了13.08%，也就是今天收盘买进去的，要日经再涨13.08%，才值当前这个价，这就有点博傻了。**
+
+而且这个ETF今天的换手也有点吓人了，感觉有机构在故意炒热度，忽悠散户进场，割韭菜了，毕竟几个亿的盘子。
+
+就算你真看好日经，也别买这种高溢价的，搞不好进去就是一刀下来。而且买跨境ETF，真要看下溢价还是折价，尤其是溢价过分的，就别碰了。
+
+看到这个，想起N年前，还在券商工作时，有个客户打电话来咨询，说自己买的股票没了。这就很吓人了，赶紧后台一查，买的认沽权证，还是虚值的，就是完全不值钱，被瞎抄的。和客户解释了半天，感觉客户也似懂非懂，只说了句，我就看这个最便宜，就买了。
+
+金融市场，从来就是合法抢钱的地方啊。**对了，也别说我只提醒风险，不提示机会啊。**
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/q0oa77lrf1hs5s.png)
+
+**10月31号这篇文章，提醒有海外资金的，可以搞搞TLT，长债ETF。期间最高有20%的直接收益，这会回调了下也还有16%，相信不少人可以把内参年费赚回来了。**
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/2yn1h8lrf1hs5u.png)
+
+**其实每年这种高确定性机会并不多，逮到一次是一次。**
+
+sources: [raw/inbox/xiaoetong/2024-01-15_提个醒啊，海外ETF别闭着眼睛买.md](raw/inbox/xiaoetong/2024-01-15_提个醒啊，海外ETF别闭着眼睛买.md)

@@ -18,8 +18,8 @@
 6. **Bloom Energy连续第二天遭做空**：Crossroads报告再攻氧化钪供应链瓶颈，认为生产天花板仅1.0-1.6GW（2027），远低于Street的2.3GW；EBITDA margin或从~20%压缩至13-17%；BE发8-K反驳称库存充足。
 
 ## 关键个股/标的
-- [[META]] — +5%收涨，Muse Spark 1.1发布+14GW算力扩张，叙事改善但需广告加速验证
-- [[AVGO]] — 未直接提及但光通信和AI infra受益链
+- [[02-33-01_MetaPlatforms_USMETA]] — +5%收涨，Muse Spark 1.1发布+14GW算力扩张，叙事改善但需广告加速验证
+- [[02-33-03_Broadcom_USAVGO]] — 未直接提及但光通信和AI infra受益链
 - LITE — +11%，光通信板块领涨，Q2财报前空头回补预期
 - GLW/CIEN — +5%，CIEN TAM翻倍至$500亿（RJ）
 - SNDK/MU — 存储走强，SK海力士ADR $149定价

@@ -1,0 +1,69 @@
+
+
+# 聊AIGC如何下载以及在工作中的应用（老南（圈主））
+
+> 十六号内参 / 2024-01-22 / [本地存档](raw/inbox/xiaoetong/2024-01-22_聊AIGC如何下载以及在工作中的应用.md)
+
+## 要点预览
+
+无论是在年度视频里，还是在昨天的文章里，都提到的让大家自己和孩子，去尝试了解这些。不少朋友留言问，到底如何用。今天写下如果使用安装，以及我们了解到的最新进展，和企业实操案例。
+
+**一，下载使用**
+
+国内的大模型就不说了，大家都可以用到。我这里举例下我用的海外的两个比较著名的，chatgpt和Midjourney。
+
+## 原文
+
+无论是在年度视频里，还是在昨天的文章里，都提到的让大家自己和孩子，去尝试了解这些。不少朋友留言问，到底如何用。今天写下如果使用安装，以及我们了解到的最新进展，和企业实操案例。
+
+**一，下载使用**
+
+国内的大模型就不说了，大家都可以用到。我这里举例下我用的海外的两个比较著名的，chatgpt和Midjourney。
+
+第一步，你可以科学上网，这个如何搞定我就不说了，尺度太大了，保命要紧。
+
+第二步，就是注册。注册相对比较简单，你只要科学上网，就很容易搜到各种最新的，教你如何注册的教程。但注册过程中，你会有个障碍，要境外手机号码接受验证码，这里我推荐你个网站（[https://sms-activate.org/cn/getNumber](https://sms-activate.org/cn/getNumber)），俄罗斯人搞的，可以给你提供一个虚拟的海外任意国家的号码，用于接受注册号。我就是用这个，当时弄了个英国的手机号注册。即
+
+第三步，其实到这里，上面两个ai，你就可以使用了，但只能用免费的低配版，日常用用问题不大，但如果要生产力工具，就要解决付费问题了。Midjourney比较简单，现在已经支持银联卡了，所以放心充值，一年2000多，如果你是搞设计、绘画的，会迅速爱上这个。
+
+Chatgpt充值则比较麻烦，目前我们验证下来两个办法，最简单的是你找个美国的朋友，用他的银行卡给你充值就好，我就这么干的。比较复杂的办法，绕个巨大的弯子，先注册的苹果的美区app store账号（网上有详细教程），然后可以用国内账号给app store购买虚拟充值卡，然后再用这个虚拟充值卡给chatgpt充值，规避其对中国银行卡的禁止。
+
+按照这个思路，相信动手能力很强的你，一定能搞定。至于如何使用，各位搜索就好，有个细节，就是promote，也就是传说中的密码，各种ai都有自己的promote，大家用关键词去搜索就好，会有很多惊喜。
+
+**二、最新进展**
+
+海外其实有很多大模型在跑，你如果有兴趣可以搜索下，而且有不少专业的垂直版本，协助完成各种工作。而且进化速度非常快，如Midjourney出的图，已经逼真的可怕，这是一个朋友出的图，细节惊人：
+
+![image/jpeg](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/81zddwlrp1hj4p.jpeg)
+
+这是我网上看到的，以假乱真了：
+
+![image/jpeg](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/pf6ibdlrp1hj4z.jpeg)
+
+另，**最近最大的一个变化，就是chatgpt推出了商城，可以购买下载用chatgpt为底层的各种大模型应用，有的app store的感觉了，这步商业化相当厉害。**
+
+![image/jpeg](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/hfljqblrp1hj5i.jpeg)
+
+最后也提下应用，最近也和不少一线使用这些的客人深度聊了下，为了不涉及隐私，我会说的比较含糊，大家理解。一个客户，23年营收几乎翻番，我问去年市场这么差，为啥能这么猛，他说因为全公司深度用chatgpt了，人员效率大幅度提高，成本也降低了。如以前出图要外包，一套3w起，现在ai出图分分钟。包括数据分析，文案书写等，都是秒级的。他说业内一个只有他三分之一人力的团队，靠AI实现全自动化，几十人实现3个小目标的产值。
+
+**所以啊，还没用AIGC的老板，还不会用AIGC的员工，真要抓紧。我们不是被AIGC淘汰，而是用AIGC的人淘汰。最后提下市场，今天又是刺激的一天，跌成这样，和经济好坏已经没啥关系了，完全是情绪了，为啥这么说，给你们看一组数据。几乎所有的宽指，有史以来的PB也就是市净率，历史分位数，当前全部是0，也就是这些指数的每股净资产，有史以来从来没这么低过。**
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/7xi3aglrp1uhf6.png)
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/dao14plrp1unzi.png)
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/e5f4w6lrp1utld.png)
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/89zcmxlrp1v080.png)
+
+![image/png](https://wechatapppro-1252524126.file.myqcloud.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/odgcuglrp1hycw.png)
+
+**今天这种跌法还有近8000亿的量，说明恐慌盘还在割肉，情绪还在继续发泄。市场底，就是这么残酷的杀出带血的筹码。
+
+**
+
+霍华德·马克斯在《周期》255页的一段文字作为结束：
+
+雷曼兄弟2008年9月15日申请破产，此后不久我和布鲁斯·卡什分析得出以下结论：没有人知道这场金融机构大崩溃还会走多远，但是消极负面的态度肯定会疯狂蔓延，有很大可能已经过度了，资产便宜得简直不可思议。我们俩从战略层面进行思考后，下定决心买入。如果整个金融世界都崩溃了，不管我们买还是不买，结果都是一样的。但是如果世界没有崩溃，而我们却没有买，那么我们就不配做资产管理这个工作了。身为基金管理人，该买的时候买有买，就是不称职。
+
+sources: [raw/inbox/xiaoetong/2024-01-22_聊AIGC如何下载以及在工作中的应用.md](raw/inbox/xiaoetong/2024-01-22_聊AIGC如何下载以及在工作中的应用.md)

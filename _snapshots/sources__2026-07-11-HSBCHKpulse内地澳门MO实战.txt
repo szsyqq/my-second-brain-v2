@@ -62,7 +62,7 @@
 
 - [[HSBC Pulse信用卡]
 - [[云闪付]]
-- [[ApplePay]]
+- [[2026-07-17-汇丰Pulse添加ApplePay]]
 
 ## 与其他素材的关联
 

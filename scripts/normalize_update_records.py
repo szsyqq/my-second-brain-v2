@@ -9,7 +9,7 @@ normalize_update_records.py
 import re, pathlib, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-UDIR = ROOT / "vault" / "更新记录"
+UDIR = ROOT / "wiki" / "更新记录"
 
 IMP_MAP = {  # 旧值 -> 1-5 整数串
     "normal": "2", "low": "1", "medium": "3", "high": "4",

@@ -1,0 +1,184 @@
+
+
+# 最近几个有意思的数据（老南（圈主））
+
+> 十六号内参 / 2025-11-12 / [本地存档](raw/inbox/xiaoetong/2025-11-12_最近几个有意思的数据.md)
+
+## 要点预览
+
+这两天没啥特别的大事，毕竟也快年底了，各家券商2026策略会也都陆续开始了，我这里也在一家家的报告看下来，准备年底视频了。市场就还是震荡为主，前两天提的消费，冲一把就没量了。
+
+这两天看到一些有意思的报告、数据、新闻，和大家聊聊。
+
+一个是汇丰出了个报告，提到个有意思的问题，也是我们最近咨询中遇到比较多的，就是明明感觉经济不好，为啥A股还挺好的。下面这个数据显示，**大家经济体感和A股涨幅的背离，在于A股结构（科技+先进制造业导向）与GDP构成的差异** ：
+
+## 原文
+
+这两天没啥特别的大事，毕竟也快年底了，各家券商2026策略会也都陆续开始了，我这里也在一家家的报告看下来，准备年底视频了。市场就还是震荡为主，前两天提的消费，冲一把就没量了。
+
+这两天看到一些有意思的报告、数据、新闻，和大家聊聊。
+
+一个是汇丰出了个报告，提到个有意思的问题，也是我们最近咨询中遇到比较多的，就是明明感觉经济不好，为啥A股还挺好的。下面这个数据显示，**大家经济体感和A股涨幅的背离，在于A股结构（科技+先进制造业导向）与GDP构成的差异** ：
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/h3wil5mhvuqeok.png)
+
+比如房地产，在GDP里占比6.1%，但目前在A股市值里占比仅1.1%。而工业类，GDP里占比30%，而A股里占比50%。信息技术则是从5%直接飙到了20%。也因此，大家觉得经济不好，但股票没那么差，就是这个原因。
+
+另一个，也是我们之前在内参提到，Ai折旧的问题，这几天，美国那也不少人在公开质疑这事了，大空头那哥们发了X：
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/0eilxbmhvuqeoz.png)
+
+22、23年以来，美股各科技巨头，主动拉长了折旧年限，20年时候还普遍3年为主，5年比较少，如今已经是6年为主，5年都算是最短的了。按照大空头这哥们的测算，这将在26-28年低估折旧额1760亿美元，到28年，甲骨文将高估收益26.9%，META将高估20.8%。然后这哥们还卖了个关子，说还有更坏的，相关细节将于11月25日公布。我就比较好奇，还有啥，等2周呗。
+
+其实折旧这事各巨头也不避讳，META在公告里就很直白的说：2025年1月，我们对财产和设备的使用寿命进行了评估，这导致大多数服务器和网络资产的估计使用寿命延长至5.5年，该变化自2025年1月1日起生效。基于截至2024年12月31日投入使用的这些服务器和网络资产，这一估计变化带来的财务影响包括折旧费用减少22.9亿美元，以及净收益增加19.6亿美元，即2025年9月30日终了九个月期间每股摊薄收益增加0.76美元。
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/0lmumnmhvuqep2.png)
+
+你看，所以说财报都是会计学的艺术，可以合规合法的优化。但无论如何，最终还是看Ai带来的营收如何。
+
+写到这里，估计大家会想起来，年初老南提过自己要训练Ai的事，后来也是放弃了，一是模型进展太快，花了成本下去搞不好一年后更低的成本直接被秒了，目前国内的Deepseek，Qwen还有最近刚更新的KIMI，就是胜在更低的成本。二是我的需求当前Ai满足不了，就是对私募月报里非结构化图表数据的识别，正确率并不高。这对金融分析而言是致命的。我自己也问了北京的顶尖Ai团队，人家说你别看大厂，人家也都是外包给数据黑工，大量人工识别的。所以这事也只能等等了。但边上有不少客人，通过Ai编程、Ai电商运营，还是真大幅度提高了工作效率。
+
+最后，是我在知乎上刷到的一篇文章，也推荐大家看，从不同的角度来看Ai。但也特别提下，他这个观点有个问题，即他的需求非长期固定需求，没去训练专用模型，所以只能依靠大厂模型，但类似他这种的需求，也的确是存在的。
+
+**[chenqin](https://www.zhihu.com/people/chenqin)** ：
+
+看到[Kimi K2 Thinking](https://zhida.zhihu.com/search?content_id=755699570&content_type=Answer&match_order=1&q=Kimi+K2+Thinking&zhida_source=entity)发布时，看到它在某些分数上超过了[gpt-5](https://zhida.zhihu.com/search?content_id=755699570&content_type=Answer&match_order=1&q=gpt-5&zhida_source=entity)，还是很兴奋的，毕竟大量需要调用大模型的工作流程又有了一个选项。
+
+最近在工作流程中，我们又有了新的一项需求，是这样的：
+
+我们有上亿条招聘数据，每一条都包括这样的内容：
+
+"job_title": "[自动化工程师](https://zhida.zhihu.com/search?content_id=755699570&content_type=Answer&match_order=1&q=%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E7%A8%8B%E5%B8%88&zhida_source=entity)", "job_descriptions": "工作内容：1、自动化工装治具的设计、制作、调试和维护；2、自动化测试程序的开发、调试和维护；3、工装治具的操作指导书等规范文档的编制；4、上级交付的其它工作任务。任职要求：1、大专或以上学历；（通信电子及电气自动化类应届生均可以考虑）2、熟练使用各种仪器，万用表、示波器、耐压仪、功率分析仪、电子负载等；3、有自动化工装治具设计、维护经验和有电源单板、整机测试、维修等经验的优先考虑；4、工作积极有责任心，有良好的团队合作精神及沟通能力。福利待遇:1.五险一金，员工旅游；2.除单月绩效奖金外，另年终奖金较丰厚；3.部门聚餐和户外拓展；4.免费提供住宿，空调热水器齐全；5.其它节假日福利等。公司优势：1.公司所处行业与资质---属[新能源行业](https://zhida.zhihu.com/search?content_id=755699570&content_type=Answer&match_order=1&q=%E6%96%B0%E8%83%BD%E6%BA%90%E8%A1%8C%E4%B8%9A&zhida_source=entity)，盈利能力强，发展前景广阔，公司已获得“国家高新技术企业”认定、国家知识产权体系认证、[ISO9001：2015质量体系认证](https://zhida.zhihu.com/search?content_id=755699570&content_type=Answer&match_order=1&q=ISO9001%EF%BC%9A2015%E8%B4%A8%E9%87%8F%E4%BD%93%E7%B3%BB%E8%AE%A4%E8%AF%81&zhida_source=entity)等；2.核心研发团队---主要来自世界500强之一的[艾默生emerson](https://zhida.zhihu.com/search?content_id=755699570&content_type=Answer&match_order=1&q=%E8%89%BE%E9%BB%98%E7%94%9Femerson&zhida_source=entity)和[挪威eltek](https://zhida.zhihu.com/search?content_id=755699570&content_type=Answer&match_order=1&q=%E6%8C%AA%E5%A8%81eltek&zhida_source=entity)等电源龙头企业明星团队；3.技术优势---公司是目前业界（新能源汽车充电桩行业）量产中功率密度最大的充电模块，技术领先优势明显；4.销售市场开发---除与国内业界知名企业或上市公司保持紧密合作外，目前产品远销东南亚、欧洲、美洲、北美等国际市场！同时，公司与该领域的大学院校以及全球电力电子巨头企业保持广泛的技术交流与合作。 职位福利：五险一金、包住、带薪年假、绩效奖金、员工旅游、年终奖金"
+
+我需要从这样的非结构化工作职位描述中提取大量信息变成结构化的字段，主要包括
+
+1，具体包括哪些任务？将动宾结构拆散，一条一条列出来。
+
+2，对个人特征有什么要求？需要什么能力？年龄性别是否有限制？
+
+3，是否对专业、学历和经验等指标有要求？
+
+4，是否是初级职位？是否是管理职位？福利待遇是什么样的？
+
+……
+
+对此，不同的模型可能会返回完全不同的结果。
+
+比如这是某一条模型的回复：
+
+{\n \"job_core\": {\n \"primary_title\": \"自动化工程师\",\n \"alias_titles\": [],\n \"industry\": \"新能源\",\n \"job_family\": \"电气自动化\",\n \"mission_statement\": null\n },\n \"work_arrangement\": {\n \"locations\": [],\n \"work_mode\": null,\n \"schedule\": null,\n \"work_hours_note\": null,\n \"travel_frequency\": null\n },\n \"seniority_profile\": {\n \"seniority_band\": \"entry\",\n \"is_entry_level\": true,\n \"is_middle_management\": false,\n \"seniority_evidence\": \"通信电子及电气自动化类应届生均可以考虑；有自动化工装治具设计、维护经验和有电源单板、整机测试、维修等经验的优先考虑\"\n },\n \"management_profile\": {\n \"role_track\": \"individual_contributor\",\n \"managerial_level\": \"none\",\n \"direct_reports_min\": null,\n \"direct_reports_max\": null,\n \"management_responsibilities\": []\n },\n \"qualification\": {\n \"education\": {\n \"degree\": \"associate\",\n \"major\": \"通信电子及电气自动化类\"\n },\n \"experience_years_min\": null,\n \"experience_years_max\": null,\n \"fresh_grads_ok\": true,\n \"professional_certifications\": [],\n \"technical_keywords\": [\n \"万用表\",\n \"示波器\",\n \"耐压仪\",\n \"功率分析仪\",\n \"电子负载\",\n \"自动化工装治具\",\n \"电源单板\",\n \"整机测试\",\n \"维修\"\n ],\n \"soft_skills\": [\n \"工作积极有责任心\",\n \"良好的团队合作精神\",\n \"沟通能力\"\n ]\n },\n \"demographics\": {\n \"gender_requirement\": \"any\",\n \"gender_evidence\": \"未指定性别要求\",\n \"age_min\": null,\n \"age_max\": null,\n \"age_evidence\": null,\n \"other_constraints\": []\n },\n \"compensation\": {\n \"salary_currency\": null,\n \"salary_period\": null,\n \"cash_range\": {\n \"min\": null,\n \"max\": null\n },\n \"bonus_notes\": \"除单月绩效奖金外，另年终奖金较丰厚\",\n \"benefits\": [\n \"五险一金\",\n \"员工旅游\",\n \"部门聚餐和户外拓展\",\n \"免费提供住宿\",\n \"其它节假日福利\",\n \"包住\",\n \"带薪年假\",\n \"绩效奖金\",\n \"年终奖金\"\n ]\n },\n \"task_snapshot\": {\n \"core_tasks\": [\n \"设计自动化工装治具\",\n \"制作自动化工装治具\",\n \"调试自动化工装治具\",\n \"维护自动化工装治具\",\n \"开发自动化测试程序\",\n \"调试自动化测试程序\",\n \"维护自动化测试程序\",\n \"编制工装治具的操作指导书等规范文档\",\n \"完成上级交付的其它工作任务\"\n ]\n }}"
+
+这是另一条模型的回复：
+
+{\n \"job_core\": {\n \"primary_title\": \"自动化工程师\",\n \"alias_titles\": [],\n \"industry\": \"新能源行业\",\n \"job_family\": \"自动化\",\n \"mission_statement\": \"负责自动化工装治具及测试程序的设计、开发、调试与维护，提升生产线的自动化水平。\"\n },\n \"work_arrangement\": {\n \"locations\": [],\n \"work_mode\": null,\n \"schedule\": null,\n \"work_hours_note\": null,\n \"travel_frequency\": null\n },\n \"seniority_profile\": {\n \"seniority_band\": \"entry\",\n \"is_entry_level\": true,\n \"is_middle_management\": null,\n \"seniority_evidence\": \"应届生可考虑，欢迎初级/新人，无工作经验要求\"\n },\n \"management_profile\": {\n \"role_track\": \"individual_contributor\",\n \"managerial_level\": \"none\",\n \"direct_reports_min\": null,\n \"direct_reports_max\": null,\n \"management_responsibilities\": []\n },\n \"qualification\": {\n \"education\": {\n \"degree\": \"associate\",\n \"major\": null\n },\n \"experience_years_min\": 0,\n \"experience_years_max\": null,\n \"fresh_grads_ok\": true,\n \"professional_certifications\": [],\n \"technical_keywords\": [\n \"自动化\",\n \"工装治具设计\",\n \"测试程序开发\",\n \"万用表\",\n \"示波器\",\n \"耐压仪\",\n \"功率分析仪\",\n \"电子负载\",\n \"电源单板\",\n \"整机测试\",\n \"维修\"\n ],\n \"soft_skills\": [\n \"团队合作\",\n \"沟通能力\",\n \"积极主动\",\n \"责任心\"\n ]\n },\n \"demographics\": {\n \"gender_requirement\": \"any\",\n \"gender_evidence\": \"男女不限（无性别限制）\",\n \"age_min\": null,\n \"age_max\": null,\n \"age_evidence\": \"无年龄限制\",\n \"other_constraints\": []\n },\n \"compensation\": {\n \"salary_currency\": null,\n \"salary_period\": null,\n \"cash_range\": {\n \"min\": null,\n \"max\": null\n },\n \"bonus_notes\": \"单月绩效奖金，年终奖金\",\n \"benefits\": [\n \"五险一金\",\n \"免费住宿\",\n \"员工旅游\",\n \"绩效奖金\",\n \"年终奖金\",\n \"部门聚餐和户外拓展\",\n \"其他节假日福利\"\n ]\n },\n \"task_snapshot\": {\n \"core_tasks\": [\n \"设计并制作自动化工装治具\",\n \"调试并维护自动化工装治具\",\n \"开发、调试并维护自动化测试程序\",\n \"编写工装治具操作指导书及相关规范文档\",\n \"完成上级交付的其他任务\"\n ],\n \"performance_metrics\": [\n \"按期完成工装治具设计、制作和调试任务\",\n \"自动化测试程序的稳定性与可靠性提升\",\n \"工装治具文档的完整性和规范化\",\n \"设备故障率下降、维护响应时间缩短\",\n \"上级交付任务的完成率\"\n ]\n }}"
+
+从这两条模型的回复对比可以看到，模型1的回复明显好于模型2，主要有几点：
+
+1，是不是管理岗位？第一个模型判断不是，第二个模型认为无法判断。显然这个工作不是管理岗位。
+
+2，有没有专业需求？第一个模型识别出了“通信电子及电气自动化类”，第二个模型没有识别出来。
+
+3，在具体任务识别中，为了后续的bert流程，第一个模型成功按照要求，把动宾短语拆散，比如“自动化测试程序的开发、调试和维护”，应该分成三项，即开发自动化测试程序、调试自动化测试程序、维护自动化测试程序，第二个模型没有按照要求分开。
+
+可以看到，这个流程虽然不难，但是要达到完整和准确，要求不低。我们会在这个流程中后续投入2万美元左右，是一项比较大的投资。
+
+那么，**这2万美元的标的，应该支付给哪一个模型** ？
+
+需要有一个详细的测评过程。
+
+比如之前用知识库的实体抽取工作评估了不同模型的表现后，对比了deepseek和gpt-5-mini，最后使用了gpt-5-mini。
+
+[![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/7ocud2mhvuqep2.png)deepseek r1发布后的十个月，中美AI大模型之间的差距为什么拉大了（个人使用感觉）？1014 赞同 · 137 评论 ](https://www.zhihu.com/question/1959576625730543794/answer/1960926977759371721)回答
+
+在这个工作中，我们也做了一项类似的测试。
+
+1，测试模型包括六个，分别是——
+
+来自Grok的[grok-4-fast-reasoning](https://zhida.zhihu.com/search?content_id=755699570&content_type=Answer&match_order=1&q=grok-4-fast-reasoning&zhida_source=entity)
+
+来自Openai的gpt-5-mini和gpt-5-nano
+
+来自Google的[gemini-2.5-flash](https://zhida.zhihu.com/search?content_id=755699570&content_type=Answer&match_order=1&q=gemini-2.5-flash&zhida_source=entity)-preview-09-2025
+
+来自Deepseek的deepseek-v3.2-exp
+
+来自Kimi的kimi-k2-thinking
+
+这里的每一个模型的输出单价都在20元人民币/百万token以内，属于相对低价模型，也是对这种需要数百亿token的大型输出的任务的较为经济的选项。
+
+2，每一个模型使用同样的提示词，对同样的200条职业描述进行结构化信息抽取，然后对每个模型的运行情况进行评估。
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/8noo5dmhvuqeoy.png)
+
+上图显示了四个指标，列出了完成时间、总金额、每秒token输出速度和思考占比。
+
+思考占比代表了两方面内容：1，思考token吐了多久以后才能看到第一个回答token；2，同样的成本，有多少是在更有获得感的回答上还是前期推理上。这项指标最好的是gemini-2.5-flash，整个输出里面不到40%的内容是思考，最差的是kimi，输出中超过一半的内容是思考，和deepseek难兄难弟。**这个指标虽然不在榜单中，但在模型需要商用时，对用户体验的影响是比较大的** 。在我交付的知识库项目中，用户宁愿使用gpt-oss-120b，也不愿意使用deepseek，因为前者只需要思考几秒就可以突出大量内容，而deepseek却需要深思熟虑老半天却输出一个看起来和实际评测差别并不大的内容，用同样的时间，gpt-oss-120b用户足够追问两次，获得感远高于deepseek。
+
+在金额上，最便宜的是grok-4-fast-reasoning，200条只花了0.21美元。最贵的是kimi-k2，花了4.98美元，甚至比gpt-5-mini还贵，虽然在单价上kimi-k2是低于gpt-5-mini的，但kimi更长的思考使得它的总价更贵，是grok-4-fast-reasoning的20多倍。
+
+在速度上，最快的是grok-4-fast-reasoning，每条输出只需要6秒，最慢的是deepseek。每一条输出需要151秒。kimi每条耗时30秒，排名第三。2025年年初时，deepseek的速度虽然不快，但是其并发令人感动，可以同时运行几百个，目前这个并发已经降低到10-20条不等，单条速度也更慢了。
+
+从速度、单价和思考占比综合来看，kimi肯定不是一个好的选择，尤其是当它的价格如此昂贵时，绝不会成为大批量任务的首选项。
+
+但是，它的质量如何呢？如何评价输出的质量？我又完成了第三步——
+
+**3，用大模型评估大模型。**
+
+将每一个模型的输出去掉模型名称后，放入到一个评测集合中，让大模型评分，提示词类似这样：
+
+你是一名严格的结构化职业信息评审员。输入中包含：
+1\. 岗位名称与招聘详情（原始文本）；
+2\. 模型1~模型6对该岗位的 JSON 输出。
+请从以下两个维度为每个模型打分（0-100 整数）：
+\- completeness：是否覆盖提示中要求的全部字段，字段缺失或结构错误会扣分；
+\- correctness：字段内容是否与招聘文本一致，无凭空捏造、引用准确。
+
+为了防止大模型的注意力集中在前部或者后部，我对于模型1到模型6进行轮换，比如grok的输出在这一条是放在模型1中的，下一条就放在模型2中，再下一条放在模型3中……保证每一个模型在批卷的顺序中也是均匀分布的。
+
+**全部使用了大规模参数的模型来参与打分，中美模型各3，包括：**
+
+中国的模型，Kimi-K2-thinking、Deepseek、Qwen3-Max-thinking
+
+美国的模型，gpt-5，grok-4，gemini-2.5-pro
+
+打分的结果是这样的：
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/66ngl1mhvuqf3d.png)
+
+上面两张表格给出了完整性评分，最后按照六个评分模型的平均分来排序。
+
+在完整性上，gpt-5-mini最高，达到97.5分，第二名是grok-4-fast-reasoning，94.1，这两个模型分数最高，随后是gemini-2.5-flash，虽然排名第三，但是和前两名有较大差距，为88.1分，kimi以较小差距排名第四并领先第五名gpt-5-nano，deepseek以较大差距排名第六。
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/9d3a0nmhvuqf4i.png)
+
+上面两张表格给出了正确性评分，同样按照六个评分模型的平均分来排序。
+
+第一名是grok-4-fast-reasoning，91.1分，第二名gpt-5-mini，86.6，kimi排名第三，82.4分。四到六名分别是gemini-2.5-flash，deepseek以及gpt-5-nano。
+
+从完整性和正确性来看，kimi-k2也是低于grok-4-fast-reasoning和gpt-5-mini不少的。
+
+**最后，我们将速度、价格、正确性、完整性输出成了一个雷达图** ，并用平均排名给出了排序（由于速度的重要性能够在一定程度上被并发所抵消，比如gpt-5-mini的基础rpm（每分钟请求）就是500次，充值50美元后就能达到5000次，grok-4-fast-reasoning仅为480次，因此速度排名的权重为其他三项的30%）。
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/661bm8mhvuqf4r.png)
+
+从上图可以看到，在这项任务上，最值得推荐的是grok-4-fast-reasoning，只有完整性略低于gpt-5-mini，其他三项都是第一名；gpt-5-mini排名第二，质量较高，但速度慢，成本高；随后是gemini-2.5-flash，速度排名第二、正确性第四、完整性排名第三；kimi-k2、deepseek、gpt-5-nano分列四五六名，相互之间差距不大。
+
+**因此，在完成了完整测评（耗费50美元）后，这项2万美元的任务，最终决定交给grok-4-fast-reasoning来完成。**
+
+榜单上的分数是一回事，普通消费者的客户端使用是一回事——更别说大部分消费者都是在用免费的，而**生产流程上的选择则是完全不同的另一件事** 。
+
+现在许多国产模型，上来就去和GPT-5或者Grok-4之类的对比，去追求榜单的高分数，但在生产流程上，美国模型的守门员并不是前面用来打分的这些庞大的模型，而是gpt-5-mini、grok-4-fast-reasoning和gemini-2.5-flash。
+
+尤其是grok-4-fast-reasoning，在成本、速度、效果上，简直达到了一个恐怖的均衡，在各类对推理要求不是很高的任务上，可用性都高得惊人。而一旦推理要求比较高，就碰到了另一个守门员gpt-5-mini。
+
+所以，Kimi-K2的发布，确实将本来由deepseek承担，本已经完全落后的国产模型前沿向前推了一步。虽然仍远落后于gpt-5-mini和grok-4-fast-reasoning，但在实际效果上已经能和gemini-2.5-flash打平手了。
+
+差距的确缩小了一些，但目前的状态相比年初时deepseek-r1可完全平替openai-o1的盛况，依旧相差甚远。
+
+未来的国产模型在发布时，除了打榜拿sota之外，建议还是多考虑一些实际工作指标，比如最耗钱的这类生产流程效果到底怎么样？长得吓人还要算钱的思考有没有减少？速度变快了吗？单价乘以token总数比gpt-5-mini和grok-4-fast-reasoning更低了吗？如果这些指标上没有变化，那真的没有人会在这个模型上花钱。
+
+最后再次重复已经在多个答案说过的这句话：
+
+**大模型就是这样残酷，只有某个领域的第一名才会被使用到，第二名往后，只在榜单上可能引起欢呼，在商业使用上就是个屁。**
+
+sources: [raw/inbox/xiaoetong/2025-11-12_最近几个有意思的数据.md](raw/inbox/xiaoetong/2025-11-12_最近几个有意思的数据.md)

@@ -3,9 +3,11 @@
 
 - Inlines marked.min.js, vis.min.js, vis.min.css (vendored locally) so it works
   offline (CloudStudio deploy has no external CDN access).
-- wiki-bundle.json is NOT inlined; it's served as a separate file and loaded
-  via fetch() for async loading (avoids blocking the main thread).
-- Copies wiki-bundle.json to deploy-wiki/ alongside 知识库.html.
+- The FULL wiki-bundle.json (metadata + content + history) IS inlined into
+  知识库.html via WIKI_BUNDLE_INLINE_PLACEHOLDER, so the page is self-contained
+  and works under file:// (double-click) with no fetch()/CORS issues.
+- Also copies wiki-bundle.json (slim) + wiki-content.json to deploy-wiki/ as a
+  fallback for the online/CloudStudio static server path.
 """
 import os
 import re
@@ -58,7 +60,8 @@ if mod_dir.exists():
 
 # Skill versions: baseline dict, then override with frontmatter `version:` if present
 skill_versions = dict(SKILL_VERSIONS)
-skills_root = ROOT.parent / ".workbuddy" / "skills"
+_HOME = os.path.expanduser("~")
+skills_root = Path(_HOME) / ".workbuddy" / "skills"
 if skills_root.exists():
     for d in skills_root.iterdir():
         if d.is_dir():
@@ -79,9 +82,22 @@ _HOME = os.path.expanduser("~")
 # Bundle workflow source files into _sys/ so links resolve both locally (file://)
 # and online (CloudStudio static server). Relative links keep both working.
 _SYS = ROOT / "_sys"
+def _ensure_dir(p):
+    """mkdir -p, but skip the syscall when the directory already exists.
+
+    Sandboxed/host file brokers can raise PermissionError (instead of the
+    FileExistsError that exist_ok=True suppresses) when mkdir targets an
+    existing directory, which aborts the build. Checking first is also simply
+    cheaper and keeps the build idempotent.
+    """
+    p = Path(p)
+    if not p.exists():
+        p.mkdir(parents=True, exist_ok=True)
+    return p
+
 def _bundle_src(rel, src):
     dst = _SYS / rel
-    dst.parent.mkdir(parents=True, exist_ok=True)
+    _ensure_dir(dst.parent)
     if src.exists():
         shutil.copy2(src, dst)
         return True
@@ -177,7 +193,14 @@ tpl = tpl.replace("MARKED_PLACEHOLDER", marked_js)
 tpl = tpl.replace("VIS_CSS_PLACEHOLDER", vis_css)
 tpl = tpl.replace("VIS_JS_PLACEHOLDER", vis_js)
 tpl = tpl.replace("PURIFY_PLACEHOLDER", purify_js)
-tpl = tpl.replace("WIKI_BUNDLE_PLACEHOLDER", "")  # loaded via fetch
+# --- Inline the FULL bundle so 知识库.html is self-contained (works under file://) ---
+# The root wiki-bundle.json is the full bundle (metadata + content + history).
+# Inline it and escape "</" as "<\/" so a "</script>" in page content can't
+# prematurely terminate the inline <script> block.
+_full_bundle = json.loads(BUNDLE.read_text(encoding="utf-8"))
+_inline_json = json.dumps(_full_bundle, ensure_ascii=False).replace("</", "<\\/")
+tpl = tpl.replace("WIKI_BUNDLE_INLINE_PLACEHOLDER", _inline_json)
+tpl = tpl.replace("WIKI_BUNDLE_PLACEHOLDER", "")  # legacy no-op; bundle now inlined
 tpl = tpl.replace("VERSION_PLACEHOLDER", VERSION)
 tpl = tpl.replace("SYS_VERSIONS_PLACEHOLDER", json.dumps(SYS_VERSIONS, ensure_ascii=False))
 tpl = tpl.replace("SYS_WORKFLOW_LINKS_PLACEHOLDER", json.dumps(SYS_WORKFLOW_LINKS, ensure_ascii=False))
@@ -189,7 +212,7 @@ tpl = tpl.replace("SYS_UPDATES_PLACEHOLDER", json.dumps(SYS_UPDATES, ensure_asci
 # <script>/<style>. If a placeholder is left unreplaced or moved into the
 # visible body, the minified source would render as visible text. Abort the
 # build so this class of bug can never ship silently.
-if any(p in tpl for p in ("PURIFY_PLACEHOLDER", "MARKED_PLACEHOLDER", "VIS_JS_PLACEHOLDER", "SYS_VERSIONS_PLACEHOLDER", "SYS_WORKFLOW_LINKS_PLACEHOLDER", "SYS_WORKFLOW_CONTENT_PLACEHOLDER", "SYS_UPDATES_PLACEHOLDER")):
+if any(p in tpl for p in ("PURIFY_PLACEHOLDER", "MARKED_PLACEHOLDER", "VIS_JS_PLACEHOLDER", "SYS_VERSIONS_PLACEHOLDER", "SYS_WORKFLOW_LINKS_PLACEHOLDER", "SYS_WORKFLOW_CONTENT_PLACEHOLDER", "SYS_UPDATES_PLACEHOLDER", "WIKI_BUNDLE_INLINE_PLACEHOLDER")):
     raise SystemExit("BUILD ABORTED: a vendor placeholder was not replaced in 知识库_template.html.")
 _visible = re.sub(r"<script[\s\S]*?</script>", " ", tpl, flags=re.I)
 _visible = re.sub(r"<style[\s\S]*?</style>", " ", _visible, flags=re.I)
@@ -199,10 +222,10 @@ if "parseFromString" in _visible:
 OUT.write_text(tpl, encoding="utf-8")
 print(f"Built {OUT}  ({OUT.stat().st_size/1024/1024:.2f} MB)")
 print(f"  marked:{len(marked_js)//1024}KB  vis.js:{len(vis_js)//1024}KB  vis.css:{len(vis_css)//1024}KB")
-print(f"  bundle: served separately (wiki-bundle.json, {BUNDLE.stat().st_size/1024/1024:.2f} MB)")
+print(f"  bundle: INLINED into 知识库.html ({BUNDLE.stat().st_size/1024/1024:.2f} MB, self-contained / works under file://)")
 
 # Copy bundle JSON to deploy directory
-DEPLOY.mkdir(exist_ok=True)
+_ensure_dir(DEPLOY)
 
 # --- Strip content and history for fast initial load ---
 # Full bundle (with content/history) goes to deploy as wiki-content.json

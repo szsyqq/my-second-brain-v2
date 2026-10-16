@@ -18,8 +18,12 @@ WIKI_DIR = Path("wiki")
 SNAPSHOT_DIR = Path("_snapshots")
 HISTORY_DIR = WIKI_DIR / ".history"
 MAX_HISTORY = 3
-SNAPSHOT_DIR.mkdir(exist_ok=True)
-HISTORY_DIR.mkdir(exist_ok=True)
+# Only create when missing: some sandboxed runtimes raise EEXIST from the
+# fs broker even for mkdir(exist_ok=True), so avoid the call entirely.
+if not SNAPSHOT_DIR.exists():
+    SNAPSHOT_DIR.mkdir()
+if not HISTORY_DIR.exists():
+    HISTORY_DIR.mkdir()
 LINK_RE = re.compile(r'\[\[([^\]|#]+)(?:[|#][^\]]+)?\]\]')
 
 files = {}

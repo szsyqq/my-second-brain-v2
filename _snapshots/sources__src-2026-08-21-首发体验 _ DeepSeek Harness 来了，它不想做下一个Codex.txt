@@ -1,0 +1,31 @@
+
+
+# 首发体验 | DeepSeek Harness 来了，它不想做下一个Codex
+
+> APPSO / 2026-08-13 / [原文链接](https://mp.weixin.qq.com/s/foAKf0UU_CEtZLNpEmyqpA)
+
+## 核心观点
+
+1. **产品定位**：DeepSeek 首款 Agent 产品 Harness 不是"DeepSeek 版 Codex"，而是一套**可重组、可回放的 Agent 运行时**——把插件生命周期、Agent 能力组合、工具执行、会话日志、Web UI 接入同一内核。
+2. **一切皆插件（Everything is a plugin）**：模型、工具、策略、存储、上下文、界面都可通过插件替换/组合；内测数天即涌现约 300 个用户插件（改 UI、桌面宠物、跨会话长期记忆+自我进化等）。
+3. **Agent 预设（Preset）两级组合**：Profile 决定整个 DSH 进程如何运行（Web/Headless、装哪些 Bundle）；Preset 决定某会话 Agent 可见的工具/提示词/Skill/子 Agent/工作流，作用域按 agent → preset → global 解析；同进程可并行运行写作/编码/研究等不同 Agent。
+4. **内置四种预设**：minimal（极简，无压缩/搜索/Skill/计划）、standard（标准）、code（代码）、cordis（创造，可开发新预设/插件）；V4 Flash 用 minimal 模式评测效果更佳。
+5. **长记忆实现**：底层记忆为本地文件，通过"本地文件持久化 + 分层上下文注入 + LLM 自我整理"形成长期记忆与自我进化，而非传统向量库+RAG；定期让 LLM 回头审视工作上下文、压缩临时经验为长久知识。
+6. **模型可见 ⇔ 已记录**：保存完整事件流（turn/start、实际请求模型、系统提示词、工具定义、原始流式）；上下文压缩不删原始历史，仅用 replacement 事件改变模型"表面"所见。
+7. **Agent Loop / 统一执行内核**："先记录意图，再执行副作用"；模型可写 TypeScript 把多工具调用编排成程序，中间数据留运行环境、仅最终结果进上下文。
+8. **前端即第二棵插件树**：界面本身由 UI 插件挂载（侧边栏/对话区/输入区/设置区标准挂载位），非"固定前端+后端插件"。
+9. **实测对比**：同一 V4 Flash 模型在 Harness / Reasonix / Codex 跑同一 Three.js 任务，Harness 画面更沉浸、遵守核心玩法；说明"模型相同时，Harness 的工具/提示词/上下文组织/执行策略已足以显著改变最终产物"。
+
+## 关键概念
+
+- [[DeepSeek]] / [[DeepSeek]] / V4 Flash / V4 Pro
+- [[AI]] / [[Agent]]（智能体）/ Agent 预设（Preset）/ Profile
+- 插件化（Everything is a plugin）/ MCP / Skill / 多模型接入（Kimi/OpenAI/Anthropic/Google 等近 40 家）
+- 长期记忆 + 自我进化 / 事件流记录 / 可回放
+- Codex（对比对象）/ Pi Agent（类比 Extension 改写）
+
+## 原文摘录
+
+> "DeepSeek Harness 不是'DeepSeek 版 Codex'，它更接近一套可重组、可回放的 Agent 运行时。"
+
+> "Codex 尝试交付一个拿来即用的 Agent；DeepSeek Harness 更像一套组装 Agent 的运行时：它把更多结构暴露出来，让开发者决定 Agent 应该是谁、使用什么工具，以及如何工作。"

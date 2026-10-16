@@ -31,7 +31,17 @@
   --sidebar-w: 384px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh;overflow:hidden;display:flex}
+/* App shell height.
+   On touch devices (iOS Safari / Android Chrome) `100vh` is the LARGE viewport —
+   it includes the area behind the browser toolbars, so it is TALLER than what the
+   user can actually see. Because body is overflow:hidden the page itself never
+   scrolls, so the bottom of both scroll panes (#file-tree / #content-area) lands
+   below the visible area and can never be reached.
+   --app-h is set from JS to the real visible height (visualViewport). The
+   @supports rule below uses 100dvh for the no-JS modern case; 100vh stays as the
+   universally valid fallback so var() can never resolve to an invalid value. */
+body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh;height:var(--app-h,100vh);overflow:hidden;display:flex}
+@supports(height:100dvh){body{height:var(--app-h,100dvh)}}
 
 /* ---- Sidebar ---- */
 #sidebar{width:var(--sidebar-w);flex-shrink:0;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
@@ -53,7 +63,7 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 #tabs button{flex:1;padding:8px;border:none;background:none;cursor:pointer;color:var(--text2);font-family:var(--font);border-bottom:2px solid transparent}
 #tabs button.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 
-#file-tree{flex:1;overflow-y:auto;padding:4px 0;font-size:13px}
+#file-tree{flex:1;overflow-y:auto;padding:4px 0;font-size:13px;min-height:0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 .tree-folder,.tree-file{padding:4px 12px 4px 8px;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tree-folder:hover,.tree-file:hover{background:var(--bg3)}
 .tree-file.active{background:var(--bg3);font-weight:600;border-left:3px solid var(--accent);padding-left:5px}
@@ -67,7 +77,7 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 #breadcrumb span{cursor:default;color:var(--text3)}
 #breadcrumb .breadcrumb-link{cursor:pointer;color:var(--accent2);text-decoration:none;border-bottom:1px dashed transparent}
 #breadcrumb .breadcrumb-link:hover{color:var(--accent);border-bottom-color:var(--accent)}
-#content-area{flex-grow:1;flex-shrink:1;flex-basis:auto;overflow:auto;padding:20px 40px;max-width:1320px;margin:0 auto;overflow-wrap:break-word;word-break:break-word;min-width:0;scrollbar-gutter:stable}
+#content-area{flex-grow:1;flex-shrink:1;flex-basis:auto;overflow:auto;padding:20px 40px;max-width:1320px;margin:0 auto;overflow-wrap:break-word;word-break:break-word;min-width:0;min-height:0;scrollbar-gutter:stable;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 
 #content-area h1{font-size:22px;margin-bottom:4px;color:var(--accent)}
 /* On-page merged per-page button (本页更新 + 历史版本) next to the title */
@@ -75,6 +85,8 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 .page-title-row h1{margin-bottom:0}
 .page-rec-btn{font-size:12px;font-weight:600;color:var(--text2);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;cursor:pointer;font-family:var(--font);white-space:nowrap}
 .page-rec-btn:hover{border-color:var(--accent);color:var(--accent)}
+/* Fallback placement (pages whose markdown has no H1) — lives in the header bar */
+#content-header .page-rec-btn{margin-left:10px;flex-shrink:0}
 #content-area h2{font-size:17px;margin:24px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--bg3)}
 #content-area h3{font-size:15px;margin:16px 0 6px}
 #content-area p{line-height:1.75;margin:6px 0;font-size:14px}
@@ -156,33 +168,7 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
   margin:2px 0;
   opacity:0.55;
 }
-/* ---- Version History ---- */
-.hist-btn{
-  padding:6px 14px;border-radius:6px;border:1px solid var(--border);
-  background:var(--bg);cursor:pointer;font-size:13px;color:var(--text2);white-space:nowrap;
-}
-.hist-btn:hover{background:var(--card-bg);color:var(--text)}
-.history-item{display:flex;gap:8px;align-items:center;padding:10px 12px;margin:8px 0;border:1px solid var(--border);border-radius:8px;background:var(--bg2)}
-.history-item .hist-ver{font-weight:600;min-width:96px}
 
-/* ---- Page version comparison section (per-page update history) ---- */
-.page-hist-section{padding:0;margin:10px 16px 4px;border:1px solid var(--accent);border-radius:10px;background:var(--card-bg);overflow:hidden}
-.phs-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;user-select:none}
-.phs-title{font-size:13px;font-weight:700;color:var(--accent)}
-.phs-arrow{font-size:12px;color:var(--text3);transition:transform .2s ease}
-.phs-body{padding:0 16px 12px}
-.phs-body.phs-collapsed{display:none}
-.phs-header.phs-collapsed .phs-arrow{transform:rotate(-90deg)}
-.phs-note{font-size:11px;color:var(--text3);margin-top:3px;line-height:1.5}
-.phs-item{display:flex;gap:8px;align-items:center;padding:8px 0;border-top:1px dashed var(--border)}
-.phs-item:first-of-type{border-top:none;padding-top:0}
-.phs-ver{font-weight:600;font-size:13px;min-width:120px;color:var(--text)}
-.phs-btn{padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:var(--bg);cursor:pointer;font-size:12px;font-weight:600;color:var(--text2);white-space:nowrap}
-.phs-btn:hover{background:var(--card-bg);color:var(--text)}
-.phs-btn-main{border-color:var(--accent);color:var(--accent)}
-.phs-btn-main:hover{background:var(--accent);color:#fff}
-.phs-more{margin-top:8px;text-align:right}
-.page-hist-empty{padding:10px 16px;margin:10px 16px;font-size:12px;color:var(--text3);background:var(--bg2);border:1px dashed var(--border);border-radius:8px;line-height:1.5}
 
 /* ---- Update History Drawer ---- */
 /* When a side drawer (更新历史 / Inbox) is open on desktop, shrink the reading area with a smooth padding transition. */
@@ -205,7 +191,26 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
   color:var(--text2);padding:2px 6px;border-radius:4px;
 }
 #update-drawer-close:hover{background:var(--bg3)}
-#update-drawer-body{flex:1;overflow-y:auto;padding:8px 0}
+/* Two always-present tabs: 本页更新历史 / 全部更新历史 (single source of truth: updTab) */
+#update-drawer-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--bg2)}
+.upd-tab{flex:1;padding:9px 6px;border:none;background:none;cursor:pointer;color:var(--text2);font-family:var(--font);font-size:12px;font-weight:600;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s}
+.upd-tab:hover:not(:disabled){background:var(--bg3);color:var(--text)}
+.upd-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.upd-tab:disabled{opacity:.42;cursor:not-allowed}
+.upd-tab-n{font-size:10px;font-weight:600;color:var(--text3);margin-left:3px}
+.upd-tab.active .upd-tab-n{color:var(--accent)}
+/* Section header inside the per-page tab (本页更新记录 / 内容快照) */
+.upd-sect{padding:12px 16px 6px;font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.4px}
+.upd-sect-n{font-weight:600;color:var(--text3);margin-left:4px}
+.upd-item{padding:11px 16px;border-bottom:1px solid var(--border)}
+.upd-item-hd{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:4px}
+.upd-item-title{font-size:13px;font-weight:700;color:var(--accent);cursor:pointer}
+.upd-item-title:hover{text-decoration:underline}
+.upd-item-date{font-size:11px;color:var(--text3)}
+.upd-item-cat{font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;background:var(--bg3);color:var(--text2);white-space:nowrap}
+.upd-item-desc{font-size:12px;color:var(--text2);line-height:1.5}
+.upd-item-acts{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+#update-drawer-body{flex:1;overflow-y:auto;padding:8px 0;min-height:0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 .update-record{border-bottom:1px solid var(--border)}
 .update-record-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;cursor:pointer}
 .update-record-header:hover{background:var(--bg3)}
@@ -279,13 +284,13 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 #inbox-badge:empty{display:none}
 #inbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:90;display:none}
 #inbox-overlay.open{display:block}
-#inbox-drawer{position:fixed;top:0;right:-440px;width:420px;max-width:92vw;height:100%;background:var(--bg);border-left:1px solid var(--border);box-shadow:-6px 0 24px rgba(0,0,0,.25);z-index:91;display:flex;flex-direction:column;transition:right .3s ease;font-family:var(--font)}
+#inbox-drawer{position:fixed;top:0;right:-440px;width:420px;max-width:92vw;height:var(--app-h,100%);background:var(--bg);border-left:1px solid var(--border);box-shadow:-6px 0 24px rgba(0,0,0,.25);z-index:91;display:flex;flex-direction:column;transition:right .3s ease;font-family:var(--font);overscroll-behavior:contain}
 #inbox-drawer.open{right:0}
 #inbox-drawer-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border);background:var(--bg2);font-weight:700;color:var(--text)}
 #inbox-drawer-header .inbox-ico{width:15px;height:15px;color:var(--accent2);vertical-align:-2px;margin-right:6px}
 #inbox-drawer-close{cursor:pointer;color:var(--text3);font-size:16px;padding:0 4px}
 #inbox-drawer-close:hover{color:var(--accent)}
-#inbox-drawer-body{flex:1;overflow-y:auto;padding:10px 12px}
+#inbox-drawer-body{flex:1;overflow-y:auto;padding:10px 12px;min-height:0;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 .inbox-empty{padding:48px 20px;text-align:center;color:var(--text3);font-size:13px;line-height:1.8}
 .inbox-group{margin-bottom:10px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--bg2)}
 .inbox-group-head{display:flex;align-items:center;gap:8px;padding:9px 12px;cursor:pointer;user-select:none;background:var(--bg3)}
@@ -410,13 +415,13 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
 
 /* Mobile */
 @media(max-width:700px){
-  #sidebar{position:fixed;top:0;left:0;bottom:0;width:82%!important;max-width:320px;z-index:20;height:100%;transform:translateX(-100%);transition:transform .22s ease;display:flex;box-shadow:2px 0 12px rgba(44,36,22,0.18)}
+  #sidebar{position:fixed;top:0;left:0;bottom:0;width:82%!important;max-width:320px;z-index:20;height:var(--app-h,100%);transform:translateX(-100%);transition:transform .22s ease;display:flex;box-shadow:2px 0 12px rgba(44,36,22,0.18);overscroll-behavior:contain}
   #sidebar.open{transform:translateX(0)}
   #overlay{display:none}
   #main{width:100%;min-width:0}
   #menu-btn{display:block}
   #sidebar.open ~ #menu-btn{display:none}
-  #content-area{padding:18px 14px 40px;max-width:none;overflow:auto;overflow-wrap:break-word;word-break:break-word;scrollbar-gutter:stable}
+  #content-area{padding:18px 14px 40px;max-width:none;overflow:auto;overflow-wrap:break-word;word-break:break-word;min-height:0;scrollbar-gutter:stable;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
   #content-area table{font-size:12px}
   #content-area th,#content-area td{padding:4px 6px}
   #content-area img{max-width:100%;height:auto;display:block}
@@ -444,8 +449,6 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
   .upd-page-row{flex-wrap:wrap;gap:4px}
   .upd-page-title{white-space:normal;word-break:break-word}
   .upd-toolbar{flex-wrap:wrap}
-  .phs-item{flex-wrap:wrap;gap:4px}
-  .phs-btn{font-size:11px;padding:2px 6px}
   .ub-hd{font-size:11px;padding:6px 10px}
   .ub-it{padding:5px 10px}
   .ub-pt{white-space:normal;word-break:break-word}
@@ -569,9 +572,9 @@ body{font-family:var(--font);color:var(--text);background:var(--bg);height:100vh
       <span>❓ 更新历史</span>
       <span id="update-drawer-close" onclick="closeUpdateDrawer()">✕</span>
     </div>
-<div id="update-drawer-tabs" style="display:flex;border-bottom:1px solid var(--border);font-size:12px;background:var(--bg2)">
-      <button id="upd-tab-all" class="upd-tab active" onclick="switchUpdateTab('all')" style="flex:1;padding:8px;border:none;background:none;cursor:pointer;color:var(--text);font-family:var(--font);border-bottom:2px solid var(--accent);font-weight:600">全部</button>
-      <button id="upd-tab-strategy" class="upd-tab" onclick="switchUpdateTab('strategy')" style="flex:1;padding:8px;border:none;background:none;cursor:pointer;color:var(--text2);font-family:var(--font);border-bottom:2px solid transparent">策略</button>
+<div id="update-drawer-tabs" role="tablist">
+      <button id="upd-tab-page" class="upd-tab" role="tab" onclick="switchUpdateTab('page')" title="只看当前页面的历次更新">本页更新历史<span class="upd-tab-n" id="upd-tab-page-n"></span></button>
+      <button id="upd-tab-all" class="upd-tab active" role="tab" onclick="switchUpdateTab('all')" title="整个知识库的更新记录">全部更新历史<span class="upd-tab-n" id="upd-tab-all-n"></span></button>
     </div>
     <div id="update-drawer-body"></div>
     <div id="update-drawer-footer" style="padding:10px 16px;border-top:1px solid var(--border);background:var(--bg2)">
@@ -646,6 +649,42 @@ if (typeof Element !== "undefined" && !Element.prototype.forEach) {
 if (typeof window !== "undefined" && !window.requestAnimationFrame) {
   window.requestAnimationFrame = function(cb){ return setTimeout(cb, 16); };
 }
+
+// === Real visible viewport height (touch screens) ===
+// body{height:100vh} equals the LARGE viewport on mobile — it includes the strip
+// behind the browser toolbars, so it is taller than what the user can actually
+// see. Since body is overflow:hidden the document never scrolls, so the bottom of
+// both panes (#file-tree / #content-area) ends up below the visible area: you can
+// never scroll to the true end and the swipe just bounces. Mirror the real visible
+// height into --app-h, which body / #sidebar / #inbox-drawer consume.
+(function(){
+  var root = document.documentElement;
+  var vv = window.visualViewport;
+  var last = -1;
+  function appH(){
+    var h = 0;
+    // visualViewport.height is the true visible height when unzoomed. Skip it
+    // while pinch-zoomed (scale != 1), otherwise the whole shell would shrink
+    // with the zoom level.
+    if (vv && vv.height && (vv.scale === undefined || vv.scale === 1)) h = vv.height;
+    if (!h) h = window.innerHeight || 0;
+    if (h <= 0) return;
+    h = Math.round(h);
+    if (h === last) return;               // avoid a reflow on every scroll event
+    last = h;
+    root.style.setProperty("--app-h", h + "px");
+  }
+  appH();
+  window.addEventListener("resize", appH);
+  // iOS reports the pre-rotation size for a few frames, so re-measure afterwards.
+  window.addEventListener("orientationchange", function(){
+    appH(); setTimeout(appH, 120); setTimeout(appH, 400);
+  });
+  if (vv && vv.addEventListener) {
+    vv.addEventListener("resize", appH);
+    vv.addEventListener("scroll", appH);
+  }
+})();
 
 // === file:// protocol guard: detect local double-click (path contains #) ===
 // When the file is opened via file:// with a path containing #, the browser
@@ -745,35 +784,82 @@ function pageClickAttr(slug){
 }
 
 // Build file tree (called after data loads)
-var currentUpdateTab = 'all';
-function getStrategySlugs() {
-  var slugs = {};
-  for (var s in files) {
-    if (s.indexOf('topics/02_') === 0) { slugs[s] = true; }
-  }
-  return slugs;
+// --- Update-history tabs: single source of truth ---------------------------------
+// updTab === 'page' → 当前页面的历次更新（更新记录 + 内容快照）
+// updTab === 'all'  → 整个知识库的更新历史
+// Both tabs are always present; the page tab is disabled while no page is open.
+var updTab = 'all';
+
+function hasCurrentPage() {
+  var slug = window._currentSlug || "";
+  return !!(slug && files[slug]);
 }
-function getFilteredStrategyRecords() {
-  var slugs = getStrategySlugs();
-  return updateRecords.filter(function(rec) {
-    var pages = rec.affected_pages || [];
-    return pages.some(function(p) { return slugs[p.slug]; });
+
+// Update records that mention this page (newest first), with the per-page description
+function getPageUpdateEntries(slug) {
+  var out = [];
+  if (!slug || !updateRecords) return out;
+  for (var i = 0; i < updateRecords.length; i++) {
+    var rec = updateRecords[i], pages = rec.affected_pages || [];
+    for (var j = 0; j < pages.length; j++) {
+      if (pages[j].slug === slug) {
+        out.push({ rec: rec, desc: pages[j].description, cat: pages[j].category, level: pages[j].level });
+        break;
+      }
+    }
+  }
+  out.sort(function(a, b) {
+    var da = (a.rec.slug.match(/(\d{4}-\d{2}-\d{2})/) || ["", "0"])[1];
+    var db = (b.rec.slug.match(/(\d{4}-\d{2}-\d{2})/) || ["", "0"])[1];
+    if (da !== db) return da < db ? 1 : -1;
+    return getUpdateNum(b.rec) - getUpdateNum(a.rec);
   });
+  return out;
 }
+
+// Snapshots archived for this page (max 3), newest first
+function getPageSnapshots(slug) {
+  var info = slug && files[slug] ? files[slug] : null;
+  var hist = (info && info.history) || [];
+  return hist.slice().sort(function(a, b) { return b.version - a.version; });
+}
+
+function updateTabCounts() {
+  var slug = window._currentSlug || "";
+  var onPage = hasCurrentPage();
+  return {
+    page: onPage ? getPageUpdateEntries(slug).length : 0,
+    snaps: onPage ? getPageSnapshots(slug).length : 0,
+    all: (updateRecords || []).length
+  };
+}
+
+// Reflect updTab + availability onto the two tab buttons
+function syncUpdateTabs() {
+  var c = updateTabCounts();
+  var onPage = hasCurrentPage();
+  var tabPage = document.getElementById("upd-tab-page");
+  if (tabPage) {
+    tabPage.classList.toggle("active", updTab === "page");
+    tabPage.disabled = !onPage;
+    var np = document.getElementById("upd-tab-page-n");
+    if (np) np.textContent = onPage ? "(" + c.page + ")" : "";
+  }
+  var tabAll = document.getElementById("upd-tab-all");
+  if (tabAll) {
+    tabAll.classList.toggle("active", updTab === "all");
+    var na = document.getElementById("upd-tab-all-n");
+    if (na) na.textContent = "(" + c.all + ")";
+  }
+}
+
 function switchUpdateTab(tab) {
-  currentUpdateTab = tab;
-  var tabs = document.querySelectorAll('.upd-tab');
-  for (var i = 0; i < tabs.length; i++) {
-    tabs[i].style.borderBottomColor = 'transparent';
-    tabs[i].style.color = 'var(--text2)';
-    tabs[i].style.fontWeight = 'normal';
+  if (tab === "page" && !hasCurrentPage()) {
+    setUpdateTagStatus("请先打开一个页面，再查看它的更新历史");
+    return;
   }
-  var active = document.getElementById('upd-tab-' + tab);
-  if (active) {
-    active.style.borderBottomColor = 'var(--accent)';
-    active.style.color = 'var(--text)';
-    active.style.fontWeight = '600';
-  }
+  updTab = (tab === "page") ? "page" : "all";
+  setUpdateTagStatus("");
   renderUpdateRecords();
 }
 
@@ -885,13 +971,24 @@ setTimeout(function() {
 }, 120);
 
 showHome();
+syncUpdateTabs();   // reflect tab availability on first paint (no page open yet)
 setTimeout(function(){ try{ initGraph(); }catch(e){} }, 300);
 }
 
-// Async load wiki-bundle.json (versioned query busts CDN/browser cache on each deploy)
-fetch("wiki-bundle.json?v=" + BUILD_VERSION)
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
+// Self-contained inline bundle: replaced at build time with the FULL bundle JSON
+// (metadata + content + history). This makes 知识库.html a single self-contained
+// file that works under file:// (double-click) with no fetch/CORS issues.
+var WIKI_BUNDLE_INLINE = WIKI_BUNDLE_INLINE_PLACEHOLDER;
+// Defer init until the WHOLE <script> has executed (incl. LEVEL_META at ~L1994).
+// The inline build runs this block synchronously at parse time, but levelBadge()
+// reads LEVEL_META which is assigned LATER in this file — without deferral we hit
+// "Cannot read properties of undefined (reading '4')". The old fetch().then() path
+// ran initAll as a microtask AFTER full parse, so it never saw this; setTimeout(0)
+// replicates that ordering and is safe because this <script> sits at end of <body>.
+setTimeout(function(){
+  try {
+    var data = WIKI_BUNDLE_INLINE;
+    if (!data || !data.files) throw new Error("内联 bundle 数据为空或结构异常");
     window.wiki = data;
     window.files = data.files;
     window.tree = data.tree;
@@ -910,25 +1007,11 @@ fetch("wiki-bundle.json?v=" + BUILD_VERSION)
     var ib = document.getElementById("inbox-badge");
     if (ib) ib.textContent = window.inboxData.total ? window.inboxData.total : "";
     initAll();
-    // Load full content in background for on-demand page rendering
-    fetch("wiki-content.json")
-      .then(function(r) { return r.json(); })
-      .then(function(contentData) {
-        window._wikiContent = contentData;
-        for (var s in contentData) {
-          if (window.files[s]) {
-            window.files[s].content = contentData[s].content;
-            window.files[s].history = contentData[s].history || [];
-          }
-        }
-      })
-      .catch(function(e) {
-        console.warn("Content bundle not loaded", e);
-      });
-  })
-  .catch(function(err) {
-    document.getElementById("content-area").innerHTML = '<div style="padding:80px;text-align:center;color:red">⚠️ 加载失败: ' + err.message + '<br><small>请检查 wiki-bundle.json 是否存在</small></div>';
-  });
+  } catch(err) {
+    var ca = document.getElementById("content-area");
+    if (ca) ca.innerHTML = '<div style="padding:80px;text-align:center;color:red">⚠️ 加载失败: ' + (err && err.message ? err.message : err) + '<br><small>请确认构建已正确内联 bundle</small></div>';
+  }
+}, 0);
 
 // --- Version button: toggle "应用更新记录" page ---
 // First click opens the app update log; second click (while on that page) returns to the previous page (or home).
@@ -984,10 +1067,10 @@ function _openPageImpl(slug, hash) {
     }
     window._currentSlug = slug;
     window._currentHistory = info.history || [];
-    // Auto-pop update drawer for pages with update severity
-    if (info.update_severity) {
-      setTimeout(function() { openPageUpdateHistory(); }, 100);
-    }
+    // NOTE: the drawer used to auto-pop open for pages carrying an update_severity.
+    // That made the two entry points behave inconsistently — the page button next to
+    // the title then "closed" a drawer the user never opened. The drawer now opens
+    // ONLY on an explicit click (top 「更新历史」 / page button / home card).
 
     // Render markdown first, then SANITIZE (F-01/F-02):
     // DOMPurify strips dangerous raw HTML from notes (e.g. <img onerror>, <svg onload>)
@@ -1103,8 +1186,10 @@ function _openPageImpl(slug, hash) {
       meta += " · 更新 " + yy + "-" + mm + "-" + dd + " " + hh + ":" + mi;
     }
     document.getElementById("page-meta").textContent = meta;
-    // Insert merged per-page button next to the page title (本页更新 + 历史版本 in one)
+    // Insert the per-page entry button next to the page title (本页更新历史 + 快照 一个入口)
     insertPageRecButton();
+    // If the drawer is already open, re-render it for the newly opened page
+    refreshUpdateDrawer();
     document.getElementById("content-area").scrollTop = 0;
 
     // Scroll to anchor heading if specified in wikilink (e.g. [[index#更新记录]])
@@ -1217,38 +1302,6 @@ function toggleDiffView() {
   }
 }
 
-// --- Version History (view old versions & diff vs current) ---
-function openHistoryPanel() {
-  var hist = window._currentHistory || [];
-  if (!hist.length) return;
-  renderHistoryList();
-}
-function renderHistoryList() {
-  var hist = window._currentHistory || [];
-  if (!hist.length) return;
-  var area = document.getElementById("content-area");
-  var sorted = hist.slice().sort(function(a,b){ return b.version - a.version; }); // newest first
-  var html = '<div class="diff-banner"><span class="badge">📜 历史版本</span><button onclick="closeHistoryPanel()" class="active">返回正常视图</button></div>';
-  html += '<div class="diff-note">本页保留 ' + hist.length + ' 个历史版本（最多 3 个）。修改文件并重新构建后，旧版本会自动归档到这里。</div>';
-  sorted.forEach(function(h, idx) {
-    var n = sorted.length - idx;
-    var recency = idx === 0 ? "（最新历史）" : "";
-    html += '<div class="history-item">';
-    html += '<span class="hist-ver">版本 ' + n + '/' + sorted.length + recency + '</span>';
-    html += '<button class="hist-btn" onclick="showHistoryVersion(' + h.version + ')">👁 查看内容</button>';
-    html += '<button class="hist-btn" onclick="diffHistoryVersion(' + h.version + ')">🔍 对比当前</button>';
-    html += '</div>';
-  });
-  area.innerHTML = html;
-  window._historyView = "list";
-}
-function closeHistoryPanel() {
-  var area = document.getElementById("content-area");
-  area.innerHTML = window._originalHtml || "";
-  window._historyView = null;
-  // The saved HTML does not include the injected on-page button, so re-add it
-  insertPageRecButton();
-}
 function showHistoryVersion(v) {
   var hist = window._currentHistory || [];
   var h = null;
@@ -1396,11 +1449,11 @@ function showHome(){
   // 第 6 张卡片：最新更新概览（按次分组，按重要性排序）
   var overviewHtml = luSlug ? renderLatestUpdateOverview() : "";
   if(overviewHtml){
-    cats.push({label:"📋 近期更新", slug:luSlug, goLabel:"查看完整更新历史 →", wide:true, noCardClick:true, body:'<div class="home-overview-card-desc">'+overviewHtml+'</div>'});
+    cats.push({label:"📋 近期更新", slug:luSlug, goLabel:"查看完整更新历史 →", goClick:'onclick="event.stopPropagation();openAllUpdateHistory()"', wide:true, noCardClick:true, body:'<div class="home-overview-card-desc">'+overviewHtml+'</div>'});
   }
 
   var cards = cats.map(function(c){    var cardClick = (c.slug && !c.noCardClick) ? pageClickAttr(c.slug) : "";
-    var footerClick = c.slug ? pageClickAttr(c.slug) : "";
+    var footerClick = c.goClick ? c.goClick : (c.slug ? pageClickAttr(c.slug) : "");
     var body = c.body || ('<div class="home-card-desc">'+c.desc+'</div>');
     return '<div class="home-card'+(c.wide?' home-card-wide':'')+'" '+cardClick+'>'+
       '<div class="home-card-title">'+c.label+'</div>'+
@@ -1429,6 +1482,9 @@ function showHome(){
   removePageRecButton();
   window._currentHistory = [];
   window._currentSlug = "";
+  // No page is open now → the 本页 tab is invalid; keep an open drawer usable
+  refreshUpdateDrawer();
+  syncUpdateTabs();
   document.getElementById("content-area").scrollTop = 0;
 }
 
@@ -1667,17 +1723,9 @@ function triggerGxDigest() {
 // --- Update History Drawer ---
 // Global state
 var updateDrawerOpen = false;
-var updateDrawerMode = "global";  // "global" = whole KB; "page" = current page only
+// Which update-history tab is showing — set by updTab in the tab controller above.
+// ('page' = 本页更新历史, 'all' = 全部更新历史)
 var updateRecords = [];  // will be set after bundle loads
-
-function getFilteredRecords() {
-  // Filter: only show updates that affect the current page
-  var currentSlug = window._currentSlug || "";
-  if (!currentSlug) return updateRecords; // fallback: show all
-  return updateRecords.filter(function(rec) {
-    return (rec.affected_pages || []).some(function(p) { return p.slug === currentSlug; });
-  });
-}
 
 function getCurrentPageInfo() {
   var slug = window._currentSlug || "";
@@ -1685,46 +1733,50 @@ function getCurrentPageInfo() {
   return null;
 }
 
+// --- Drawer open/close. Both entry points funnel into openUpdateDrawer(tab) ---
+// Top-left 「更新历史」button → 全部更新历史 tab
 function toggleUpdateDrawer() {
+  closeInboxIfOpen();
+  if (updateDrawerOpen && updTab === "all") { closeUpdateDrawer(); return; }
+  openUpdateDrawer("all");
+}
+
+// Home page 「查看完整更新历史 →」 → open (never toggle) on the 全部 tab
+function openAllUpdateHistory() {
+  closeInboxIfOpen();
+  openUpdateDrawer("all");
+}
+
+// Button next to the page title → 本页更新历史 tab
+function openPageUpdateHistory() {
+  if (!hasCurrentPage()) { setUpdateTagStatus("请先打开一个页面，再查看它的更新历史"); return; }
+  openUpdateDrawer("page");
+}
+
+// Clicking the page button while already on the page tab retracts the drawer
+function togglePageUpdateHistory() {
+  if (updateDrawerOpen && updTab === "page") { closeUpdateDrawer(); return; }
+  openPageUpdateHistory();
+}
+
+function openUpdateDrawer(tab) {
+  updTab = (tab === "page" && hasCurrentPage()) ? "page" : "all";
+  updateDrawerOpen = true;
+  var badge = document.getElementById("update-hist-badge");
+  if (badge) badge.textContent = "";
+  var drawer = document.getElementById("update-drawer");
+  if (drawer) drawer.classList.add("open");
+  var m = document.getElementById("main"); if (m) m.classList.add("panel-open");
+  renderUpdateRecords();
+}
+
+function closeInboxIfOpen() {
   var idr = document.getElementById("inbox-drawer");
   if (idr && idr.classList.contains("open")) {
     idr.classList.remove("open");
     var iov = document.getElementById("inbox-overlay");
     if (iov) iov.classList.remove("open");
   }
-  var drawer = document.getElementById("update-drawer");
-  // If already showing the whole-KB view, a second click closes it.
-  // If closed, or showing the per-page view, a click opens/switches to global.
-  if (updateDrawerOpen && updateDrawerMode === "global") {
-    updateDrawerOpen = false;
-    drawer.classList.remove("open");
-    var m0 = document.getElementById("main"); if (m0) m0.classList.remove("panel-open");
-    return;
-  }
-  updateDrawerMode = "global";
-  updateDrawerOpen = true;
-  document.getElementById("update-hist-badge").textContent = "";
-  drawer.classList.add("open");
-  var m1 = document.getElementById("main"); if (m1) m1.classList.add("panel-open");
-  renderUpdateRecords();
-}
-
-// Open the drawer to show the current page's own history snapshots
-function openPageUpdateHistory() {
-  updateDrawerMode = "page";
-  updateDrawerOpen = true;
-  document.getElementById("update-drawer").classList.add("open");
-  var m = document.getElementById("main"); if (m) m.classList.add("panel-open");
-  renderPageHistory();
-}
-
-// Toggle the per-page update history: open if closed/other-mode, retract if already open in page mode
-function togglePageUpdateHistory() {
-  if (updateDrawerOpen && updateDrawerMode === "page") {
-    closeUpdateDrawer();
-    return;
-  }
-  openPageUpdateHistory();
 }
 
 function closeUpdateDrawer() {
@@ -1734,96 +1786,70 @@ function closeUpdateDrawer() {
   updateDrawerOpen = false;
 }
 
-function renderPageHistory() {
-  var body = document.getElementById("update-drawer-body");
-  var pageInfo = getCurrentPageInfo();
-  var title = pageInfo ? (pageInfo.title || window._currentSlug) : "本页";
-  var info = window._currentSlug ? files[window._currentSlug] : null;
-  var hist = (info && info.history) || [];
-  hist = hist.slice().sort(function(a, b){ return b.version - a.version; });
+// Keep an OPEN drawer in sync when the user navigates to another page —
+// otherwise it would keep showing the previous page's history.
+function refreshUpdateDrawer() {
+  if (!updateDrawerOpen) return;
+  if (updTab === "page" && !hasCurrentPage()) updTab = "all";
+  renderUpdateRecords();
+}
 
-  // Find which update records mention this page
-  var slug = window._currentSlug;
-  var pageUpdates = [];
-  if (slug && updateRecords) {
-    for (var ri = 0; ri < updateRecords.length; ri++) {
-      var rec = updateRecords[ri];
-      var pages = rec.affected_pages || [];
-      for (var pj = 0; pj < pages.length; pj++) {
-        if (pages[pj].slug === slug) {
-          pageUpdates.push({ rec: rec, desc: pages[pj].description, cat: pages[pj].category, level: pages[pj].level });
-          break;
-        }
-      }
+// --- 本页更新历史 tab body -----------------------------------------------
+// 历次更新 = 「更新记录」（哪几次改动提到了本页 + 改了什么）
+//          + 「内容快照」（本页归档的旧版本，可查看 / 对比当前）
+// NOTE: snapshots archived by bundle_wiki.py carry no timestamp (only version +
+// content), so an update record CANNOT be reliably matched to a snapshot. The
+// two are therefore listed as independent sections — never force-paired by index.
+function renderPageTab(head) {
+  var slug = window._currentSlug || "";
+  var entries = getPageUpdateEntries(slug);
+  var snaps = getPageSnapshots(slug);
+  var html = head;
+
+  if (!entries.length && !snaps.length) {
+    html += '<div id="update-drawer-empty">该页面暂无修改记录' +
+      '<br><span style="font-size:11px;color:var(--text3)">被更新记录提及、或产生内容快照后，这里会自动出现</span></div>';
+    return html;
+  }
+
+  if (entries.length) {
+    html += '<div class="upd-sect">📝 本页历次更新记录<span class="upd-sect-n">' + entries.length + ' 次</span></div>';
+    for (var i = 0; i < entries.length; i++) {
+      var pu = entries[i];
+      var recN = (pu.rec.slug.match(/第(\d+)次/) || ["", ""])[1];
+      var recDate = (pu.rec.slug.match(/(\d{4}-\d{2}-\d{2})/) || ["", ""])[1];
+      var recTitle = pu.rec.title || (recN ? "第" + recN + "次更新" : "更新");
+      var catLabel = { "new": "新增", "updated": "更新", "viewpoint": "观点改变" }[pu.cat] || "";
+      var go = pu.rec.slug.replace(/'/g, "\\'");
+      var desc = cleanDesc(pu.desc);
+      html += '<div class="upd-item">';
+      html += '<div class="upd-item-hd">' + levelBadge(pu.level);
+      html += '<span class="upd-item-title" onclick="closeDrawerThenOpenPage(\'' + go + '\')" title="打开这次更新的完整记录">' + escHtml(recTitle) + '</span>';
+      html += '<span class="upd-item-date">' + recDate + '</span>';
+      if (catLabel) html += '<span class="upd-item-cat">' + catLabel + '</span>';
+      html += '</div>';
+      if (desc) html += '<div class="upd-item-desc">📝 ' + escHtml(desc) + '</div>';
+      html += '<div class="upd-item-acts">';
+      html += '<button class="upd-page-btn" onclick="closeDrawerThenOpenPage(\'' + go + '\')">查看本次更新 →</button>';
+      html += '</div>';
+      html += '</div>';
     }
   }
 
-  var html = '<div style="padding:14px 16px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg)">';
-  html += '<div style="font-size:13px;font-weight:700;color:var(--accent);cursor:pointer" onclick="switchToGlobalHistory()">← 全部更新</div>';
-  html += '<div style="font-size:14px;font-weight:700;color:var(--accent)">📋 ' + title + '</div>';
-  html += '<div style="font-size:11px;color:var(--text3);margin-top:2px">' + (pageUpdates.length || hist.length) + ' 次修改记录</div>';
-  html += '</div>';
-
-  if (pageUpdates.length === 0 && hist.length === 0) {
-    html += '<div id="update-drawer-empty">该页面暂无修改记录</div>';
-    body.innerHTML = html;
-    return;
-  }
-
-  // Show update records that affected this page (newest first)
-  pageUpdates.sort(function(a,b){
-    var da = (a.rec.slug.match(/(\d{4}-\d{2}-\d{2})/)||["","0"])[1];
-    var db = (b.rec.slug.match(/(\d{4}-\d{2}-\d{2})/)||["","0"])[1];
-    return da < db ? 1 : (da > db ? -1 : 0);
-  });
-
-  if (pageUpdates.length > 0) {
-    for (var ui = 0; ui < pageUpdates.length; ui++) {
-      var pu = pageUpdates[ui];
-      var recN = (pu.rec.slug.match(/第(\d+)次/)||["",""])[1];
-      var recDate = (pu.rec.slug.match(/(\d{4}-\d{2}-\d{2})/)||["",""])[1];
-      var recTitle = "第" + recN + "次更新";
-      var catLabel = {"new":"新增","updated":"更新","viewpoint":"观点改变"}[pu.cat] || "";
-
-      html += '<div style="padding:12px 16px;border-bottom:1px solid var(--border)">';
-      // Header: level + update number + date + category
-      html += '<div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:4px">';
-      html += levelBadge(pu.level);
-      html += '<span style="font-size:13px;font-weight:700;color:var(--accent);cursor:pointer" onclick="switchToGlobalHistory()">' + recTitle + '</span>';
-      html += '<span style="font-size:11px;color:var(--text3)">' + recDate + '</span>';
-      if (catLabel) html += '<span style="font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;background:var(--bg3)">' + catLabel + '</span>';
-      html += '</div>';
-      // Description: what changed for this specific page
-      if (pu.desc) html += '<div style="font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:3px">📝 ' + pu.desc.replace(/</g,'&lt;') + '</div>';
-      // Snapshot action buttons for the matching history version
-      var matchedHist = false;
-      for (var hi = 0; hi < hist.length; hi++) {
-        if (hist.length - hi === pageUpdates.length - ui) {
-          matchedHist = true;
-          html += '<div style="display:flex;gap:6px;margin-top:6px">';
-          html += '<button class="upd-page-btn" onclick="viewPageHistoryVersion(' + hist[hi].version + ')">查看快照</button>';
-          html += '<button class="upd-page-btn main" onclick="diffPageHistoryVersion(' + hist[hi].version + ')">对比当前</button>';
-          html += '</div>';
-          break;
-        }
-      }
-      html += '</div>';
-    }
-  } else if (hist.length > 0) {
-    // Fallback: show snapshots only if no update records matched
-    for (var i = 0; i < hist.length; i++) {
-      var h = hist[i];
-      var n = hist.length - i;
-      html += '<div style="padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">';
-      html += '<span class="upd-ver-label">快照 ' + n + '/' + hist.length + (i === 0 ? '（最新）' : '') + '</span>';
-      html += '<div style="display:flex;gap:6px">';
+  if (snaps.length) {
+    html += '<div class="upd-sect">📜 本页内容快照<span class="upd-sect-n">' + snaps.length + ' 个（最多保留 3 个）</span></div>';
+    for (var k = 0; k < snaps.length; k++) {
+      var h = snaps[k];
+      var n = snaps.length - k;
+      html += '<div class="upd-item" style="display:flex;align-items:center;justify-content:space-between;gap:8px">';
+      html += '<span class="upd-ver-label">快照 ' + n + '/' + snaps.length + (k === 0 ? '（最新历史）' : '') + '</span>';
+      html += '<div class="upd-item-acts" style="margin-top:0">';
       html += '<button class="upd-page-btn" onclick="viewPageHistoryVersion(' + h.version + ')">查看</button>';
       html += '<button class="upd-page-btn main" onclick="diffPageHistoryVersion(' + h.version + ')">对比当前</button>';
       html += '</div></div>';
     }
   }
-
-  body.innerHTML = html;
+  return html;
 }
 
 function viewPageHistoryVersion(v) {
@@ -1842,81 +1868,89 @@ function diffPageHistoryVersion(v) {
   diffHistoryVersion(v);
 }
 
-// --- On-page "更新历史" button: opens this page's update history directly (no dropdown) ---
+// --- On-page 「本页更新历史」button: opens the drawer straight on the page tab ---
+// Same behaviour on EVERY page: prefers the H1 title row, and falls back to the
+// header bar for pages whose markdown has no H1 (e.g. index, some source pages).
 function insertPageRecButton() {
   removePageRecButton();
   var ca = document.getElementById("content-area");
   if (!ca) return;
-  var h1 = ca.querySelector("h1");
-  if (!h1) return;
-  // Count how many update records mention this page
   var slug = window._currentSlug || "";
-  var recCount = (updateRecords || []).filter(function(rec) {
-    return (rec.affected_pages || []).some(function(p) { return p.slug === slug; });
-  }).length;
-  if (!recCount) return;
-  // Wrap the title + button in a flex row so the button sits to the right of the title
-  var row = document.createElement("div");
-  row.className = "page-title-row";
-  h1.parentNode.insertBefore(row, h1);
-  row.appendChild(h1);
+  if (!slug || !files[slug]) return;
+  var recCount = getPageUpdateEntries(slug).length;
+  var snapCount = getPageSnapshots(slug).length;
+  if (!recCount && !snapCount) return;   // nothing to show → no dead button
+  var label = recCount ? "本页更新历史 (" + recCount + ")" : "本页历史快照 (" + snapCount + ")";
+
   var btn = document.createElement("button");
   btn.id = "page-rec-btn";
   btn.className = "page-rec-btn";
-  btn.innerHTML = "页面更新历史 (" + recCount + ")";
+  btn.textContent = label;
+  btn.title = recCount + " 次更新记录" + (snapCount ? " · " + snapCount + " 个内容快照" : "");
   btn.onclick = function(e) { e.stopPropagation(); togglePageUpdateHistory(); };
-  row.appendChild(btn);
+
+  var h1 = ca.querySelector("h1");
+  if (h1) {
+    // Wrap the title + button in a flex row so the button sits to the right of the title
+    var row = document.createElement("div");
+    row.className = "page-title-row";
+    h1.parentNode.insertBefore(row, h1);
+    row.appendChild(h1);
+    row.appendChild(btn);
+  } else {
+    // Fallback: pages without an H1 get the same entry point in the header bar
+    var hdr = document.getElementById("content-header");
+    if (!hdr) return;
+    btn.classList.add("page-rec-btn-hdr");
+    hdr.appendChild(btn);
+  }
 }
 function removePageRecButton() {
   var b = document.getElementById("page-rec-btn");
   if (b) {
     var row = b.parentNode;
-    var h1 = row ? row.querySelector("h1") : null;
-    if (h1 && row.parentNode) row.parentNode.insertBefore(h1, row);
-    if (row) row.remove();
+    if (row && row.classList && row.classList.contains("page-title-row")) {
+      var h1 = row.querySelector("h1");
+      if (h1 && row.parentNode) row.parentNode.insertBefore(h1, row);
+      row.remove();
+    } else if (row) {
+      row.removeChild(b);
+    }
   }
 }
-
-// Switch back to the whole-KB view from within the per-page view
-function switchToGlobalHistory() {
-  updateDrawerMode = "global";
-  renderUpdateRecords();
-}
-
-
-
-
-
-
-
-
-
 
 function renderUpdateRecords() {
   var body = document.getElementById("update-drawer-body");
-  var pageInfo = getCurrentPageInfo();
-  var title, filtered;
-  if (updateDrawerMode === "page") {
-    filtered = getFilteredRecords();
-    title = pageInfo ? (pageInfo.title || window._currentSlug) : "本页";
-  } else if (currentUpdateTab === "strategy") {
-    filtered = getFilteredStrategyRecords();
-    title = "策略相关更新";
+  if (!body) return;
+  // A page can disappear while the drawer is open (e.g. navigating home) —
+  // fall back to the 全部 tab instead of rendering a stale / empty page view.
+  if (updTab === "page" && !hasCurrentPage()) updTab = "all";
+  var isPage = (updTab === "page");
+  syncUpdateTabs();
+
+  var counts = updateTabCounts();
+  var filtered = isPage ? [] : (updateRecords || []);
+  var heading, sub, icon;
+  if (isPage) {
+    var pageInfo = getCurrentPageInfo();
+    icon = "📄";
+    heading = pageInfo ? (pageInfo.title || window._currentSlug) : (window._currentSlug || "本页");
+    sub = counts.page + " 次更新记录" + (counts.snaps ? " · " + counts.snaps + " 个快照" : "");
   } else {
-    filtered = updateRecords;
-    title = "知识库全部更新";
+    icon = "📋";
+    heading = "整个知识库";
+    sub = filtered.length + " 次更新";
   }
 
   var html = '<div style="padding:14px 16px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg)">';
-  if (updateDrawerMode === "page") {
-    html += '<div style="font-size:13px;font-weight:700;color:var(--accent);cursor:pointer" onclick="switchToGlobalHistory()">← 全部更新</div>';
-  }
-  html += '<div style="font-size:14px;font-weight:700;color:var(--accent)">📋 '+title+'</div>';
-  html += '<div style="font-size:11px;color:var(--text3);margin-top:2px">'+filtered.length+' 次更新</div>';
+  html += '<div id="update-drawer-heading" style="font-size:14px;font-weight:700;color:var(--accent)">' + icon + ' ' + escHtml(heading) + '</div>';
+  html += '<div id="update-drawer-subheading" style="font-size:11px;color:var(--text3);margin-top:2px">' + sub + '</div>';
   html += '</div>';
 
+  if (isPage) { body.innerHTML = renderPageTab(html); return; }
+
   if (filtered.length === 0) {
-    html += '<div id="update-drawer-empty">暂无相关更新记录</div>';
+    html += '<div id="update-drawer-empty">暂无更新记录</div>';
     body.innerHTML = html;
     return;
   }
@@ -2114,8 +2148,7 @@ function diffAffectedVersion(slug, v) {
 
 // Close the update drawer and open a specific page
 function closeDrawerThenOpenPage(slug) {
-  var drawer = document.getElementById("update-drawer");
-  if (drawer) { drawer.classList.remove("open"); updateDrawerOpen = false; }
+  closeUpdateDrawer();
   openPage(slug);
 }
 

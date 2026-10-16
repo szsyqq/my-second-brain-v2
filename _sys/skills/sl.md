@@ -18,7 +18,7 @@ agent_created: true
 ## 项目根路径
 
 ```
-/Users/panyp/文稿-本地-不参与同步/# WorkBuddy/#LittleRedBook/my-second-brain-v2/
+/Users/panyp/文稿-本地-不参与同步/WorkBuddy-local/my-second-brain-v2/
 ```
 
 ## 脚本目录

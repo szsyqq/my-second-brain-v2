@@ -1,6 +1,6 @@
 # /gx —— 更新流程（v2 · K神 schema 对齐 · 自下而上）
 
-> 配合 `gx` skill（路由壳）使用。消化 `raw/inbox/` 中待处理素材，自下而上（**个券 → 行业 → 宏观**）生成/更新 `wiki/` 页面，构建并同步 CloudStudio 备用镜像 `deploy-wiki/`。
+> 配合 `gx` skill（路由壳）使用。消化 `raw/inbox/` 中待处理素材，自下而上（**个券 → 行业 → 宏观**）生成/更新 `wiki/` 页面，构建并发布：推 `gh-pages`（GitHub Pages 线上通道）+ 同步 CloudStudio 备用镜像 `deploy-wiki/`。
 
 ## 项目路径
 
@@ -42,21 +42,33 @@
 5. **顶 · 宏观分流**（仅当适用）：时效性→宏观信号流；框架方法→交易手册；象限改变→观点变化+反向联动，写回**宏观枢纽页**。
 6. 移动源文件 `raw/inbox/{type}/<slug>.md` → `raw/processed/{type}/`。
 
-### 步骤 3：全量收尾
+### 步骤 3：指标刷新（定量）
+
+> 与素材消化并行的定量数据更新。**即使 inbox 无新素材，本步骤仍执行**——策略与宏观指标需定期刷新以判断趋势性调整。
+
+1. 打开 `_workflow/指标刷新台账.md`，按「策略层 → 宏观层」顺序遍历「状态=可获取/待验证」的指标（「不可得」直接跳过）。
+2. 每个指标按「数据源优先级」取数：财汇 MCP → 同花顺 iFind MCP → 网络搜索。财汇先 `caihui_mcp_metadata` 定位子工具再 `execute_tool`；同花顺用 `get_edb_data` 自然语言查询。
+3. 取到最新值 → 对比台账「上期值」判趋势（↑/↓/→），写回台账「最新值/数据日期/上期值/趋势」；「待验证」首次取数成功 → 状态改「可获取」。
+4. 月度指标（PMI/CPI/PPI/社融/工业企业利润等）：距上次刷新 >30 天或数据刚发布时才刷新，否则沿用现值、跳过。
+5. 取数失败 → 依序降级到下一数据源；三级均失败 → 状态标「不可得」，记入台账「已知冻结项」，之后不再主动重试。
+6. **趋势性调整判定**：连续两期同向，或突破关键阈值（荣枯线 50 / 利差 0 / PE 历史中枢 ~13 倍等）→ 记入步骤 4 更新记录「观点变化」节，并按台账「刷新结果回写清单」回写对应策略页/仪表盘的「最新值/判定」列。
+
+### 步骤 4：全量收尾
 1. 重写 `wiki/index.md`（以实际目录树为准，每条 `[[链接]]` 真实存在）与 `wiki/overview.md`（更新统计数字）。
 2. 乱码扫描（构建前必做）：`grep -rl $'\uFFFD' wiki/ raw/`，发现 U+FFFD 立即修复（当前文件手工改，`.history` 快照用 difflib 相似度匹配逐行替换）。
 3. 质检：运行 `scripts/lint_wiki.py`，核对页面数、wikilink 解析、孤儿页。
 4. 写**更新记录** `wiki/更新记录/{YYYY-MM-DD}_第{N}次更新.md`，N 为 v2 序列下一个整数（当前末次见 `wiki/更新记录/`，注意历史空缺保留不重排）。严格按 `_workflow/更新历史编写规范.md`：frontmatter + `## 📌 必看清单` / `## 新增页面` / `## 更新页面` / `## 观点变化`。必看清单与新增/更新页一律 `- [[slug]] — 说明` 列表，禁表格、禁 🔴🟡🟢 替代 1–5 分。
 5. 趣味发现触发检查：距上次 `Interesting_findings` ≥1 天则新增一期（沿用现有 IF 格式，语气略带幽默的研究报告口吻）。
 
-### 步骤 4：构建 + 备用镜像
+### 步骤 5：构建 + 备用镜像
 1. `cd $V2_ROOT && python3 scripts/bundle_wiki.py` → 生成 `wiki-bundle.json`。
 2. `python3 scripts/build_knowledge_base.py` → 生成 `知识库.html`（同时写入 `deploy-wiki/`）。
-3. 备用镜像：`cp 知识库.html deploy-wiki/index.html` 后 `workbuddy_cloudstudio_deploy deploy-wiki/`（CloudStudio 沙箱，只读备份）。
-4. 回报：更新记录链接、断链情况、备用镜像地址。
+3. 发布线上（GitHub Pages）：`cp 知识库.html deploy-wiki/index.html` 确保 `deploy-wiki/index.html` 为最新；随后将 `deploy-wiki/` 内容强推 `gh-pages`（命令见 DEPLOY.md「手动构建」段；本地无 gh-pages 分支时用 `/tmp/_v2_deploy` 临时仓库强推）。
+4. 备用镜像（CloudStudio）：`workbuddy_cloudstudio_deploy deploy-wiki/`（沙箱，只读备份）。
+5. 回报：更新记录链接、断链情况、GitHub Pages 线上地址、备用镜像地址。
 
 ## 红线
 - 不碰 v1（`../小红书收藏/wiki/` 已冻结）。
 - 自下而上：宏观页不得无底层信号支撑而改写。
-- `deploy-wiki/` 是**备用**镜像；GitHub Pages 不主动更新（旧 `convert.py`/`deploy.sh` 已归档 `_legacy/`，勿调用）。
+- **GitHub Pages 是线上发布通道**：`/gx` 构建后推 `gh-pages`（见 DEPLOY.md）；`deploy-wiki/` 是**备用**镜像（CloudStudio，按需同步）。旧 `convert.py`/`deploy.sh` 已归档 `_legacy/`，勿调用。
 - `workbuddy_cloudstudio_deploy` 推送前确认 `git status` 与构建产物无误。

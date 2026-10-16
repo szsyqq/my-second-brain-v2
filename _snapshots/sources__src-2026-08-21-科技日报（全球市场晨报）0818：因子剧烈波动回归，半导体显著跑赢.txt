@@ -1,0 +1,25 @@
+
+
+# 科技日报（全球市场晨报）0818：因子剧烈波动回归，半导体显著跑赢
+
+> 科技日报（全球市场晨报）/ 2026-08-18 午后 / [本地PDF](raw/inbox/pdfs/1808科技日报1_中英.pdf)
+
+## 核心观点
+
+1. **因子剧烈波动（factor whiplash）重回焦点**：QQQ -16bps，半导体 +1.6% 显著跑赢互联网/软件 -3%（META -3.5%、MSFT -3% 为被问询最多的标的）。
+2. **回流半导体的催化**：上周 SNDK（SanDisk）Analyst Day、Anthropic 强劲 ARR/收入与利润率表述（叠加 Anthropic IPO 预期）使"HOT AI Summer"情绪再现；叠加上周 WDAY 驱动的软件逼空部分回吐，以及临近的 NVDA 财报与 Jefferies 半导体大会。
+3. **相对有序**：相比 1H 的剧烈因子波动，本次轮动显得较有序；慢速 8 月里机器/ETF/量化流能把小幅轮动放大成"集体改世界观"的观感，不宜过度外推叙事。
+4. **结构观察**：半导体情绪改善 + 部分投资者在"Leopold Low"后重新加仓（re-grossing）。
+
+## 关键概念
+
+- [[NVIDIA]]（NVDA 财报催化）/ [[半导体产业链]] / 因子波动（factor whiplash）
+- [[AI]]（HOT AI Summer）/ Anthropic / SNDK（SanDisk）Analyst Day
+- 量化流（quant flows）/ 逼空（short squeeze）/ 重新加仓（re-grossing）
+- META / MSFT / WDAY
+
+## 原文摘录
+
+> "QQQs -16bps as factor whiplash moved back to the forefront, with Semis +1.6% sharply outperforming Internet/Software -3% (META -3.5% and MSFT -3% the names we got most questions about)."
+
+> "On a slow August day, machines, ETFs and quant flows can take a fairly modest rotation and make it look like everyone suddenly changed their entire worldview before lunch, so we won't over extrapolate the narratives here."

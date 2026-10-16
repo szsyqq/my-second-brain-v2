@@ -44,8 +44,9 @@ python3 scripts/bundle_wiki.py          # 生成 wiki-bundle.json
 python3 scripts/build_knowledge_base.py  # 生成 知识库.html + 写入 deploy-wiki/
 python3 scripts/lint_wiki.py            # 质检：页面数 / 断链 / 孤儿
 # 推送线上（本地仓库无 gh-pages 分支，用临时仓库强推）：
+V2_ROOT="/Users/panyp/文稿-本地-不参与同步/WorkBuddy-local/my-second-brain-v2"
 cd /tmp && rm -rf _v2_deploy && mkdir _v2_deploy
-cp -r my-second-brain-v2/deploy-wiki/* _v2_deploy/ && touch _v2_deploy/.nojekyll
+cp -r "$V2_ROOT/deploy-wiki/"* _v2_deploy/ && touch _v2_deploy/.nojekyll
 cd _v2_deploy && git init -q && git checkout -q -b gh-pages && git add -A
 git -c user.email=panyp@local -c user.name=panyp commit -q -m "更新说明"
 GIT_HTTP_VERSION=1 git push -f https://github.com/szsyqq/my-second-brain-v2.git gh-pages

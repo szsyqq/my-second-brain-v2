@@ -1,0 +1,65 @@
+
+
+# 和HR聊天，被吓到了（老南（圈主））
+
+> 十六号内参 / 2025-01-14 / [本地存档](raw/inbox/xiaoetong/2025-01-14_和HR聊天，被吓到了.md)
+
+## 要点预览
+
+开篇聊个今天得知的，挺夸张的事，虽然和理财没关系，但相信大家都会很关心。上午有个朋友找我帮忙，他家娃计划出国留学，列了几个海外的学校，让我找些金融机构总部的HR问问，哪个学校他们最认可。然后我在上海这里问了一圈，答复基本都是，会先用QS排名卡一下，简单筛选掉一批简历。看来国有大型金融机构，还是会主动找一些排名去减少工作量。即使QS的价值在网上争议很大。**不过这些倒没让我觉得夸张，而是其中一个HR和我随口提了一句——“现在AI面试也普遍…
+
+我去搜了下，各位感受下：
+
+**这可是成熟技术，得到资深干了20多年的HR的认可，且已经被拿来卖钱了。看到这些，我是觉得AIGC在国内的应用落地速度，远超我的想象。各行各业都在把AIGC在自己的业务流程中去做各种创新尝试。** 这么搞下去，不少初级HR估计也都要失业了。而且从人才培养角度，也要尽快适应这些，以前各种招聘面试的针对性套路，在AI面前大概率也会失效。
+
+## 原文
+
+开篇聊个今天得知的，挺夸张的事，虽然和理财没关系，但相信大家都会很关心。上午有个朋友找我帮忙，他家娃计划出国留学，列了几个海外的学校，让我找些金融机构总部的HR问问，哪个学校他们最认可。然后我在上海这里问了一圈，答复基本都是，会先用QS排名卡一下，简单筛选掉一批简历。看来国有大型金融机构，还是会主动找一些排名去减少工作量。即使QS的价值在网上争议很大。**不过这些倒没让我觉得夸张，而是其中一个HR和我随口提了一句——“现在AI面试也普遍起来了”。这下我就来劲了，详细问了下，一开始我以为就是简单筛选简历的，结果居然是直接用AI面试，进行40分钟的深度对话，这就很吓人了。然后我问了下，对话后的评价准确度如何，答：优于人类均值80%以上。这就更吓人了。**
+
+我去搜了下，各位感受下：
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/nd7sx8m5w6masz.png)
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/8mejoqm5w6matd.png)![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/0ph0rbm5w6matk.png)
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/jem98gm5w6mat8.png)
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/b7v8fjm5w6mats.png)
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/huv5j3m5w6mb56.png)
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/02z3avm5w6mb4x.png)
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/zvkrd2m5w6mb54.png)
+
+**这可是成熟技术，得到资深干了20多年的HR的认可，且已经被拿来卖钱了。看到这些，我是觉得AIGC在国内的应用落地速度，远超我的想象。各行各业都在把AIGC在自己的业务流程中去做各种创新尝试。** 这么搞下去，不少初级HR估计也都要失业了。而且从人才培养角度，也要尽快适应这些，以前各种招聘面试的针对性套路，在AI面前大概率也会失效。
+
+**此外，现在AI的搜索效果和效率，相对传统搜索引擎，直接是碾压的效果。** 如我最近正好有个问题，关于拍鸟不同场景下的对焦设置，我这几天在不少摄影专业网站，和知乎、b站搜了半天，没得到特别好的结论，然后幻方那个问了下，答案是真牛逼：
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/cde81zm5w6mb51.png)
+
+**所以，今天和一个客人聊这些，他是高频AI使用者，也提到小朋友未来的教育思路，可能不仅仅是刷题了，而是学会如何让ai解题。现在一般电脑端可以完成的应用，大部分都可以被AI取代。人更多的是赋予启发，经验汇总，实施配套落地，来解决现在AI无法接入实体和某些设备的问题。所以，寒假期间，多让娃接触接触AI，还是挺重要的。**
+
+结尾带一句，今天估计不少人要问，为啥A股今天大涨。这都是事后总结，也没啥意义，如我们之前说的，中枢在3300，涨不动就跌一下，下面的支撑位，分别在3100和3000左右的两个超级跳空缺口，都是强支撑。今天反弹的特征，明显还是流动性唱戏，小票明显更强。
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/nlxzihm5w6mb8f.png)
+
+不过今天值得关注的，是资金市场：
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/1exll7m5w6mbd0.png)
+
+今天盘中GC001等突然暴涨，最高都干到5%去了：
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/4te3rtm5w6mbev.png)
+
+而这9月底10月初那波疯狂行情，叠加季度末，GC001都没这么夸张过：
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/0av4oxm5w6mbgq.png)
+
+和业内请教了下，央行持续收紧银行间资金面，今天股市又大涨，所以交易所也飚了：
+
+![image/png](https://wechatapppro-1252524126.cdn.xiaoeknow.com/appbmkTImri3688/image/b_u_5ef19f356a46a_HPHvjdQU/girc63m5w6mbg4.png)
+
+**总之我们对今年的整体判断依旧是，市场出现大的趋势性行情（15%-20%+）概率不大，更大的可能是流动性充沛下的结构化行情，波动很大，来回横跳，流动性很足，交易能力不足 的，会被反复打脸。**
+
+sources: [raw/inbox/xiaoetong/2025-01-14_和HR聊天，被吓到了.md](raw/inbox/xiaoetong/2025-01-14_和HR聊天，被吓到了.md)

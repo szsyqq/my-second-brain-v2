@@ -6,15 +6,15 @@
 
 | 变量 | 值 |
 |------|-----|
-| V2_ROOT | `my-second-brain-v2/`（`#LittleRedBook/` 空间下） |
+| V2_ROOT | `my-second-brain-v2/`（`WorkBuddy-local/` 下） |
 | INBOX | `$V2_ROOT/raw/inbox/` |
 | 源页产出 | 由 `/gx` 生成到 `$V2_ROOT/wiki/sources/` |
 | OCR 脚本 | `~/.workbuddy/skills/sl/scripts/pdf_ocr_extract.py`（含 CMap 乱码修复 Case D） |
 
 ## 与 v1 的关系
 
-- v1（`../小红书收藏/wiki/`）已于 2026-07-31 冻结，不再更新。
-- v2 是 K神 schema 对齐版：**本地 Obsidian 为主**，`deploy-wiki/`（CloudStudio）为只读备用镜像，GitHub Pages 不再主动更新。
+- v1（`../小红书收藏/wiki/`）已**完全过时**，自 2026-07-31 起冻结、不再更新，**后续所有更新只进 v2**（2026-08-08 用户重申）。
+- v2 是 K神 schema 对齐版：**本地 Obsidian 为主**，`deploy-wiki/`（CloudStudio）为只读备用镜像；线上发布通道为 **GitHub Pages（gh-pages）**，`/gx` 构建后主动推送。
 
 ## 来源分类 → 落桶
 
@@ -36,6 +36,7 @@
 
 ### 2. 抓取 + 提取（best-effort）
 - 网页：`WebFetch` 抓正文；JS 渲染站抓不到 → `fetched: false`，不报错。
+- **微信特例（重要）**：`mp.weixin.qq.com` 链接 `WebFetch` 常报 `fetch failed`，但服务端渲染 HTML 含全文。兜底做法：`curl -sS -m 20 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64)...Chrome/120 Safari/537.36" -o /tmp/wx.html <URL>` → 用 Python 提取 `var msg_title/msg_author`、`publish_time`（=ct）、`<div class="rich_media_content">` 正文（去标签、解 `&...;` 实体）。此法本次两次均成功拿到全文，优先于 `fetched:false`。
 - PDF / docx：复制原文件到 `raw/inbox/pdfs/`（重命名为有意义名字），用 `pdf_ocr_extract.py` 提取文本（PyMuPDF → OCR fallback）；失败标记 `fetched: false`。
 - 微信图片：OCR 后得到文本。
 

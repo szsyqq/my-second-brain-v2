@@ -22,6 +22,7 @@ NVIDIA（英伟达，代码 NVDA）是全球 AI 加速计算主导者。其数�
 ## 不同素材中的观点
 - [[2026-06-30-Morgan Stanley-Corning]]：将"NVDA 自建长途网"列为康宁股价异动四大驱动之一。
 - [[2026-07-13-NVIDIA NDR highlights diversified growth]]：见对应摘要页（NDR 强调增长多元化）。
+- [[2026-08-13-Nvidia开源AI模型-The Information]]：英伟达自研前沿开源权重模型（Nemotron），以开源模型锁定开发者与工作负载、反哺 CUDA 生态；长期压制纯模型 API 溢价，强化「开源压缩昂贵算力需求」的利空逻辑。
 
 ## 关联
 - 与 [[康宁(GLW)]] 互补：NVDA 网络扩张拉动康宁光纤。

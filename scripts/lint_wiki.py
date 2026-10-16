@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Manual wiki lint: counts + wikilink resolution + orphan detection."""
 import os, re, glob
+from pathlib import Path
 
-WIKI = "/Users/panyp/文稿-本地-不参与同步/# WorkBuddy/#LittleRedBook/my-second-brain-v2/wiki"
+WIKI = str(Path(__file__).resolve().parent.parent / "wiki")
 
 # gather all md files
 pages = []

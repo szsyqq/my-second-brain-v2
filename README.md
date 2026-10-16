@@ -7,7 +7,7 @@
 - **主库**：本地 Obsidian 库（本目录）。用 Obsidian 打开即可浏览、编辑、看图谱。
 - **规范**：`.wiki-schema.md` + `.wiki-schema/modules/`（base / ingest / workflow / investment / travel / aliases / query / lint / relationships / template）。schema 是「活的」——发现更好的结构就回写模块文件。
 - **备用镜像**：`deploy-wiki/`（CloudStudio 沙箱），由 `/gx` 构建并同步，只读备份。
-- **GitHub Pages**：**不再主动更新**。旧管线（`convert.py` / `deploy.sh` / `output/` / `viewer/`）已归档至 `_legacy/`，请勿调用。
+- **GitHub Pages**：**线上发布通道**。`/gx` 构建后推 `gh-pages` 分支，线上地址 `https://szsyqq.github.io/my-second-brain-v2/`。旧管线（`convert.py` / `deploy.sh` / `output/` / `viewer/`）已归档至 `_legacy/`，请勿调用。
 
 ## 三层结构
 
@@ -52,8 +52,8 @@
 ## 部署说明
 
 - 本地 Obsidian 为主，无需部署即可用。
-- 如需在线只读备份：`/gx` 末尾会自动构建并 `workbuddy_cloudstudio_deploy deploy-wiki/`（CloudStudio 沙箱）。
-- GitHub Pages 已停用；旧 `gh-pages` 站点不再更新。
+- **线上发布（GitHub Pages）**：`/gx` 构建后自动推 `gh-pages`，线上地址 `https://szsyqq.github.io/my-second-brain-v2/`（发布细节见 DEPLOY.md）。
+- 如需在线只读备份（备用）：`/gx` 末尾会 `workbuddy_cloudstudio_deploy deploy-wiki/`（CloudStudio 沙箱）。
 
 ## 版本管理
 

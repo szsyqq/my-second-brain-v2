@@ -268,6 +268,12 @@
     "skipExisting": true,
     "overwriteManagedSection": false
   },
+  "imageText": {
+    "toolPath": "",
+    "skipExisting": true,
+    "overwriteManagedSection": false,
+    "batchNoteLimit": 25
+  },
   "syncProgress": {
     "running": false,
     "mode": "smart",
@@ -283,8 +289,8 @@
     "batchWaitSeconds": 5,
     "autoContinue": false,
     "pausedByUser": false,
-    "startedAt": "2026-07-31T07:16:28.795Z",
-    "updatedAt": "2026-07-31T07:16:28.840Z",
+    "startedAt": "2026-08-05T14:09:30.414Z",
+    "updatedAt": "2026-08-05T14:09:30.430Z",
     "message": "同步已暂停：小红书登录已失效，请重新登录当前账号后继续。",
     "stopReason": "auth_required"
   },
